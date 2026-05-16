@@ -1,0 +1,154 @@
+# Entity: beatmap
+
+main: kit: entity: beatmap: {
+
+  alias: field: {}
+
+  fields: [
+    {
+      name: "approved_date"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "ar"
+      req: false
+      type: "`$NUMBER`"
+    }
+    {
+      name: "artist"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "beatmapset_id"
+      req: false
+      type: "`$INTEGER`"
+    }
+    {
+      name: "bpm"
+      req: false
+      type: "`$NUMBER`"
+    }
+    {
+      name: "creator"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "cs"
+      req: false
+      type: "`$NUMBER`"
+    }
+    {
+      name: "difficulty_rating"
+      req: false
+      type: "`$NUMBER`"
+    }
+    {
+      name: "favourite_count"
+      req: false
+      type: "`$INTEGER`"
+    }
+    {
+      name: "hp"
+      req: false
+      type: "`$NUMBER`"
+    }
+    {
+      name: "id"
+      req: false
+      type: "`$INTEGER`"
+    }
+    {
+      name: "last_updated"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "length"
+      req: false
+      type: "`$INTEGER`"
+    }
+    {
+      name: "max_combo"
+      req: false
+      type: "`$INTEGER`"
+    }
+    {
+      name: "mode"
+      req: false
+      type: "`$INTEGER`"
+    }
+    {
+      name: "od"
+      req: false
+      type: "`$NUMBER`"
+    }
+    {
+      name: "playcount"
+      req: false
+      type: "`$INTEGER`"
+    }
+    {
+      name: "status"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "title"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "version"
+      req: false
+      type: "`$STRING`"
+    }
+  ]
+
+  id: {
+    field: "id"
+    name: "id"
+  }
+
+  name: "beatmap"
+  op: {
+    load: {
+      name: "load"
+      points: [
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "id"
+                orig: "id"
+                reqd: true
+                type: "`$INTEGER`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/beatmaps/{id}"
+          parts: [
+            "beatmaps"
+            "{id}"
+          ]
+          select: {
+            exist: [
+              "id"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

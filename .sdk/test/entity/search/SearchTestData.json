@@ -1,0 +1,97 @@
+{
+  "existing": {
+    "search": {
+      "SEARCH00": {
+        "approved_date": "sc8",
+        "ar": 201,
+        "artist": "sca",
+        "beatmapset_id": "BEATMAPSET01",
+        "bpm": 204,
+        "creator": "scd",
+        "cs": 206,
+        "difficulty_rating": 207,
+        "favourite_count": "sd0",
+        "hp": 209,
+        "id": "SEARCH00",
+        "last_updated": "sd3",
+        "length": "sd4",
+        "max_combo": "sd5",
+        "mode": "sd6",
+        "od": 215,
+        "playcount": "sd8",
+        "status": "sd9",
+        "title": "sda",
+        "version": "sdb"
+      },
+      "SEARCH01": {
+        "approved_date": "s190",
+        "ar": 401,
+        "artist": "s192",
+        "beatmapset_id": "BEATMAPSET01",
+        "bpm": 404,
+        "creator": "s195",
+        "cs": 406,
+        "difficulty_rating": 407,
+        "favourite_count": "s198",
+        "hp": 409,
+        "id": "SEARCH01",
+        "last_updated": "s19b",
+        "length": "s19c",
+        "max_combo": "s19d",
+        "mode": "s19e",
+        "od": 415,
+        "playcount": "s1a0",
+        "status": "s1a1",
+        "title": "s1a2",
+        "version": "s1a3"
+      },
+      "SEARCH02": {
+        "approved_date": "s258",
+        "ar": 601,
+        "artist": "s25a",
+        "beatmapset_id": "BEATMAPSET01",
+        "bpm": 604,
+        "creator": "s25d",
+        "cs": 606,
+        "difficulty_rating": 607,
+        "favourite_count": "s260",
+        "hp": 609,
+        "id": "SEARCH02",
+        "last_updated": "s263",
+        "length": "s264",
+        "max_combo": "s265",
+        "mode": "s266",
+        "od": 615,
+        "playcount": "s268",
+        "status": "s269",
+        "title": "s26a",
+        "version": "s26b"
+      }
+    }
+  },
+  "new": {
+    "search": {
+      "search_ref01": {
+        "approved_date": "s320",
+        "ar": 801,
+        "artist": "s322",
+        "beatmapset_id": "BEATMAPSET01",
+        "bpm": 804,
+        "creator": "s325",
+        "cs": 806,
+        "difficulty_rating": 807,
+        "favourite_count": "s328",
+        "hp": 809,
+        "last_updated": "s32b",
+        "length": "s32c",
+        "max_combo": "s32d",
+        "mode": "s32e",
+        "od": 815,
+        "playcount": "s330",
+        "status": "s331",
+        "title": "s332",
+        "version": "s333"
+      }
+    }
+  }
+}

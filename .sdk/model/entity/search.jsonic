@@ -1,0 +1,187 @@
+# Entity: search
+
+main: kit: entity: search: {
+
+  alias: field: {}
+
+  fields: [
+    {
+      name: "approved_date"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "ar"
+      req: false
+      type: "`$NUMBER`"
+    }
+    {
+      name: "artist"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "beatmapset_id"
+      req: false
+      type: "`$INTEGER`"
+    }
+    {
+      name: "bpm"
+      req: false
+      type: "`$NUMBER`"
+    }
+    {
+      name: "creator"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "cs"
+      req: false
+      type: "`$NUMBER`"
+    }
+    {
+      name: "difficulty_rating"
+      req: false
+      type: "`$NUMBER`"
+    }
+    {
+      name: "favourite_count"
+      req: false
+      type: "`$INTEGER`"
+    }
+    {
+      name: "hp"
+      req: false
+      type: "`$NUMBER`"
+    }
+    {
+      name: "id"
+      req: false
+      type: "`$INTEGER`"
+    }
+    {
+      name: "last_updated"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "length"
+      req: false
+      type: "`$INTEGER`"
+    }
+    {
+      name: "max_combo"
+      req: false
+      type: "`$INTEGER`"
+    }
+    {
+      name: "mode"
+      req: false
+      type: "`$INTEGER`"
+    }
+    {
+      name: "od"
+      req: false
+      type: "`$NUMBER`"
+    }
+    {
+      name: "playcount"
+      req: false
+      type: "`$INTEGER`"
+    }
+    {
+      name: "status"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "title"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "version"
+      req: false
+      type: "`$STRING`"
+    }
+  ]
+
+  id: {
+    field: "id"
+    name: "id"
+  }
+
+  name: "search"
+  op: {
+    list: {
+      name: "list"
+      points: [
+        {
+          args: {
+            query: [
+              {
+                example: 50
+                kind: "query"
+                name: "limit"
+                orig: "limit"
+                reqd: false
+                type: "`$INTEGER`"
+              }
+              {
+                kind: "query"
+                name: "mode"
+                orig: "mode"
+                reqd: false
+                type: "`$INTEGER`"
+              }
+              {
+                example: 0
+                kind: "query"
+                name: "offset"
+                orig: "offset"
+                reqd: false
+                type: "`$INTEGER`"
+              }
+              {
+                kind: "query"
+                name: "q"
+                orig: "q"
+                reqd: false
+                type: "`$STRING`"
+              }
+              {
+                kind: "query"
+                name: "status"
+                orig: "status"
+                reqd: false
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/search"
+          parts: [
+            "search"
+          ]
+          select: {
+            exist: [
+              "limit"
+              "mode"
+              "offset"
+              "q"
+              "status"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

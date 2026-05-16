@@ -1,0 +1,292 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "osu! beatmap API",
+    "description": "Search, discover, and download osu! beatmaps effortlessly.",
+    "version": "1.0.0",
+    "contact": {
+      "url": "https://osu.direct/api/docs"
+    }
+  },
+  "servers": [
+    {
+      "url": "https://osu.direct/api",
+      "description": "Production server"
+    }
+  ],
+  "paths": {
+    "/search": {
+      "get": {
+        "summary": "Search beatmaps",
+        "description": "Search for osu! beatmaps using various filters and criteria",
+        "operationId": "searchBeatmaps",
+        "parameters": [
+          {
+            "name": "q",
+            "in": "query",
+            "description": "Search query string",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "mode",
+            "in": "query",
+            "description": "Game mode filter (0=osu!, 1=Taiko, 2=Catch, 3=Mania)",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "enum": [
+                0,
+                1,
+                2,
+                3
+              ]
+            }
+          },
+          {
+            "name": "status",
+            "in": "query",
+            "description": "Beatmap status (ranked, qualified, loved, pending, etc.)",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "offset",
+            "in": "query",
+            "description": "Pagination offset",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "default": 0
+            }
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "description": "Number of results to return",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "default": 50,
+              "maximum": 100
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful search response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "beatmaps": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/Beatmap"
+                      }
+                    },
+                    "total": {
+                      "type": "integer",
+                      "description": "Total number of results"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad request - invalid parameters"
+          },
+          "500": {
+            "description": "Internal server error"
+          }
+        }
+      }
+    },
+    "/beatmaps/{id}": {
+      "get": {
+        "summary": "Get beatmap by ID",
+        "description": "Retrieve detailed information about a specific beatmap",
+        "operationId": "getBeatmapById",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Beatmap ID",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Beatmap"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Beatmap not found"
+          },
+          "500": {
+            "description": "Internal server error"
+          }
+        }
+      }
+    },
+    "/download/{id}": {
+      "get": {
+        "summary": "Download beatmap",
+        "description": "Download a beatmap file by ID",
+        "operationId": "downloadBeatmap",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Beatmap set ID to download",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "noVideo",
+            "in": "query",
+            "description": "Download without video",
+            "required": false,
+            "schema": {
+              "type": "boolean",
+              "default": false
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Beatmap file download",
+            "content": {
+              "application/octet-stream": {
+                "schema": {
+                  "type": "string",
+                  "format": "binary"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Beatmap not found"
+          },
+          "500": {
+            "description": "Internal server error"
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "Beatmap": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "description": "Beatmap ID"
+          },
+          "beatmapset_id": {
+            "type": "integer",
+            "description": "Beatmap set ID"
+          },
+          "title": {
+            "type": "string",
+            "description": "Song title"
+          },
+          "artist": {
+            "type": "string",
+            "description": "Song artist"
+          },
+          "creator": {
+            "type": "string",
+            "description": "Beatmap creator username"
+          },
+          "version": {
+            "type": "string",
+            "description": "Difficulty name"
+          },
+          "difficulty_rating": {
+            "type": "number",
+            "format": "float",
+            "description": "Star rating"
+          },
+          "mode": {
+            "type": "integer",
+            "description": "Game mode (0=osu!, 1=Taiko, 2=Catch, 3=Mania)"
+          },
+          "status": {
+            "type": "string",
+            "description": "Beatmap status (ranked, qualified, loved, etc.)"
+          },
+          "bpm": {
+            "type": "number",
+            "format": "float",
+            "description": "Beats per minute"
+          },
+          "length": {
+            "type": "integer",
+            "description": "Song length in seconds"
+          },
+          "max_combo": {
+            "type": "integer",
+            "description": "Maximum combo"
+          },
+          "cs": {
+            "type": "number",
+            "format": "float",
+            "description": "Circle size"
+          },
+          "ar": {
+            "type": "number",
+            "format": "float",
+            "description": "Approach rate"
+          },
+          "od": {
+            "type": "number",
+            "format": "float",
+            "description": "Overall difficulty"
+          },
+          "hp": {
+            "type": "number",
+            "format": "float",
+            "description": "HP drain"
+          },
+          "playcount": {
+            "type": "integer",
+            "description": "Total play count"
+          },
+          "favourite_count": {
+            "type": "integer",
+            "description": "Number of favorites"
+          },
+          "approved_date": {
+            "type": "string",
+            "format": "date-time",
+            "description": "Date when beatmap was approved/ranked"
+          },
+          "last_updated": {
+            "type": "string",
+            "format": "date-time",
+            "description": "Last update date"
+          }
+        }
+      }
+    }
+  }
+}

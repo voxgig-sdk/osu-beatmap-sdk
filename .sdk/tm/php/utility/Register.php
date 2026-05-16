@@ -1,0 +1,67 @@
+<?php
+declare(strict_types=1);
+
+// OsuBeatmap SDK utility registration
+
+require_once __DIR__ . '/../core/UtilityType.php';
+require_once __DIR__ . '/Clean.php';
+require_once __DIR__ . '/Done.php';
+require_once __DIR__ . '/MakeError.php';
+require_once __DIR__ . '/FeatureAdd.php';
+require_once __DIR__ . '/FeatureHook.php';
+require_once __DIR__ . '/FeatureInit.php';
+require_once __DIR__ . '/Fetcher.php';
+require_once __DIR__ . '/MakeFetchDef.php';
+require_once __DIR__ . '/MakeContext.php';
+require_once __DIR__ . '/MakeOptions.php';
+require_once __DIR__ . '/MakeRequest.php';
+require_once __DIR__ . '/MakeResponse.php';
+require_once __DIR__ . '/MakeResult.php';
+require_once __DIR__ . '/MakePoint.php';
+require_once __DIR__ . '/MakeSpec.php';
+require_once __DIR__ . '/MakeUrl.php';
+require_once __DIR__ . '/Param.php';
+require_once __DIR__ . '/PrepareAuth.php';
+require_once __DIR__ . '/PrepareBody.php';
+require_once __DIR__ . '/PrepareHeaders.php';
+require_once __DIR__ . '/PrepareMethod.php';
+require_once __DIR__ . '/PrepareParams.php';
+require_once __DIR__ . '/PreparePath.php';
+require_once __DIR__ . '/PrepareQuery.php';
+require_once __DIR__ . '/ResultBasic.php';
+require_once __DIR__ . '/ResultBody.php';
+require_once __DIR__ . '/ResultHeaders.php';
+require_once __DIR__ . '/TransformRequest.php';
+require_once __DIR__ . '/TransformResponse.php';
+
+OsuBeatmapUtility::setRegistrar(function (OsuBeatmapUtility $u): void {
+    $u->clean = [OsuBeatmapClean::class, 'call'];
+    $u->done = [OsuBeatmapDone::class, 'call'];
+    $u->make_error = [OsuBeatmapMakeError::class, 'call'];
+    $u->feature_add = [OsuBeatmapFeatureAdd::class, 'call'];
+    $u->feature_hook = [OsuBeatmapFeatureHook::class, 'call'];
+    $u->feature_init = [OsuBeatmapFeatureInit::class, 'call'];
+    $u->fetcher = [OsuBeatmapFetcher::class, 'call'];
+    $u->make_fetch_def = [OsuBeatmapMakeFetchDef::class, 'call'];
+    $u->make_context = [OsuBeatmapMakeContext::class, 'call'];
+    $u->make_options = [OsuBeatmapMakeOptions::class, 'call'];
+    $u->make_request = [OsuBeatmapMakeRequest::class, 'call'];
+    $u->make_response = [OsuBeatmapMakeResponse::class, 'call'];
+    $u->make_result = [OsuBeatmapMakeResult::class, 'call'];
+    $u->make_point = [OsuBeatmapMakePoint::class, 'call'];
+    $u->make_spec = [OsuBeatmapMakeSpec::class, 'call'];
+    $u->make_url = [OsuBeatmapMakeUrl::class, 'call'];
+    $u->param = [OsuBeatmapParam::class, 'call'];
+    $u->prepare_auth = [OsuBeatmapPrepareAuth::class, 'call'];
+    $u->prepare_body = [OsuBeatmapPrepareBody::class, 'call'];
+    $u->prepare_headers = [OsuBeatmapPrepareHeaders::class, 'call'];
+    $u->prepare_method = [OsuBeatmapPrepareMethod::class, 'call'];
+    $u->prepare_params = [OsuBeatmapPrepareParams::class, 'call'];
+    $u->prepare_path = [OsuBeatmapPreparePath::class, 'call'];
+    $u->prepare_query = [OsuBeatmapPrepareQuery::class, 'call'];
+    $u->result_basic = [OsuBeatmapResultBasic::class, 'call'];
+    $u->result_body = [OsuBeatmapResultBody::class, 'call'];
+    $u->result_headers = [OsuBeatmapResultHeaders::class, 'call'];
+    $u->transform_request = [OsuBeatmapTransformRequest::class, 'call'];
+    $u->transform_response = [OsuBeatmapTransformResponse::class, 'call'];
+});

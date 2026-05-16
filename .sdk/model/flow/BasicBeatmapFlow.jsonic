@@ -1,0 +1,32 @@
+# BasicBeatmapFlow
+
+main: kit: flow: BasicBeatmapFlow:
+{
+  entity: "beatmap",
+  kind: "basic",
+  name: "BasicBeatmapFlow",
+  step: [
+    {
+      input: {
+        ref: "beatmap_ref01",
+        srcdatavar: "beatmap_ref01_data",
+        suffix: "_dt0"
+      }
+
+      match: {
+        id: "beatmap01"
+      }
+
+      op: "load",
+      valid: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-beatmap_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicBeatmapFlow"
+}

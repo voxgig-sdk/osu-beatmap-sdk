@@ -1,0 +1,23 @@
+# API Information
+
+
+main: {
+  kit: {
+    info: {
+      contact: {
+        url: "https://osu.direct/api/docs"
+      }
+      description: "Search, discover, and download osu! beatmaps effortlessly."
+      servers: [
+        {
+          description: "Production server"
+          url: "https://osu.direct/api"
+        }
+      ]
+      title: "osu! beatmap API"
+      version: "1.0.0"
+    }
+  }
+}
+
+}

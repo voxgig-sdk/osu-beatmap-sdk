@@ -1,0 +1,57 @@
+# Entity: download
+
+main: kit: entity: download: {
+
+  alias: field: {}
+
+  name: "download"
+  op: {
+    load: {
+      name: "load"
+      points: [
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "id"
+                orig: "id"
+                reqd: true
+                type: "`$INTEGER`"
+              }
+            ]
+            query: [
+              {
+                example: false
+                kind: "query"
+                name: "no_video"
+                orig: "no_video"
+                reqd: false
+                type: "`$BOOLEAN`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/download/{id}"
+          parts: [
+            "download"
+            "{id}"
+          ]
+          select: {
+            exist: [
+              "id"
+              "no_video"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}
