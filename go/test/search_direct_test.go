@@ -6,8 +6,8 @@ import (
 	"strings"
 	"testing"
 
-	sdk "github.com/voxgig-sdk/osu-beatmap-sdk"
-	"github.com/voxgig-sdk/osu-beatmap-sdk/core"
+	sdk "github.com/voxgig-sdk/osu-beatmap-sdk/go"
+	"github.com/voxgig-sdk/osu-beatmap-sdk/go/core"
 )
 
 func TestSearchDirect(t *testing.T) {

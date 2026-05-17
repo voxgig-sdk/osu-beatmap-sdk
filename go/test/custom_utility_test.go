@@ -3,7 +3,7 @@ package sdktest
 import (
 	"testing"
 
-	sdk "github.com/voxgig-sdk/osu-beatmap-sdk"
+	sdk "github.com/voxgig-sdk/osu-beatmap-sdk/go"
 )
 
 func TestCustomUtility(t *testing.T) {

@@ -9,10 +9,10 @@ import (
 	"testing"
 	"time"
 
-	sdk "github.com/voxgig-sdk/osu-beatmap-sdk"
-	"github.com/voxgig-sdk/osu-beatmap-sdk/core"
+	sdk "github.com/voxgig-sdk/osu-beatmap-sdk/go"
+	"github.com/voxgig-sdk/osu-beatmap-sdk/go/core"
 
-	vs "github.com/voxgig/struct"
+	vs "github.com/voxgig-sdk/osu-beatmap-sdk/go/utility/struct"
 )
 
 func TestDownloadEntity(t *testing.T) {

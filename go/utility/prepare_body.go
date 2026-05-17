@@ -1,6 +1,6 @@
 package utility
 
-import "github.com/voxgig-sdk/osu-beatmap-sdk/core"
+import "github.com/voxgig-sdk/osu-beatmap-sdk/go/core"
 
 func prepareBodyUtil(ctx *core.Context) any {
 	op := ctx.Op
