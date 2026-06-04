@@ -61,14 +61,12 @@ def _search_direct_setup(mockres):
     env = runner.env_override({
         "OSUBEATMAP_TEST_SEARCH_ENTID": {},
         "OSUBEATMAP_TEST_LIVE": "FALSE",
-        "OSUBEATMAP_APIKEY": "NONE",
     })
 
     live = env.get("OSUBEATMAP_TEST_LIVE") == "TRUE"
 
     if live:
         merged_opts = {
-            "apikey": env.get("OSUBEATMAP_APIKEY"),
         }
         client = OsuBeatmapSDK(merged_opts)
         return {

@@ -79,14 +79,12 @@ function directSetup(mockres?: any) {
   const env = envOverride({
     'OSUBEATMAP_TEST_SEARCH_ENTID': {},
     'OSUBEATMAP_TEST_LIVE': 'FALSE',
-    'OSUBEATMAP_APIKEY': 'NONE',
   })
 
   const live = 'TRUE' === env.OSUBEATMAP_TEST_LIVE
 
   if (live) {
     const client = new OsuBeatmapSDK({
-      apikey: env.OSUBEATMAP_APIKEY,
     })
 
     let idmap: any = env['OSUBEATMAP_TEST_SEARCH_ENTID']

@@ -15,9 +15,6 @@ module OsuBeatmapConfig
       },
       "options" => {
         "base" => "https://osu.direct/api",
-        "auth" => {
-          "prefix" => "Bearer",
-        },
         "headers" => {
           "content-type" => "application/json",
         },

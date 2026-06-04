@@ -16,7 +16,17 @@
           }
         ],
         "title": "osu! beatmap API",
-        "version": "1.0.0"
+        "version": "1.0.0",
+        "tagline": "Search, browse, and download osu! beatmaps via the osu.direct community mirror",
+        "homepage": "https://osu.direct/",
+        "docs_url": "https://osu.direct/api/docs",
+        "about_md": "[osu.direct](https://osu.direct/) is a community-run mirror and API for [osu!](https://osu.ppy.sh/) beatmap data, providing programmatic search and download access to beatmaps from the popular rhythm game.\n\nThe API exposes endpoints for looking up and searching beatmaps and beatmap sets, and for retrieving downloadable `.osz` packages so external tools, bots, and game clients can fetch maps without hitting the official osu! servers directly.\n\nThis is an unofficial third-party service. It is not operated by ppy Pty Ltd (the makers of osu!), and availability, rate limiting, and terms are set by the osu.direct operators rather than the official osu! API team.",
+        "entity_desc": {
+          "beatmap": "An osu! beatmap or beatmapset — the playable rhythm-game chart metadata (artist, title, difficulty, mapper, etc.) returned by the beatmap lookup endpoints.",
+          "download": "Endpoints that return the packaged beatmap files (`.osz`) for a given beatmap set so clients can install them locally.",
+          "search": "Query operations over the beatmap catalogue, letting clients filter and discover maps by terms such as title, artist, or mapper."
+        },
+        "auth": false
       },
       "config": {
         "auth": {
@@ -24,7 +34,15 @@
         },
         "headers": {
           "content-type": "application/json"
-        }
+        },
+        "docs_order": [
+          "ts",
+          "py",
+          "php",
+          "go",
+          "rb",
+          "lua"
+        ]
       },
       "entity": {
         "beatmap": {

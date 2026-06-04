@@ -71,14 +71,12 @@ def beatmap_direct_setup(mockres)
   env = Runner.env_override({
     "OSUBEATMAP_TEST_BEATMAP_ENTID" => {},
     "OSUBEATMAP_TEST_LIVE" => "FALSE",
-    "OSUBEATMAP_APIKEY" => "NONE",
   })
 
   live = env["OSUBEATMAP_TEST_LIVE"] == "TRUE"
 
   if live
     merged_opts = {
-      "apikey" => env["OSUBEATMAP_APIKEY"],
     }
     client = OsuBeatmapSDK.new(merged_opts)
     return {

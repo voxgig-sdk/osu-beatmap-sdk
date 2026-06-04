@@ -26,9 +26,7 @@ loading a specific record.
 ```lua
 local sdk = require("osu-beatmap_sdk")
 
-local client = sdk.new({
-  apikey = os.getenv("OSU-BEATMAP_APIKEY"),
-})
+local client = sdk.new({})
 ```
 
 ### 3. Load a beatmap
@@ -118,7 +116,6 @@ Create a `.env.local` file at the project root:
 
 ```
 OSU-BEATMAP_TEST_LIVE=TRUE
-OSU-BEATMAP_APIKEY=<your-key>
 ```
 
 Then run:
@@ -141,7 +138,6 @@ Creates a new SDK client.
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `apikey` | `string` | API key for authentication. |
 | `base` | `string` | Base URL of the API server. |
 | `prefix` | `string` | URL path prefix prepended to all requests. |
 | `suffix` | `string` | URL path suffix appended to all requests. |
