@@ -1,16 +1,8 @@
 # OsuBeatmap SDK
 
-Search, browse, and download osu! beatmaps via the osu.direct community mirror
+osu! beatmap API client, generated from the OpenAPI spec.
 
 > TypeScript, Python, PHP, Golang, Ruby, Lua SDKs, a CLI, an interactive REPL, and an MCP server for AI agents — all generated from one OpenAPI spec by [@voxgig/sdkgen](https://github.com/voxgig/sdkgen).
-
-## About osu! beatmap API
-
-[osu.direct](https://osu.direct/) is a community-run mirror and API for [osu!](https://osu.ppy.sh/) beatmap data, providing programmatic search and download access to beatmaps from the popular rhythm game.
-
-The API exposes endpoints for looking up and searching beatmaps and beatmap sets, and for retrieving downloadable `.osz` packages so external tools, bots, and game clients can fetch maps without hitting the official osu! servers directly.
-
-This is an unofficial third-party service. It is not operated by ppy Pty Ltd (the makers of osu!), and availability, rate limiting, and terms are set by the osu.direct operators rather than the official osu! API team.
 
 ## Try it
 
@@ -44,27 +36,31 @@ gem install osu-beatmap-sdk
 luarocks install osu-beatmap-sdk
 ```
 
-## 30-second quickstart
+## Quickstart
 
 ### TypeScript
 
 ```ts
 import { OsuBeatmapSDK } from 'osu-beatmap'
 
-const client = new OsuBeatmapSDK({})
+const client = new OsuBeatmapSDK({
+  apikey: process.env.OSU-BEATMAP_APIKEY,
+})
 
+// Load beatmap data
+const beatmap = await client.Beatmap().load({})
+console.log(beatmap.data)
 ```
 
-See the [TypeScript README](ts/README.md) for the
-full guide, or scroll down for the same example in other languages.
+See the [TypeScript README](ts/README.md) for the full guide.
 
-## What's in the box
+## Surfaces
 
-| Surface | Use it for | Path |
-| --- | --- | --- |
-| **SDK** (TypeScript, Python, PHP, Golang, Ruby, Lua) | App integration | `ts/` `py/` `php/` `go/` `rb/` `lua/` |
-| **CLI** | Scripts, CI, ops, one-off API calls | `go-cli/` |
-| **MCP server** | AI agents (Claude, Cursor, Cline) | `go-mcp/` |
+| Surface | Path |
+| --- | --- |
+| **SDK** (TypeScript, Python, PHP, Golang, Ruby, Lua) | `ts/` `py/` `php/` `go/` `rb/` `lua/` |
+| **CLI** | `go-cli/` |
+| **MCP server** | `go-mcp/` |
 
 ## Use it from an AI agent (MCP)
 
@@ -94,9 +90,9 @@ The API exposes 3 entities:
 
 | Entity | Description | API path |
 | --- | --- | --- |
-| **Beatmap** | An osu! beatmap or beatmapset — the playable rhythm-game chart metadata (artist, title, difficulty, mapper, etc.) returned by the beatmap lookup endpoints. | `/beatmaps/{id}` |
-| **Download** | Endpoints that return the packaged beatmap files (`.osz`) for a given beatmap set so clients can install them locally. | `/download/{id}` |
-| **Search** | Query operations over the beatmap catalogue, letting clients filter and discover maps by terms such as title, artist, or mapper. | `/search` |
+| **Beatmap** |  | `/beatmaps/{id}` |
+| **Download** |  | `/download/{id}` |
+| **Search** |  | `/search` |
 
 Each entity supports the following operations where available: **load**,
 **list**, **create**, **update**, and **remove**.
@@ -106,15 +102,17 @@ Each entity supports the following operations where available: **load**,
 ### Python
 
 ```python
+import os
 from osubeatmap_sdk import OsuBeatmapSDK
 
-client = OsuBeatmapSDK({})
+client = OsuBeatmapSDK({
+    "apikey": os.environ.get("OSU-BEATMAP_APIKEY"),
+})
 
 
 # Load a specific beatmap
-beatmap, err = client.Beatmap(None).load(
-    {"id": "example_id"}, None
-)
+beatmap, err = client.Beatmap().load({"id": "example_id"})
+print(beatmap)
 ```
 
 ### PHP
@@ -123,13 +121,14 @@ beatmap, err = client.Beatmap(None).load(
 <?php
 require_once 'osubeatmap_sdk.php';
 
-$client = new OsuBeatmapSDK([]);
+$client = new OsuBeatmapSDK([
+    "apikey" => getenv("OSU-BEATMAP_APIKEY"),
+]);
 
 
 // Load a specific beatmap
-[$beatmap, $err] = $client->Beatmap(null)->load(
-    ["id" => "example_id"], null
-);
+[$beatmap, $err] = $client->Beatmap()->load(["id" => "example_id"]);
+print_r($beatmap);
 ```
 
 ### Golang
@@ -137,8 +136,13 @@ $client = new OsuBeatmapSDK([]);
 ```go
 import sdk "github.com/voxgig-sdk/osu-beatmap-sdk/go"
 
-client := sdk.NewOsuBeatmapSDK(map[string]any{})
+client := sdk.NewOsuBeatmapSDK(map[string]any{
+    "apikey": os.Getenv("OSU-BEATMAP_APIKEY"),
+})
 
+// Load beatmap data
+beatmap, err := client.Beatmap(nil).Load(map[string]any{}, nil)
+fmt.Println(beatmap)
 ```
 
 ### Ruby
@@ -146,13 +150,14 @@ client := sdk.NewOsuBeatmapSDK(map[string]any{})
 ```ruby
 require_relative "OsuBeatmap_sdk"
 
-client = OsuBeatmapSDK.new({})
+client = OsuBeatmapSDK.new({
+  "apikey" => ENV["OSU-BEATMAP_APIKEY"],
+})
 
 
 # Load a specific beatmap
-beatmap, err = client.Beatmap(nil).load(
-  { "id" => "example_id" }, nil
-)
+beatmap, err = client.Beatmap().load({ "id" => "example_id" })
+puts beatmap
 ```
 
 ### Lua
@@ -160,13 +165,14 @@ beatmap, err = client.Beatmap(nil).load(
 ```lua
 local sdk = require("osu-beatmap_sdk")
 
-local client = sdk.new({})
+local client = sdk.new({
+  apikey = os.getenv("OSU-BEATMAP_APIKEY"),
+})
 
 
 -- Load a specific beatmap
-local beatmap, err = client:Beatmap(nil):load(
-  { id = "example_id" }, nil
-)
+local beatmap, err = client:Beatmap():load({ id = "example_id" })
+print(beatmap)
 ```
 
 ## Unit testing in offline mode
@@ -185,25 +191,21 @@ const result = await client.Beatmap().load({ id: 'test01' })
 ### Python
 
 ```python
-client = OsuBeatmapSDK.test(None, None)
-result, err = client.Beatmap(None).load(
-    {"id": "test01"}, None
-)
+client = OsuBeatmapSDK.test()
+result, err = client.Beatmap().load({"id": "test01"})
 ```
 
 ### PHP
 
 ```php
-$client = OsuBeatmapSDK::test(null, null);
-[$result, $err] = $client->Beatmap(null)->load(
-    ["id" => "test01"], null
-);
+$client = OsuBeatmapSDK::test();
+[$result, $err] = $client->Beatmap()->load(["id" => "test01"]);
 ```
 
 ### Golang
 
 ```go
-client := sdk.TestSDK(nil, nil)
+client := sdk.Test()
 result, err := client.Beatmap(nil).Load(
     map[string]any{"id": "test01"}, nil,
 )
@@ -212,19 +214,15 @@ result, err := client.Beatmap(nil).Load(
 ### Ruby
 
 ```ruby
-client = OsuBeatmapSDK.test(nil, nil)
-result, err = client.Beatmap(nil).load(
-  { "id" => "test01" }, nil
-)
+client = OsuBeatmapSDK.test
+result, err = client.Beatmap().load({ "id" => "test01" })
 ```
 
 ### Lua
 
 ```lua
-local client = sdk.test(nil, nil)
-local result, err = client:Beatmap(nil):load(
-  { id = "test01" }, nil
-)
+local client = sdk.test()
+local result, err = client:Beatmap():load({ id = "test01" })
 ```
 
 ## How it works
@@ -328,11 +326,6 @@ local result, err = client:direct({
 - [Golang](go/README.md)
 - [Ruby](rb/README.md)
 - [Lua](lua/README.md)
-
-## Using the osu! beatmap API
-
-- Upstream: [https://osu.direct/](https://osu.direct/)
-- API docs: [https://osu.direct/api/docs](https://osu.direct/api/docs)
 
 ---
 

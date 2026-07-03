@@ -117,12 +117,14 @@ func beatmapDirectSetup(mockres any) *beatmapDirectSetupResult {
 	env := envOverride(map[string]any{
 		"OSUBEATMAP_TEST_BEATMAP_ENTID": map[string]any{},
 		"OSUBEATMAP_TEST_LIVE":    "FALSE",
+		"OSUBEATMAP_APIKEY":       "NONE",
 	})
 
 	live := env["OSUBEATMAP_TEST_LIVE"] == "TRUE"
 
 	if live {
 		mergedOpts := map[string]any{
+			"apikey": env["OSUBEATMAP_APIKEY"],
 		}
 		client := sdk.NewOsuBeatmapSDK(mergedOpts)
 

@@ -119,6 +119,7 @@ func searchBasicSetup(extra map[string]any) *entityTestSetup {
 		"OSUBEATMAP_TEST_SEARCH_ENTID": idmap,
 		"OSUBEATMAP_TEST_LIVE":      "FALSE",
 		"OSUBEATMAP_TEST_EXPLAIN":   "FALSE",
+		"OSUBEATMAP_APIKEY":         "NONE",
 	})
 
 	idmapResolved := core.ToMapAny(env["OSUBEATMAP_TEST_SEARCH_ENTID"])
@@ -129,6 +130,7 @@ func searchBasicSetup(extra map[string]any) *entityTestSetup {
 	if env["OSUBEATMAP_TEST_LIVE"] == "TRUE" {
 		mergedOpts := vs.Merge([]any{
 			map[string]any{
+				"apikey": env["OSUBEATMAP_APIKEY"],
 			},
 			extra,
 		})

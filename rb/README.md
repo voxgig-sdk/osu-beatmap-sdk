@@ -1,6 +1,11 @@
 # OsuBeatmap Ruby SDK
 
-The Ruby SDK for the OsuBeatmap API. Provides an entity-oriented interface using idiomatic Ruby conventions.
+
+
+The Ruby SDK for the OsuBeatmap API — an entity-oriented client using idiomatic Ruby conventions.
+
+> Other languages, the CLI, and MCP server live alongside this one — see
+> the [top-level README](../README.md).
 
 
 ## Install
@@ -31,13 +36,15 @@ loading a specific record.
 ```ruby
 require_relative "OsuBeatmap_sdk"
 
-client = OsuBeatmapSDK.new({})
+client = OsuBeatmapSDK.new({
+  "apikey" => ENV["OSU-BEATMAP_APIKEY"],
+})
 ```
 
 ### 3. Load a beatmap
 
 ```ruby
-result, err = client.Beatmap(nil).load({ "id" => "example_id" }, nil)
+result, err = client.Beatmap().load({ "id" => "example_id" })
 raise err if err
 puts result
 ```
@@ -83,11 +90,9 @@ puts fetchdef["headers"]
 Create a mock client for unit testing — no server required:
 
 ```ruby
-client = OsuBeatmapSDK.test(nil, nil)
+client = OsuBeatmapSDK.test
 
-result, err = client.OsuBeatmap(nil).load(
-  { "id" => "test01" }, nil
-)
+result, err = client.OsuBeatmap().load({ "id" => "test01" })
 # result contains mock response data
 ```
 
@@ -119,6 +124,7 @@ Create a `.env.local` file at the project root:
 
 ```
 OSU-BEATMAP_TEST_LIVE=TRUE
+OSU-BEATMAP_APIKEY=<your-key>
 ```
 
 Then run:
@@ -141,6 +147,7 @@ Creates a new SDK client.
 
 | Option | Type | Description |
 | --- | --- | --- |
+| `apikey` | `String` | API key for authentication. |
 | `base` | `String` | Base URL of the API server. |
 | `prefix` | `String` | URL path prefix prepended to all requests. |
 | `suffix` | `String` | URL path suffix appended to all requests. |

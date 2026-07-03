@@ -114,6 +114,7 @@ function basicSetup(extra?: any) {
     'OSU_BEATMAP_TEST_BEATMAP_ENTID': idmap,
     'OSU_BEATMAP_TEST_LIVE': 'FALSE',
     'OSU_BEATMAP_TEST_EXPLAIN': 'FALSE',
+    'OSU_BEATMAP_APIKEY': 'NONE',
   })
 
   idmap = env['OSU_BEATMAP_TEST_BEATMAP_ENTID']
@@ -123,6 +124,7 @@ function basicSetup(extra?: any) {
   if (live) {
     client = new OsuBeatmapSDK(merge([
       {
+        apikey: env.OSU_BEATMAP_APIKEY,
       },
       extra
     ]))
