@@ -10,13 +10,13 @@ The Ruby SDK for the OsuBeatmap API — an entity-oriented client using idiomati
 
 ## Install
 ```bash
-gem install osu-beatmap-sdk
+gem install voxgig-sdk-osu-beatmap
 ```
 
 Or add to your `Gemfile`:
 
 ```ruby
-gem "osu-beatmap-sdk"
+gem "voxgig-sdk-osu-beatmap"
 ```
 
 Then run:

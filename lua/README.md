@@ -10,7 +10,7 @@ The Lua SDK for the OsuBeatmap API — an entity-oriented client using Lua conve
 
 ## Install
 ```bash
-luarocks install osu-beatmap-sdk
+luarocks install voxgig-sdk-osu-beatmap
 ```
 
 If the module is not yet published, add the source directory to

@@ -10,7 +10,7 @@ The PHP SDK for the OsuBeatmap API — an entity-oriented client using PHP conve
 
 ## Install
 ```bash
-composer require voxgig/osu-beatmap-sdk
+composer require voxgig-sdk/osu-beatmap
 ```
 
 

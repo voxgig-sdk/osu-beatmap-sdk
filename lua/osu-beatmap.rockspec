@@ -8,12 +8,14 @@ source = {
   dir = "osu-beatmap-sdk/lua"
 }
 description = {
-  summary = "OsuBeatmap SDK for Lua",
-  license = "MIT"
+  summary = "Unofficial generated Lua SDK for the osu! beatmap public API. Not affiliated with or endorsed by the upstream API provider.",
+  homepage = "https://github.com/voxgig-sdk/osu-beatmap-sdk",
+  issues_url = "https://github.com/voxgig-sdk/osu-beatmap-sdk/issues",
+  license = "MIT",
+  labels = { "voxgig", "sdk", "generated-sdk", "openapi", "api-client", "osu-beatmap" }
 }
 dependencies = {
   "lua >= 5.3",
-  "dkjson >= 2.5",
   "dkjson >= 2.5",
 }
 build = {

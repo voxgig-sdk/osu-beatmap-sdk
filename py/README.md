@@ -10,7 +10,7 @@ The Python SDK for the OsuBeatmap API — an entity-oriented client following Py
 
 ## Install
 ```bash
-pip install osu-beatmap-sdk
+pip install voxgig-sdk-osu-beatmap
 ```
 
 Or install from source:

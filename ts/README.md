@@ -10,7 +10,7 @@ The TypeScript SDK for the OsuBeatmap API — a type-safe, entity-oriented clien
 
 ## Install
 ```bash
-npm install osu-beatmap
+npm install @voxgig-sdk/osu-beatmap
 ```
 ## Tutorial: your first API call
 
