@@ -9,12 +9,9 @@ The Lua SDK for the OsuBeatmap API — an entity-oriented client using Lua conve
 
 
 ## Install
-```bash
-luarocks install voxgig-sdk-osu-beatmap
-```
-
-If the module is not yet published, add the source directory to
-your `LUA_PATH`:
+This package is not yet published to LuaRocks. Install it from the
+GitHub release tag (`lua/vX.Y.Z`, see [Releases](https://github.com/voxgig-sdk/osu-beatmap-sdk/releases)),
+or add the source directory to your `LUA_PATH`:
 
 ```bash
 export LUA_PATH="path/to/lua/?.lua;path/to/lua/?/init.lua;;"
@@ -31,15 +28,13 @@ loading a specific record.
 ```lua
 local sdk = require("osu-beatmap_sdk")
 
-local client = sdk.new({
-  apikey = os.getenv("OSU-BEATMAP_APIKEY"),
-})
+local client = sdk.new()
 ```
 
 ### 3. Load a beatmap
 
 ```lua
-local result, err = client:Beatmap():load({ id = "example_id" })
+local result, err = client:beatmap():load({ id = "example_id" })
 if err then error(err) end
 print(result)
 ```
@@ -87,7 +82,7 @@ Create a mock client for unit testing — no server required:
 ```lua
 local client = sdk.test()
 
-local result, err = client:OsuBeatmap():load({ id = "test01" })
+local result, err = client:beatmap():load({ id = "test01" })
 -- result contains mock response data
 ```
 
@@ -120,8 +115,7 @@ local client = sdk.new({
 Create a `.env.local` file at the project root:
 
 ```
-OSU-BEATMAP_TEST_LIVE=TRUE
-OSU-BEATMAP_APIKEY=<your-key>
+OSU_BEATMAP_TEST_LIVE=TRUE
 ```
 
 Then run:
@@ -144,7 +138,6 @@ Creates a new SDK client.
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `apikey` | `string` | API key for authentication. |
 | `base` | `string` | Base URL of the API server. |
 | `prefix` | `string` | URL path prefix prepended to all requests. |
 | `suffix` | `string` | URL path suffix appended to all requests. |
@@ -280,7 +273,7 @@ API path: `/search`
 
 ### Beatmap
 
-Create an instance: `const beatmap = client.Beatmap()`
+Create an instance: `const beatmap = client.beatmap`
 
 #### Operations
 
@@ -316,13 +309,13 @@ Create an instance: `const beatmap = client.Beatmap()`
 #### Example: Load
 
 ```ts
-const beatmap = await client.Beatmap().load({ id: 'beatmap_id' })
+const beatmap = await client.beatmap.load({ id: 'beatmap_id' })
 ```
 
 
 ### Download
 
-Create an instance: `const download = client.Download()`
+Create an instance: `const download = client.download`
 
 #### Operations
 
@@ -333,13 +326,13 @@ Create an instance: `const download = client.Download()`
 #### Example: Load
 
 ```ts
-const download = await client.Download().load({ id: 'download_id' })
+const download = await client.download.load({ id: 'download_id' })
 ```
 
 
 ### Search
 
-Create an instance: `const search = client.Search()`
+Create an instance: `const search = client.search`
 
 #### Operations
 
@@ -375,7 +368,7 @@ Create an instance: `const search = client.Search()`
 #### Example: List
 
 ```ts
-const searchs = await client.Search().list()
+const searchs = await client.search.list()
 ```
 
 
@@ -450,11 +443,11 @@ Entity instances are stateful. After a successful `load`, the entity
 stores the returned data and match criteria internally.
 
 ```lua
-local moon = client:Moon(nil)
-moon:load({ planet_id = "earth", id = "luna" }, nil)
+local beatmap = client:beatmap()
+beatmap:load({ id = "example_id" })
 
--- moon:data_get() now returns the loaded moon data
--- moon:match_get() returns the last match criteria
+-- beatmap:data_get() now returns the loaded beatmap data
+-- beatmap:match_get() returns the last match criteria
 ```
 
 Call `make()` to create a fresh instance with the same configuration

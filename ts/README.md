@@ -9,9 +9,12 @@ The TypeScript SDK for the OsuBeatmap API — a type-safe, entity-oriented clien
 
 
 ## Install
-```bash
-npm install @voxgig-sdk/osu-beatmap
-```
+This package is not yet published to npm. Install it from the GitHub
+release tag (`ts/vX.Y.Z`):
+
+- Releases: [https://github.com/voxgig-sdk/osu-beatmap-sdk/releases](https://github.com/voxgig-sdk/osu-beatmap-sdk/releases)
+
+
 ## Tutorial: your first API call
 
 This tutorial walks through creating a client, listing entities, and
@@ -20,17 +23,15 @@ loading a specific record.
 ### 1. Create a client
 
 ```ts
-import { OsuBeatmapSDK } from 'osu-beatmap'
+import { OsuBeatmapSDK } from '@voxgig-sdk/osu-beatmap'
 
-const client = new OsuBeatmapSDK({
-  apikey: process.env.OSU-BEATMAP_APIKEY,
-})
+const client = new OsuBeatmapSDK()
 ```
 
 ### 3. Load a beatmap
 
 ```ts
-const result = await client.Beatmap().load({ id: 'example_id' })
+const result = await client.beatmap.load({ id: 'example_id' })
 
 if (result.ok) {
   console.log(result.data)
@@ -79,7 +80,7 @@ Create a mock client for unit testing — no server required:
 ```ts
 const client = OsuBeatmapSDK.test()
 
-const result = await client.Planet().load({ id: 'test01' })
+const result = await client.beatmap.load({ id: 'test01' })
 // result.ok === true
 // result.data contains mock response data
 ```
@@ -87,7 +88,7 @@ const result = await client.Planet().load({ id: 'test01' })
 You can also use the instance method:
 
 ```ts
-const client = new OsuBeatmapSDK({ apikey: '...' })
+const client = new OsuBeatmapSDK()
 const testClient = client.tester()
 ```
 
@@ -96,7 +97,7 @@ const testClient = client.tester()
 Entity instances remember their last match and data:
 
 ```ts
-const entity = client.Planet()
+const entity = client.beatmap
 
 // First call sets internal match
 await entity.load({ id: 'example' })
@@ -123,7 +124,6 @@ const logger = {
 }
 
 const client = new OsuBeatmapSDK({
-  apikey: '...',
   extend: [logger],
 })
 ```
@@ -133,8 +133,7 @@ const client = new OsuBeatmapSDK({
 Create a `.env.local` file at the project root:
 
 ```
-OSU-BEATMAP_TEST_LIVE=TRUE
-OSU-BEATMAP_APIKEY=<your-key>
+OSU_BEATMAP_TEST_LIVE=TRUE
 ```
 
 Then run:
@@ -152,7 +151,6 @@ cd ts && npm test
 
 ```ts
 new OsuBeatmapSDK(options?: {
-  apikey?: string
   base?: string
   prefix?: string
   suffix?: string
@@ -163,7 +161,6 @@ new OsuBeatmapSDK(options?: {
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `apikey` | `string` | API key for authentication. |
 | `base` | `string` | Base URL of the API server. |
 | `prefix` | `string` | URL path prefix prepended to all requests. |
 | `suffix` | `string` | URL path suffix appended to all requests. |
@@ -325,7 +322,7 @@ API path: `/search`
 
 ### Beatmap
 
-Create an instance: `const beatmap = client.Beatmap()`
+Create an instance: `const beatmap = client.beatmap`
 
 #### Operations
 
@@ -361,13 +358,13 @@ Create an instance: `const beatmap = client.Beatmap()`
 #### Example: Load
 
 ```ts
-const beatmap = await client.Beatmap().load({ id: 'beatmap_id' })
+const beatmap = await client.beatmap.load({ id: 'beatmap_id' })
 ```
 
 
 ### Download
 
-Create an instance: `const download = client.Download()`
+Create an instance: `const download = client.download`
 
 #### Operations
 
@@ -378,13 +375,13 @@ Create an instance: `const download = client.Download()`
 #### Example: Load
 
 ```ts
-const download = await client.Download().load({ id: 'download_id' })
+const download = await client.download.load({ id: 'download_id' })
 ```
 
 
 ### Search
 
-Create an instance: `const search = client.Search()`
+Create an instance: `const search = client.search`
 
 #### Operations
 
@@ -420,7 +417,7 @@ Create an instance: `const search = client.Search()`
 #### Example: List
 
 ```ts
-const searchs = await client.Search().list()
+const searchs = await client.search.list()
 ```
 
 
@@ -481,7 +478,7 @@ osu-beatmap/
 Import the SDK from the package root:
 
 ```ts
-import { OsuBeatmapSDK } from 'osu-beatmap'
+import { OsuBeatmapSDK } from '@voxgig-sdk/osu-beatmap'
 ```
 
 ### Entity state
@@ -491,11 +488,11 @@ stores the returned data and match criteria internally. Subsequent
 calls on the same instance can rely on this state.
 
 ```ts
-const moon = client.Moon()
-await moon.load({ planet_id: 'earth', id: 'luna' })
+const beatmap = client.beatmap
+await beatmap.load({ id: "example_id" })
 
-// moon.data() now returns the loaded moon data
-// moon.match() returns { planet_id: 'earth', id: 'luna' }
+// beatmap.data() now returns the loaded beatmap data
+// beatmap.match() returns { id: "example_id" }
 ```
 
 Call `make()` to create a fresh instance with the same configuration

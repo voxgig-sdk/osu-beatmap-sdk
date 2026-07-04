@@ -244,18 +244,57 @@ end
 
 
 
+-- Idiomatic facade: client:beatmap():list() / client:beatmap():load({ id = ... })
+function OsuBeatmapSDK:beatmap(data)
+  local EntityMod = require("entity.beatmap_entity")
+  if data == nil then
+    if self._beatmap == nil then
+      self._beatmap = EntityMod.new(self, nil)
+    end
+    return self._beatmap
+  end
+  return EntityMod.new(self, data)
+end
+
+-- Deprecated: use client:beatmap() instead.
 function OsuBeatmapSDK:Beatmap(data)
   local EntityMod = require("entity.beatmap_entity")
   return EntityMod.new(self, data)
 end
 
 
+-- Idiomatic facade: client:download():list() / client:download():load({ id = ... })
+function OsuBeatmapSDK:download(data)
+  local EntityMod = require("entity.download_entity")
+  if data == nil then
+    if self._download == nil then
+      self._download = EntityMod.new(self, nil)
+    end
+    return self._download
+  end
+  return EntityMod.new(self, data)
+end
+
+-- Deprecated: use client:download() instead.
 function OsuBeatmapSDK:Download(data)
   local EntityMod = require("entity.download_entity")
   return EntityMod.new(self, data)
 end
 
 
+-- Idiomatic facade: client:search():list() / client:search():load({ id = ... })
+function OsuBeatmapSDK:search(data)
+  local EntityMod = require("entity.search_entity")
+  if data == nil then
+    if self._search == nil then
+      self._search = EntityMod.new(self, nil)
+    end
+    return self._search
+  end
+  return EntityMod.new(self, data)
+end
+
+-- Deprecated: use client:search() instead.
 function OsuBeatmapSDK:Search(data)
   local EntityMod = require("entity.search_entity")
   return EntityMod.new(self, data)

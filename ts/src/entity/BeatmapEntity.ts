@@ -14,9 +14,13 @@ import type {
   Control,
 } from '../types'
 
+import type {
+  Beatmap,
+  BeatmapLoadMatch,
+} from '../OsuBeatmapTypes'
 
 // TODO: needs Entity superclass
-class BeatmapEntity extends OsuBeatmapEntityBase {
+class BeatmapEntity extends OsuBeatmapEntityBase<Beatmap> {
 
   constructor(client: OsuBeatmapSDK, entopts: any) {
     super(client, entopts)
@@ -32,7 +36,7 @@ class BeatmapEntity extends OsuBeatmapEntityBase {
 
 
 
-  async load(this: any, reqmatch?: any, ctrl?: Control) {
+  async load(this: any, reqmatch?: BeatmapLoadMatch, ctrl?: Control): Promise<Beatmap> {
 
     const utility = this._utility
 
@@ -136,7 +140,9 @@ class BeatmapEntity extends OsuBeatmapEntityBase {
         throw err
       }
       else {
-        return undefined
+        // Off-happy-path (throw disabled): typed as any so the method's
+        // Promise<Beatmap> return stays clean under strict null checks.
+        return undefined as any
       }
     }
   }

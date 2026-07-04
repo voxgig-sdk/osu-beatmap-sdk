@@ -245,16 +245,25 @@ func (sdk *OsuBeatmapSDK) Direct(fetchargs map[string]any) (map[string]any, erro
 }
 
 
+// Beatmap returns a Beatmap entity bound to this client.
+// Idiomatic usage: client.Beatmap(nil).List(nil, nil) or
+// client.Beatmap(nil).Load(map[string]any{"id": ...}, nil).
 func (sdk *OsuBeatmapSDK) Beatmap(data map[string]any) OsuBeatmapEntity {
 	return NewBeatmapEntityFunc(sdk, data)
 }
 
 
+// Download returns a Download entity bound to this client.
+// Idiomatic usage: client.Download(nil).List(nil, nil) or
+// client.Download(nil).Load(map[string]any{"id": ...}, nil).
 func (sdk *OsuBeatmapSDK) Download(data map[string]any) OsuBeatmapEntity {
 	return NewDownloadEntityFunc(sdk, data)
 }
 
 
+// Search returns a Search entity bound to this client.
+// Idiomatic usage: client.Search(nil).List(nil, nil) or
+// client.Search(nil).Load(map[string]any{"id": ...}, nil).
 func (sdk *OsuBeatmapSDK) Search(data map[string]any) OsuBeatmapEntity {
 	return NewSearchEntityFunc(sdk, data)
 }

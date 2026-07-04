@@ -49,8 +49,7 @@ class TestDownloadEntity:
         # LOAD
         download_ref01_ent = client.Download(None)
         download_ref01_match_dt0 = {}
-        download_ref01_data_dt0_loaded, err = download_ref01_ent.load(download_ref01_match_dt0, None)
-        assert err is None
+        download_ref01_data_dt0_loaded = download_ref01_ent.load(download_ref01_match_dt0, None)
         assert download_ref01_data_dt0_loaded is not None
 
 
@@ -91,7 +90,6 @@ def _download_basic_setup(extra):
         "OSUBEATMAP_TEST_DOWNLOAD_ENTID": idmap,
         "OSUBEATMAP_TEST_LIVE": "FALSE",
         "OSUBEATMAP_TEST_EXPLAIN": "FALSE",
-        "OSUBEATMAP_APIKEY": "NONE",
     })
 
     idmap_resolved = helpers.to_map(
@@ -102,7 +100,6 @@ def _download_basic_setup(extra):
     if env.get("OSUBEATMAP_TEST_LIVE") == "TRUE":
         merged_opts = vs.merge([
             {
-                "apikey": env.get("OSUBEATMAP_APIKEY"),
             },
             extra or {},
         ])

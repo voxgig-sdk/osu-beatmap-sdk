@@ -95,7 +95,6 @@ function beatmap_basic_setup(extra)
     ["OSUBEATMAP_TEST_BEATMAP_ENTID"] = idmap,
     ["OSUBEATMAP_TEST_LIVE"] = "FALSE",
     ["OSUBEATMAP_TEST_EXPLAIN"] = "FALSE",
-    ["OSUBEATMAP_APIKEY"] = "NONE",
   })
 
   local idmap_resolved = helpers.to_map(
@@ -107,7 +106,6 @@ function beatmap_basic_setup(extra)
   if env["OSUBEATMAP_TEST_LIVE"] == "TRUE" then
     local merged_opts = vs.merge({
       {
-        apikey = env["OSUBEATMAP_APIKEY"],
       },
       extra or {},
     })

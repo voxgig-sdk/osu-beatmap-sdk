@@ -44,8 +44,7 @@ class BeatmapEntityTest < Minitest::Test
     beatmap_ref01_match_dt0 = {
       "id" => beatmap_ref01_data["id"],
     }
-    beatmap_ref01_data_dt0_loaded, err = beatmap_ref01_ent.load(beatmap_ref01_match_dt0, nil)
-    assert_nil err
+    beatmap_ref01_data_dt0_loaded = beatmap_ref01_ent.load(beatmap_ref01_match_dt0, nil)
     beatmap_ref01_data_dt0_load_result = Helpers.to_map(beatmap_ref01_data_dt0_loaded)
     assert !beatmap_ref01_data_dt0_load_result.nil?
     assert_equal beatmap_ref01_data_dt0_load_result["id"], beatmap_ref01_data["id"]
@@ -86,7 +85,6 @@ def beatmap_basic_setup(extra)
     "OSUBEATMAP_TEST_BEATMAP_ENTID" => idmap,
     "OSUBEATMAP_TEST_LIVE" => "FALSE",
     "OSUBEATMAP_TEST_EXPLAIN" => "FALSE",
-    "OSUBEATMAP_APIKEY" => "NONE",
   })
 
   idmap_resolved = Helpers.to_map(
@@ -98,7 +96,6 @@ def beatmap_basic_setup(extra)
   if env["OSUBEATMAP_TEST_LIVE"] == "TRUE"
     merged_opts = Vs.merge([
       {
-        "apikey" => env["OSUBEATMAP_APIKEY"],
       },
       extra || {},
     ])

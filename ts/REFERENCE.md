@@ -18,7 +18,6 @@ Create a new SDK client instance.
 | Name | Type | Description |
 | --- | --- | --- |
 | `options` | `object` | SDK configuration options. |
-| `options.apikey` | `string` | API key for authentication. |
 | `options.base` | `string` | Base URL for API requests. |
 | `options.prefix` | `string` | URL prefix appended after base. |
 | `options.suffix` | `string` | URL suffix appended after path. |
@@ -134,7 +133,7 @@ Alias for `OsuBeatmapSDK.test()`.
 ## BeatmapEntity
 
 ```ts
-const beatmap = client.Beatmap()
+const beatmap = client.beatmap
 ```
 
 ### Fields
@@ -169,7 +168,7 @@ const beatmap = client.Beatmap()
 Load a single entity matching the given criteria.
 
 ```ts
-const result = await client.Beatmap().load({ id: 'beatmap_id' })
+const result = await client.beatmap.load({ id: 'beatmap_id' })
 ```
 
 ### Common Methods
@@ -203,7 +202,7 @@ Return a copy of the entity options.
 ## DownloadEntity
 
 ```ts
-const download = client.Download()
+const download = client.download
 ```
 
 ### Operations
@@ -213,7 +212,7 @@ const download = client.Download()
 Load a single entity matching the given criteria.
 
 ```ts
-const result = await client.Download().load({ id: 'download_id' })
+const result = await client.download.load({ id: 'download_id' })
 ```
 
 ### Common Methods
@@ -247,7 +246,7 @@ Return a copy of the entity options.
 ## SearchEntity
 
 ```ts
-const search = client.Search()
+const search = client.search
 ```
 
 ### Fields
@@ -282,7 +281,7 @@ const search = client.Search()
 List entities matching the given criteria. Returns an array.
 
 ```ts
-const results = await client.Search().list()
+const results = await client.search.list()
 ```
 
 ### Common Methods

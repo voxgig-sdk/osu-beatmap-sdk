@@ -49,8 +49,7 @@ class DownloadEntityTest extends TestCase
         // LOAD
         $download_ref01_ent = $client->Download(null);
         $download_ref01_match_dt0 = [];
-        [$download_ref01_data_dt0_loaded, $err] = $download_ref01_ent->load($download_ref01_match_dt0, null);
-        $this->assertNull($err);
+        $download_ref01_data_dt0_loaded = $download_ref01_ent->load($download_ref01_match_dt0, null);
         $this->assertNotNull($download_ref01_data_dt0_loaded);
 
     }
@@ -85,7 +84,6 @@ function download_basic_setup($extra)
         "OSUBEATMAP_TEST_DOWNLOAD_ENTID" => $idmap,
         "OSUBEATMAP_TEST_LIVE" => "FALSE",
         "OSUBEATMAP_TEST_EXPLAIN" => "FALSE",
-        "OSUBEATMAP_APIKEY" => "NONE",
     ]);
 
     $idmap_resolved = Helpers::to_map(
@@ -97,7 +95,6 @@ function download_basic_setup($extra)
     if ($env["OSUBEATMAP_TEST_LIVE"] === "TRUE") {
         $merged_opts = Vs::merge([
             [
-                "apikey" => $env["OSUBEATMAP_APIKEY"],
             ],
             $extra ?? [],
         ]);

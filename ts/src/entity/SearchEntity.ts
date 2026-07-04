@@ -14,9 +14,13 @@ import type {
   Control,
 } from '../types'
 
+import type {
+  Search,
+  SearchListMatch,
+} from '../OsuBeatmapTypes'
 
 // TODO: needs Entity superclass
-class SearchEntity extends OsuBeatmapEntityBase {
+class SearchEntity extends OsuBeatmapEntityBase<Search> {
 
   constructor(client: OsuBeatmapSDK, entopts: any) {
     super(client, entopts)
@@ -33,7 +37,7 @@ class SearchEntity extends OsuBeatmapEntityBase {
 
 
 
-  async list(this: any, reqmatch?: any, ctrl?: Control) {
+  async list(this: any, reqmatch?: SearchListMatch, ctrl?: Control): Promise<Search[]> {
 
     const utility = this._utility
 
@@ -133,7 +137,9 @@ class SearchEntity extends OsuBeatmapEntityBase {
         throw err
       }
       else {
-        return undefined
+        // Off-happy-path (throw disabled): typed as any so the method's
+        // Promise<Search[]> return stays clean under strict null checks.
+        return undefined as any
       }
     }
   }

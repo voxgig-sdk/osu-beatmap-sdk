@@ -79,6 +79,10 @@ end
 
 
 
+---@param reqmatch BeatmapLoadMatch
+---@param ctrl? table
+---@return Beatmap
+---@return string? err
 function BeatmapEntity:load(reqmatch, ctrl)
   local utility = self._utility
   local ctx = utility.make_context({

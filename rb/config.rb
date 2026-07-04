@@ -15,9 +15,6 @@ module OsuBeatmapConfig
       },
       "options" => {
         "base" => "https://osu.direct/api",
-        "auth" => {
-          "prefix" => "Bearer",
-        },
         "headers" => {
           "content-type" => "application/json",
         },
@@ -188,6 +185,7 @@ module OsuBeatmapConfig
                         "orig" => "id",
                         "reqd" => true,
                         "type" => "`$INTEGER`",
+                        "index$" => 0,
                       },
                     ],
                   },
@@ -235,6 +233,7 @@ module OsuBeatmapConfig
                         "orig" => "id",
                         "reqd" => true,
                         "type" => "`$INTEGER`",
+                        "index$" => 0,
                       },
                     ],
                     "query" => [
