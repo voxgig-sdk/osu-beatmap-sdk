@@ -91,7 +91,7 @@ same parameters as `direct()`.
 ## BeatmapEntity
 
 ```lua
-local beatmap = client:beatmap(nil)
+local beatmap = client:Beatmap(nil)
 ```
 
 ### Fields
@@ -126,7 +126,7 @@ local beatmap = client:beatmap(nil)
 Load a single entity matching the given criteria.
 
 ```lua
-local result, err = client:beatmap():load({ id = "beatmap_id" })
+local result, err = client:Beatmap():load({ id = "beatmap_id" })
 ```
 
 ### Common Methods
@@ -162,7 +162,7 @@ Return the entity name.
 ## DownloadEntity
 
 ```lua
-local download = client:download(nil)
+local download = client:Download(nil)
 ```
 
 ### Operations
@@ -172,7 +172,7 @@ local download = client:download(nil)
 Load a single entity matching the given criteria.
 
 ```lua
-local result, err = client:download():load({ id = "download_id" })
+local result, err = client:Download():load({ id = "download_id" })
 ```
 
 ### Common Methods
@@ -208,7 +208,7 @@ Return the entity name.
 ## SearchEntity
 
 ```lua
-local search = client:search(nil)
+local search = client:Search(nil)
 ```
 
 ### Fields
@@ -243,7 +243,7 @@ local search = client:search(nil)
 List entities matching the given criteria. Returns an array.
 
 ```lua
-local results, err = client:search():list()
+local results, err = client:Search():list()
 ```
 
 ### Common Methods

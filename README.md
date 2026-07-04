@@ -26,9 +26,9 @@ import { OsuBeatmapSDK } from '@voxgig-sdk/osu-beatmap'
 
 const client = new OsuBeatmapSDK()
 
-// Load beatmap data
-const beatmap = await client.beatmap.load({})
-console.log(beatmap.data)
+// Load beatmap data (returns a Beatmap)
+const beatmap = await client.Beatmap().load()
+console.log(beatmap)
 ```
 
 See the [TypeScript README](ts/README.md) for the full guide.
@@ -86,8 +86,8 @@ from osubeatmap_sdk import OsuBeatmapSDK
 client = OsuBeatmapSDK()
 
 
-# Load a specific beatmap
-beatmap = client.beatmap.load({"id": "example_id"})
+# Load a specific beatmap (returns the record, raises on error)
+beatmap = client.Beatmap().load({"id": "example_id"})
 print(beatmap)
 ```
 
@@ -100,8 +100,8 @@ require_once 'osubeatmap_sdk.php';
 $client = new OsuBeatmapSDK();
 
 
-// Load a specific beatmap
-$beatmap = $client->beatmap()->load(["id" => "example_id"]);
+// Load a specific beatmap (returns the bare record; throws on error)
+$beatmap = $client->Beatmap()->load(["id" => "example_id"]);
 print_r($beatmap);
 ```
 
@@ -125,8 +125,8 @@ require_relative "OsuBeatmap_sdk"
 client = OsuBeatmapSDK.new
 
 
-# Load a specific beatmap
-beatmap = client.beatmap.load({ "id" => "example_id" })
+# Load a specific beatmap (returns the bare record; raises on error)
+beatmap = client.Beatmap.load({ "id" => "example_id" })
 puts beatmap
 ```
 
@@ -139,7 +139,7 @@ local client = sdk.new()
 
 
 -- Load a specific beatmap
-local beatmap, err = client:beatmap():load({ id = "example_id" })
+local beatmap, err = client:Beatmap():load({ id = "example_id" })
 print(beatmap)
 ```
 
@@ -152,22 +152,27 @@ in-memory mock, so unit tests run offline.
 
 ```ts
 const client = OsuBeatmapSDK.test()
-const result = await client.beatmap.load({ id: 'test01' })
-// result.ok === true, result.data contains mock data
+const beatmap = await client.Beatmap().load({ id: 1 })
+// beatmap is a bare Beatmap populated with mock data
+console.log(beatmap)
 ```
 
 ### Python
 
 ```python
 client = OsuBeatmapSDK.test()
-result = client.beatmap.load({"id": "test01"})
+beatmap = client.Beatmap().load({"id": "test01"})
+print(beatmap)
 ```
 
 ### PHP
 
 ```php
-$client = OsuBeatmapSDK::test();
-$result = $client->beatmap()->load(["id" => "test01"]);
+// Seed fixture data so offline calls resolve without a live server.
+$client = OsuBeatmapSDK::test([
+    "entity" => ["beatmap" => ["test01" => ["id" => "test01"]]],
+]);
+$beatmap = $client->Beatmap()->load(["id" => "test01"]);
 ```
 
 ### Golang
@@ -182,15 +187,18 @@ result, err := client.Beatmap(nil).Load(
 ### Ruby
 
 ```ruby
-client = OsuBeatmapSDK.test
-result = client.beatmap.load({ "id" => "test01" })
+# Seed fixture data so offline calls resolve without a live server.
+client = OsuBeatmapSDK.test({
+  "entity" => { "beatmap" => { "test01" => { "id" => "test01" } } },
+})
+beatmap = client.Beatmap.load({ "id" => "test01" })
 ```
 
 ### Lua
 
 ```lua
 local client = sdk.test()
-local result, err = client:beatmap():load({ id = "test01" })
+local result, err = client:Beatmap():load({ id = "test01" })
 ```
 
 ## How it works
@@ -238,6 +246,9 @@ const result = await client.direct({
   method: 'GET',
   params: { id: 'example' },
 })
+if (result instanceof Error) {
+  throw result
+}
 console.log(result.data)
 ```
 

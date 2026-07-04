@@ -32,8 +32,9 @@ client = OsuBeatmapSDK.new
 
 ```ruby
 begin
-  result = client.beatmap.load({ "id" => "example_id" })
-  puts result
+  # load returns the bare Beatmap record (raises on error).
+  beatmap = client.Beatmap.load({ "id" => "example_id" })
+  puts beatmap
 rescue => err
   warn "load failed: #{err}"
 end
@@ -80,13 +81,17 @@ end
 
 ### Use test mode
 
-Create a mock client for unit testing — no server required:
+Create a mock client for unit testing — no server required. Seed fixture
+data via the `entity` option so offline calls resolve without a live server:
 
 ```ruby
-client = OsuBeatmapSDK.test
+client = OsuBeatmapSDK.test({
+  "entity" => { "beatmap" => { "test01" => { "id" => "test01" } } },
+})
 
-result = client.beatmap.load({ "id" => "test01" })
-# result contains mock response data
+# load returns the bare mock record (raises on error).
+beatmap = client.Beatmap.load({ "id" => "test01" })
+puts beatmap
 ```
 
 ### Use a custom fetch function
@@ -277,7 +282,7 @@ API path: `/search`
 
 ### Beatmap
 
-Create an instance: `const beatmap = client.beatmap`
+Create an instance: `beatmap = client.Beatmap`
 
 #### Operations
 
@@ -312,14 +317,15 @@ Create an instance: `const beatmap = client.beatmap`
 
 #### Example: Load
 
-```ts
-const beatmap = await client.beatmap.load({ id: 'beatmap_id' })
+```ruby
+# load returns the bare Beatmap record (raises on error).
+beatmap = client.Beatmap.load({ "id" => "beatmap_id" })
 ```
 
 
 ### Download
 
-Create an instance: `const download = client.download`
+Create an instance: `download = client.Download`
 
 #### Operations
 
@@ -329,14 +335,15 @@ Create an instance: `const download = client.download`
 
 #### Example: Load
 
-```ts
-const download = await client.download.load({ id: 'download_id' })
+```ruby
+# load returns the bare Download record (raises on error).
+download = client.Download.load({ "id" => "download_id" })
 ```
 
 
 ### Search
 
-Create an instance: `const search = client.search`
+Create an instance: `search = client.Search`
 
 #### Operations
 
@@ -371,8 +378,9 @@ Create an instance: `const search = client.search`
 
 #### Example: List
 
-```ts
-const searchs = await client.search.list()
+```ruby
+# list returns an Array of Search records (raises on error).
+searchs = client.Search.list
 ```
 
 
@@ -447,7 +455,7 @@ Entity instances are stateful. After a successful `load`, the entity
 stores the returned data and match criteria internally.
 
 ```ruby
-beatmap = client.beatmap
+beatmap = client.Beatmap
 beatmap.load({ "id" => "example_id" })
 
 # beatmap.data_get now returns the loaded beatmap data

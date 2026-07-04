@@ -94,7 +94,7 @@ same parameters as `direct()`. Raises on error.
 ## BeatmapEntity
 
 ```ruby
-beatmap = client.beatmap
+beatmap = client.Beatmap
 ```
 
 ### Fields
@@ -129,7 +129,7 @@ beatmap = client.beatmap
 Load a single entity matching the given criteria. Raises on error.
 
 ```ruby
-result = client.beatmap.load({ "id" => "beatmap_id" })
+result = client.Beatmap.load({ "id" => "beatmap_id" })
 ```
 
 ### Common Methods
@@ -165,7 +165,7 @@ Return the entity name.
 ## DownloadEntity
 
 ```ruby
-download = client.download
+download = client.Download
 ```
 
 ### Operations
@@ -175,7 +175,7 @@ download = client.download
 Load a single entity matching the given criteria. Raises on error.
 
 ```ruby
-result = client.download.load({ "id" => "download_id" })
+result = client.Download.load({ "id" => "download_id" })
 ```
 
 ### Common Methods
@@ -211,7 +211,7 @@ Return the entity name.
 ## SearchEntity
 
 ```ruby
-search = client.search
+search = client.Search
 ```
 
 ### Fields
@@ -246,7 +246,7 @@ search = client.search
 List entities matching the given criteria. Returns an array. Raises on error.
 
 ```ruby
-results = client.search.list(nil)
+results = client.Search.list(nil)
 ```
 
 ### Common Methods

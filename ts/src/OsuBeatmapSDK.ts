@@ -206,42 +206,21 @@ class OsuBeatmapSDK {
 
 
 
-  _beatmap?: BeatmapEntity
-
-  // Idiomatic facade: `client.beatmap.list()` / `client.beatmap.load({ id })`.
-  get beatmap(): BeatmapEntity {
-    return (this._beatmap ??= new BeatmapEntity(this, undefined))
-  }
-
-  /** @deprecated Use `client.beatmap` instead. */
+  // Entity access: `client.Beatmap().list()` / `client.Beatmap().load({ id })`.
   Beatmap(data?: any) {
     const self = this
     return new BeatmapEntity(self,data)
   }
 
 
-  _download?: DownloadEntity
-
-  // Idiomatic facade: `client.download.list()` / `client.download.load({ id })`.
-  get download(): DownloadEntity {
-    return (this._download ??= new DownloadEntity(this, undefined))
-  }
-
-  /** @deprecated Use `client.download` instead. */
+  // Entity access: `client.Download().list()` / `client.Download().load({ id })`.
   Download(data?: any) {
     const self = this
     return new DownloadEntity(self,data)
   }
 
 
-  _search?: SearchEntity
-
-  // Idiomatic facade: `client.search.list()` / `client.search.load({ id })`.
-  get search(): SearchEntity {
-    return (this._search ??= new SearchEntity(this, undefined))
-  }
-
-  /** @deprecated Use `client.search` instead. */
+  // Entity access: `client.Search().list()` / `client.Search().load({ id })`.
   Search(data?: any) {
     const self = this
     return new SearchEntity(self,data)

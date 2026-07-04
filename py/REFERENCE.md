@@ -88,7 +88,7 @@ Prepare a fetch definition without sending. Returns the `fetchdef` and raises on
 ## BeatmapEntity
 
 ```python
-beatmap = client.beatmap
+beatmap = client.Beatmap()
 ```
 
 ### Fields
@@ -123,7 +123,7 @@ beatmap = client.beatmap
 Load a single entity matching the given criteria. Returns the entity data and raises on error.
 
 ```python
-result = client.beatmap.load({"id": "beatmap_id"})
+result = client.Beatmap().load({"id": "beatmap_id"})
 ```
 
 ### Common Methods
@@ -158,7 +158,7 @@ Return the entity name.
 ## DownloadEntity
 
 ```python
-download = client.download
+download = client.Download()
 ```
 
 ### Operations
@@ -168,7 +168,7 @@ download = client.download
 Load a single entity matching the given criteria. Returns the entity data and raises on error.
 
 ```python
-result = client.download.load({"id": "download_id"})
+result = client.Download().load({"id": "download_id"})
 ```
 
 ### Common Methods
@@ -203,7 +203,7 @@ Return the entity name.
 ## SearchEntity
 
 ```python
-search = client.search
+search = client.Search()
 ```
 
 ### Fields
@@ -238,7 +238,9 @@ search = client.search
 List entities matching the given criteria. Returns a list and raises on error.
 
 ```python
-results = client.search.list({})
+results = client.Search().list({})
+for search in results:
+    print(search)
 ```
 
 ### Common Methods

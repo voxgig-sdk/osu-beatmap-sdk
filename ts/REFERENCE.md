@@ -133,7 +133,7 @@ Alias for `OsuBeatmapSDK.test()`.
 ## BeatmapEntity
 
 ```ts
-const beatmap = client.beatmap
+const beatmap = client.Beatmap()
 ```
 
 ### Fields
@@ -168,7 +168,7 @@ const beatmap = client.beatmap
 Load a single entity matching the given criteria.
 
 ```ts
-const result = await client.beatmap.load({ id: 'beatmap_id' })
+const result = await client.Beatmap().load({ id: 'beatmap_id' })
 ```
 
 ### Common Methods
@@ -202,7 +202,7 @@ Return a copy of the entity options.
 ## DownloadEntity
 
 ```ts
-const download = client.download
+const download = client.Download()
 ```
 
 ### Operations
@@ -212,7 +212,7 @@ const download = client.download
 Load a single entity matching the given criteria.
 
 ```ts
-const result = await client.download.load({ id: 'download_id' })
+const result = await client.Download().load({ id: 'download_id' })
 ```
 
 ### Common Methods
@@ -246,7 +246,7 @@ Return a copy of the entity options.
 ## SearchEntity
 
 ```ts
-const search = client.search
+const search = client.Search()
 ```
 
 ### Fields
@@ -281,7 +281,7 @@ const search = client.search
 List entities matching the given criteria. Returns an array.
 
 ```ts
-const results = await client.search.list()
+const results = await client.Search().list()
 ```
 
 ### Common Methods

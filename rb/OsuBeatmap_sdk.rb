@@ -208,39 +208,21 @@ class OsuBeatmapSDK
   end
 
 
-  # Idiomatic facade: client.beatmap.list / client.beatmap.load({ "id" => ... })
-  def beatmap
-    require_relative 'entity/beatmap_entity'
-    @beatmap ||= BeatmapEntity.new(self, nil)
-  end
-
-  # Deprecated: use client.beatmap instead.
+  # Canonical facade: client.Beatmap.list / client.Beatmap.load({ "id" => ... })
   def Beatmap(data = nil)
     require_relative 'entity/beatmap_entity'
     BeatmapEntity.new(self, data)
   end
 
 
-  # Idiomatic facade: client.download.list / client.download.load({ "id" => ... })
-  def download
-    require_relative 'entity/download_entity'
-    @download ||= DownloadEntity.new(self, nil)
-  end
-
-  # Deprecated: use client.download instead.
+  # Canonical facade: client.Download.list / client.Download.load({ "id" => ... })
   def Download(data = nil)
     require_relative 'entity/download_entity'
     DownloadEntity.new(self, data)
   end
 
 
-  # Idiomatic facade: client.search.list / client.search.load({ "id" => ... })
-  def search
-    require_relative 'entity/search_entity'
-    @search ||= SearchEntity.new(self, nil)
-  end
-
-  # Deprecated: use client.search instead.
+  # Canonical facade: client.Search.list / client.Search.load({ "id" => ... })
   def Search(data = nil)
     require_relative 'entity/search_entity'
     SearchEntity.new(self, data)

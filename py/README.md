@@ -33,10 +33,12 @@ client = OsuBeatmapSDK()
 
 ### 3. Load a beatmap
 
+`load()` returns the bare record (a `dict`) and raises on error.
+
 ```python
 try:
-    result = client.beatmap.load({"id": "example_id"})
-    print(result)
+    beatmap = client.Beatmap().load({"id": "example_id"})
+    print(beatmap)
 except Exception as err:
     print(f"load failed: {err}")
 ```
@@ -84,8 +86,9 @@ Create a mock client for unit testing — no server required:
 ```python
 client = OsuBeatmapSDK.test()
 
-result = client.beatmap.load({"id": "test01"})
-# result contains mock response data
+# Entity ops return the bare record and raise on error.
+beatmap = client.Beatmap().load({"id": "test01"})
+# beatmap contains the mock response record
 ```
 
 ### Use a custom fetch function
@@ -277,7 +280,7 @@ API path: `/search`
 
 ### Beatmap
 
-Create an instance: `const beatmap = client.beatmap`
+Create an instance: `beatmap = client.Beatmap()`
 
 #### Operations
 
@@ -312,14 +315,14 @@ Create an instance: `const beatmap = client.beatmap`
 
 #### Example: Load
 
-```ts
-const beatmap = await client.beatmap.load({ id: 'beatmap_id' })
+```python
+beatmap = client.Beatmap().load({"id": "beatmap_id"})
 ```
 
 
 ### Download
 
-Create an instance: `const download = client.download`
+Create an instance: `download = client.Download()`
 
 #### Operations
 
@@ -329,14 +332,14 @@ Create an instance: `const download = client.download`
 
 #### Example: Load
 
-```ts
-const download = await client.download.load({ id: 'download_id' })
+```python
+download = client.Download().load({"id": "download_id"})
 ```
 
 
 ### Search
 
-Create an instance: `const search = client.search`
+Create an instance: `search = client.Search()`
 
 #### Operations
 
@@ -371,8 +374,8 @@ Create an instance: `const search = client.search`
 
 #### Example: List
 
-```ts
-const searchs = await client.search.list()
+```python
+searchs = client.Search().list({})
 ```
 
 
@@ -446,7 +449,7 @@ Entity instances are stateful. After a successful `load`, the entity
 stores the returned data and match criteria internally.
 
 ```python
-beatmap = client.beatmap
+beatmap = client.Beatmap()
 beatmap.load({"id": "example_id"})
 
 # beatmap.data_get() now returns the loaded beatmap data

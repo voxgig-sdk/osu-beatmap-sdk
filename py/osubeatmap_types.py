@@ -4,96 +4,94 @@
 # params (op.<name>.points[].args.params[]). Field/param types come from the
 # canonical type sentinels via @voxgig/sdkgen canonToType (source of truth:
 # @voxgig/apidef VALID_CANON). Do not edit by hand.
+#
+# These are TypedDicts, not dataclasses: the SDK ops return/accept plain dicts
+# at runtime, and a TypedDict IS a dict shape, so the types match the runtime.
+# Optional (req:false) keys are modelled as TypedDict key-optionality
+# (total=False), split into a required base + total=False subclass when a type
+# has both required and optional keys.
 
 from __future__ import annotations
 
-from dataclasses import dataclass
-from typing import Optional, Any
+from typing import TypedDict, Any
 
 
-@dataclass
-class Beatmap:
-    approved_date: Optional[str] = None
-    ar: Optional[float] = None
-    artist: Optional[str] = None
-    beatmapset_id: Optional[int] = None
-    bpm: Optional[float] = None
-    creator: Optional[str] = None
-    cs: Optional[float] = None
-    difficulty_rating: Optional[float] = None
-    favourite_count: Optional[int] = None
-    hp: Optional[float] = None
-    id: Optional[int] = None
-    last_updated: Optional[str] = None
-    length: Optional[int] = None
-    max_combo: Optional[int] = None
-    mode: Optional[int] = None
-    od: Optional[float] = None
-    playcount: Optional[int] = None
-    status: Optional[str] = None
-    title: Optional[str] = None
-    version: Optional[str] = None
+class Beatmap(TypedDict, total=False):
+    approved_date: str
+    ar: float
+    artist: str
+    beatmapset_id: int
+    bpm: float
+    creator: str
+    cs: float
+    difficulty_rating: float
+    favourite_count: int
+    hp: float
+    id: int
+    last_updated: str
+    length: int
+    max_combo: int
+    mode: int
+    od: float
+    playcount: int
+    status: str
+    title: str
+    version: str
 
 
-@dataclass
-class BeatmapLoadMatch:
+class BeatmapLoadMatch(TypedDict):
     id: int
 
 
-@dataclass
-class Download:
+class Download(TypedDict):
     pass
 
 
-@dataclass
-class DownloadLoadMatch:
+class DownloadLoadMatch(TypedDict):
     id: int
 
 
-@dataclass
-class Search:
-    approved_date: Optional[str] = None
-    ar: Optional[float] = None
-    artist: Optional[str] = None
-    beatmapset_id: Optional[int] = None
-    bpm: Optional[float] = None
-    creator: Optional[str] = None
-    cs: Optional[float] = None
-    difficulty_rating: Optional[float] = None
-    favourite_count: Optional[int] = None
-    hp: Optional[float] = None
-    id: Optional[int] = None
-    last_updated: Optional[str] = None
-    length: Optional[int] = None
-    max_combo: Optional[int] = None
-    mode: Optional[int] = None
-    od: Optional[float] = None
-    playcount: Optional[int] = None
-    status: Optional[str] = None
-    title: Optional[str] = None
-    version: Optional[str] = None
+class Search(TypedDict, total=False):
+    approved_date: str
+    ar: float
+    artist: str
+    beatmapset_id: int
+    bpm: float
+    creator: str
+    cs: float
+    difficulty_rating: float
+    favourite_count: int
+    hp: float
+    id: int
+    last_updated: str
+    length: int
+    max_combo: int
+    mode: int
+    od: float
+    playcount: int
+    status: str
+    title: str
+    version: str
 
 
-@dataclass
-class SearchListMatch:
-    approved_date: Optional[str] = None
-    ar: Optional[float] = None
-    artist: Optional[str] = None
-    beatmapset_id: Optional[int] = None
-    bpm: Optional[float] = None
-    creator: Optional[str] = None
-    cs: Optional[float] = None
-    difficulty_rating: Optional[float] = None
-    favourite_count: Optional[int] = None
-    hp: Optional[float] = None
-    id: Optional[int] = None
-    last_updated: Optional[str] = None
-    length: Optional[int] = None
-    max_combo: Optional[int] = None
-    mode: Optional[int] = None
-    od: Optional[float] = None
-    playcount: Optional[int] = None
-    status: Optional[str] = None
-    title: Optional[str] = None
-    version: Optional[str] = None
-
+class SearchListMatch(TypedDict, total=False):
+    approved_date: str
+    ar: float
+    artist: str
+    beatmapset_id: int
+    bpm: float
+    creator: str
+    cs: float
+    difficulty_rating: float
+    favourite_count: int
+    hp: float
+    id: int
+    last_updated: str
+    length: int
+    max_combo: int
+    mode: int
+    od: float
+    playcount: int
+    status: str
+    title: str
+    version: str
