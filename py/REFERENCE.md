@@ -8,7 +8,7 @@ Complete API reference for the OsuBeatmap Python SDK.
 ### Constructor
 
 ```python
-from osu-beatmap_sdk import OsuBeatmapSDK
+from osubeatmap_sdk import OsuBeatmapSDK
 
 client = OsuBeatmapSDK(options)
 ```
@@ -95,26 +95,26 @@ beatmap = client.Beatmap()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `approved_date` | ``$STRING`` | No |  |
-| `ar` | ``$NUMBER`` | No |  |
-| `artist` | ``$STRING`` | No |  |
-| `beatmapset_id` | ``$INTEGER`` | No |  |
-| `bpm` | ``$NUMBER`` | No |  |
-| `creator` | ``$STRING`` | No |  |
-| `cs` | ``$NUMBER`` | No |  |
-| `difficulty_rating` | ``$NUMBER`` | No |  |
-| `favourite_count` | ``$INTEGER`` | No |  |
-| `hp` | ``$NUMBER`` | No |  |
-| `id` | ``$INTEGER`` | No |  |
-| `last_updated` | ``$STRING`` | No |  |
-| `length` | ``$INTEGER`` | No |  |
-| `max_combo` | ``$INTEGER`` | No |  |
-| `mode` | ``$INTEGER`` | No |  |
-| `od` | ``$NUMBER`` | No |  |
-| `playcount` | ``$INTEGER`` | No |  |
-| `status` | ``$STRING`` | No |  |
-| `title` | ``$STRING`` | No |  |
-| `version` | ``$STRING`` | No |  |
+| `approved_date` | `str` | No |  |
+| `ar` | `float` | No |  |
+| `artist` | `str` | No |  |
+| `beatmapset_id` | `int` | No |  |
+| `bpm` | `float` | No |  |
+| `creator` | `str` | No |  |
+| `cs` | `float` | No |  |
+| `difficulty_rating` | `float` | No |  |
+| `favourite_count` | `int` | No |  |
+| `hp` | `float` | No |  |
+| `id` | `int` | No |  |
+| `last_updated` | `str` | No |  |
+| `length` | `int` | No |  |
+| `max_combo` | `int` | No |  |
+| `mode` | `int` | No |  |
+| `od` | `float` | No |  |
+| `playcount` | `int` | No |  |
+| `status` | `str` | No |  |
+| `title` | `str` | No |  |
+| `version` | `str` | No |  |
 
 ### Operations
 
@@ -210,35 +210,35 @@ search = client.Search()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `approved_date` | ``$STRING`` | No |  |
-| `ar` | ``$NUMBER`` | No |  |
-| `artist` | ``$STRING`` | No |  |
-| `beatmapset_id` | ``$INTEGER`` | No |  |
-| `bpm` | ``$NUMBER`` | No |  |
-| `creator` | ``$STRING`` | No |  |
-| `cs` | ``$NUMBER`` | No |  |
-| `difficulty_rating` | ``$NUMBER`` | No |  |
-| `favourite_count` | ``$INTEGER`` | No |  |
-| `hp` | ``$NUMBER`` | No |  |
-| `id` | ``$INTEGER`` | No |  |
-| `last_updated` | ``$STRING`` | No |  |
-| `length` | ``$INTEGER`` | No |  |
-| `max_combo` | ``$INTEGER`` | No |  |
-| `mode` | ``$INTEGER`` | No |  |
-| `od` | ``$NUMBER`` | No |  |
-| `playcount` | ``$INTEGER`` | No |  |
-| `status` | ``$STRING`` | No |  |
-| `title` | ``$STRING`` | No |  |
-| `version` | ``$STRING`` | No |  |
+| `approved_date` | `str` | No |  |
+| `ar` | `float` | No |  |
+| `artist` | `str` | No |  |
+| `beatmapset_id` | `int` | No |  |
+| `bpm` | `float` | No |  |
+| `creator` | `str` | No |  |
+| `cs` | `float` | No |  |
+| `difficulty_rating` | `float` | No |  |
+| `favourite_count` | `int` | No |  |
+| `hp` | `float` | No |  |
+| `id` | `int` | No |  |
+| `last_updated` | `str` | No |  |
+| `length` | `int` | No |  |
+| `max_combo` | `int` | No |  |
+| `mode` | `int` | No |  |
+| `od` | `float` | No |  |
+| `playcount` | `int` | No |  |
+| `status` | `str` | No |  |
+| `title` | `str` | No |  |
+| `version` | `str` | No |  |
 
 ### Operations
 
-#### `list(reqmatch, ctrl=None) -> list`
+#### `list(reqmatch=None, ctrl=None) -> list`
 
-List entities matching the given criteria. Returns a list and raises on error.
+List entities matching the given criteria. The match is optional — call `list()` with no argument to list all records. Returns a list and raises on error.
 
 ```python
-results = client.Search().list({})
+results = client.Search().list()
 for search in results:
     print(search)
 ```

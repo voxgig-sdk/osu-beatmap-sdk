@@ -79,7 +79,7 @@ class Search
     public ?string $version = null;
 }
 
-/** Match filter for Search#list (any subset of Search fields). */
+/** Request payload for Search#list. */
 class SearchListMatch
 {
     public ?string $approved_date = null;

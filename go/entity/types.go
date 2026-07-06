@@ -70,8 +70,7 @@ type Search struct {
 	Version *string `json:"version,omitempty"`
 }
 
-// SearchListMatch mirrors the search fields as an all-optional match
-// filter (Go analog of Partial<Search>).
+// SearchListMatch is the typed request payload for Search.ListTyped.
 type SearchListMatch struct {
 	ApprovedDate *string `json:"approved_date,omitempty"`
 	Ar *float64 `json:"ar,omitempty"`

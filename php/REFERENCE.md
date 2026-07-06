@@ -8,7 +8,7 @@ Complete API reference for the OsuBeatmap PHP SDK.
 ### Constructor
 
 ```php
-require_once __DIR__ . '/osu-beatmap_sdk.php';
+require_once __DIR__ . '/osubeatmap_sdk.php';
 
 $client = new OsuBeatmapSDK($options);
 ```
@@ -53,11 +53,11 @@ Create a new `DownloadEntity` instance. Pass `null` for no initial data.
 
 Create a new `SearchEntity` instance. Pass `null` for no initial data.
 
-#### `optionsMap(): array`
+#### `options_map(): array`
 
 Return a deep copy of the current SDK options.
 
-#### `getUtility(): ProjectNameUtility`
+#### `get_utility(): OsuBeatmapUtility`
 
 Return a copy of the SDK utility object.
 
@@ -100,26 +100,26 @@ $beatmap = $client->Beatmap();
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `approved_date` | ``$STRING`` | No |  |
-| `ar` | ``$NUMBER`` | No |  |
-| `artist` | ``$STRING`` | No |  |
-| `beatmapset_id` | ``$INTEGER`` | No |  |
-| `bpm` | ``$NUMBER`` | No |  |
-| `creator` | ``$STRING`` | No |  |
-| `cs` | ``$NUMBER`` | No |  |
-| `difficulty_rating` | ``$NUMBER`` | No |  |
-| `favourite_count` | ``$INTEGER`` | No |  |
-| `hp` | ``$NUMBER`` | No |  |
-| `id` | ``$INTEGER`` | No |  |
-| `last_updated` | ``$STRING`` | No |  |
-| `length` | ``$INTEGER`` | No |  |
-| `max_combo` | ``$INTEGER`` | No |  |
-| `mode` | ``$INTEGER`` | No |  |
-| `od` | ``$NUMBER`` | No |  |
-| `playcount` | ``$INTEGER`` | No |  |
-| `status` | ``$STRING`` | No |  |
-| `title` | ``$STRING`` | No |  |
-| `version` | ``$STRING`` | No |  |
+| `approved_date` | `string` | No |  |
+| `ar` | `float` | No |  |
+| `artist` | `string` | No |  |
+| `beatmapset_id` | `int` | No |  |
+| `bpm` | `float` | No |  |
+| `creator` | `string` | No |  |
+| `cs` | `float` | No |  |
+| `difficulty_rating` | `float` | No |  |
+| `favourite_count` | `int` | No |  |
+| `hp` | `float` | No |  |
+| `id` | `int` | No |  |
+| `last_updated` | `string` | No |  |
+| `length` | `int` | No |  |
+| `max_combo` | `int` | No |  |
+| `mode` | `int` | No |  |
+| `od` | `float` | No |  |
+| `playcount` | `int` | No |  |
+| `status` | `string` | No |  |
+| `title` | `string` | No |  |
+| `version` | `string` | No |  |
 
 ### Operations
 
@@ -133,19 +133,19 @@ $result = $client->Beatmap()->load(["id" => "beatmap_id"]);
 
 ### Common Methods
 
-#### `dataGet(): array`
+#### `data_get(): array`
 
 Get the entity data. Returns a copy of the current data.
 
-#### `dataSet($data): void`
+#### `data_set($data): void`
 
 Set the entity data.
 
-#### `matchGet(): array`
+#### `match_get(): array`
 
 Get the entity match criteria.
 
-#### `matchSet($match): void`
+#### `match_set($match): void`
 
 Set the entity match criteria.
 
@@ -154,7 +154,7 @@ Set the entity match criteria.
 Create a new `BeatmapEntity` instance with the same client and
 options.
 
-#### `getName(): string`
+#### `get_name(): string`
 
 Return the entity name.
 
@@ -179,19 +179,19 @@ $result = $client->Download()->load(["id" => "download_id"]);
 
 ### Common Methods
 
-#### `dataGet(): array`
+#### `data_get(): array`
 
 Get the entity data. Returns a copy of the current data.
 
-#### `dataSet($data): void`
+#### `data_set($data): void`
 
 Set the entity data.
 
-#### `matchGet(): array`
+#### `match_get(): array`
 
 Get the entity match criteria.
 
-#### `matchSet($match): void`
+#### `match_set($match): void`
 
 Set the entity match criteria.
 
@@ -200,7 +200,7 @@ Set the entity match criteria.
 Create a new `DownloadEntity` instance with the same client and
 options.
 
-#### `getName(): string`
+#### `get_name(): string`
 
 Return the entity name.
 
@@ -217,52 +217,52 @@ $search = $client->Search();
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `approved_date` | ``$STRING`` | No |  |
-| `ar` | ``$NUMBER`` | No |  |
-| `artist` | ``$STRING`` | No |  |
-| `beatmapset_id` | ``$INTEGER`` | No |  |
-| `bpm` | ``$NUMBER`` | No |  |
-| `creator` | ``$STRING`` | No |  |
-| `cs` | ``$NUMBER`` | No |  |
-| `difficulty_rating` | ``$NUMBER`` | No |  |
-| `favourite_count` | ``$INTEGER`` | No |  |
-| `hp` | ``$NUMBER`` | No |  |
-| `id` | ``$INTEGER`` | No |  |
-| `last_updated` | ``$STRING`` | No |  |
-| `length` | ``$INTEGER`` | No |  |
-| `max_combo` | ``$INTEGER`` | No |  |
-| `mode` | ``$INTEGER`` | No |  |
-| `od` | ``$NUMBER`` | No |  |
-| `playcount` | ``$INTEGER`` | No |  |
-| `status` | ``$STRING`` | No |  |
-| `title` | ``$STRING`` | No |  |
-| `version` | ``$STRING`` | No |  |
+| `approved_date` | `string` | No |  |
+| `ar` | `float` | No |  |
+| `artist` | `string` | No |  |
+| `beatmapset_id` | `int` | No |  |
+| `bpm` | `float` | No |  |
+| `creator` | `string` | No |  |
+| `cs` | `float` | No |  |
+| `difficulty_rating` | `float` | No |  |
+| `favourite_count` | `int` | No |  |
+| `hp` | `float` | No |  |
+| `id` | `int` | No |  |
+| `last_updated` | `string` | No |  |
+| `length` | `int` | No |  |
+| `max_combo` | `int` | No |  |
+| `mode` | `int` | No |  |
+| `od` | `float` | No |  |
+| `playcount` | `int` | No |  |
+| `status` | `string` | No |  |
+| `title` | `string` | No |  |
+| `version` | `string` | No |  |
 
 ### Operations
 
-#### `list(array $reqmatch, ?array $ctrl = null): mixed`
+#### `list(?array $reqmatch = null, ?array $ctrl = null): mixed`
 
-List entities matching the given criteria. Returns an array. Throws on error.
+List entities matching the given criteria (call with no argument to list all). Returns an array. Throws on error.
 
 ```php
-$results = $client->Search()->list([]);
+$results = $client->Search()->list();
 ```
 
 ### Common Methods
 
-#### `dataGet(): array`
+#### `data_get(): array`
 
 Get the entity data. Returns a copy of the current data.
 
-#### `dataSet($data): void`
+#### `data_set($data): void`
 
 Set the entity data.
 
-#### `matchGet(): array`
+#### `match_get(): array`
 
 Get the entity match criteria.
 
-#### `matchSet($match): void`
+#### `match_set($match): void`
 
 Set the entity match criteria.
 
@@ -271,7 +271,7 @@ Set the entity match criteria.
 Create a new `SearchEntity` instance with the same client and
 options.
 
-#### `getName(): string`
+#### `get_name(): string`
 
 Return the entity name.
 

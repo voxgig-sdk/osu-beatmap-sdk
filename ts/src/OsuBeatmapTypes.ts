@@ -62,5 +62,26 @@ export interface Search {
   version?: string
 }
 
-export type SearchListMatch = Partial<Search>
+export interface SearchListMatch {
+  approved_date?: string
+  ar?: number
+  artist?: string
+  beatmapset_id?: number
+  bpm?: number
+  creator?: string
+  cs?: number
+  difficulty_rating?: number
+  favourite_count?: number
+  hp?: number
+  id?: number
+  last_updated?: string
+  length?: number
+  max_combo?: number
+  mode?: number
+  od?: number
+  playcount?: number
+  status?: string
+  title?: string
+  version?: string
+}
 

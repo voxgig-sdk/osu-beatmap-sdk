@@ -140,26 +140,26 @@ const beatmap = client.Beatmap()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `approved_date` | ``$STRING`` | No |  |
-| `ar` | ``$NUMBER`` | No |  |
-| `artist` | ``$STRING`` | No |  |
-| `beatmapset_id` | ``$INTEGER`` | No |  |
-| `bpm` | ``$NUMBER`` | No |  |
-| `creator` | ``$STRING`` | No |  |
-| `cs` | ``$NUMBER`` | No |  |
-| `difficulty_rating` | ``$NUMBER`` | No |  |
-| `favourite_count` | ``$INTEGER`` | No |  |
-| `hp` | ``$NUMBER`` | No |  |
-| `id` | ``$INTEGER`` | No |  |
-| `last_updated` | ``$STRING`` | No |  |
-| `length` | ``$INTEGER`` | No |  |
-| `max_combo` | ``$INTEGER`` | No |  |
-| `mode` | ``$INTEGER`` | No |  |
-| `od` | ``$NUMBER`` | No |  |
-| `playcount` | ``$INTEGER`` | No |  |
-| `status` | ``$STRING`` | No |  |
-| `title` | ``$STRING`` | No |  |
-| `version` | ``$STRING`` | No |  |
+| `approved_date` | `string` | No |  |
+| `ar` | `number` | No |  |
+| `artist` | `string` | No |  |
+| `beatmapset_id` | `number` | No |  |
+| `bpm` | `number` | No |  |
+| `creator` | `string` | No |  |
+| `cs` | `number` | No |  |
+| `difficulty_rating` | `number` | No |  |
+| `favourite_count` | `number` | No |  |
+| `hp` | `number` | No |  |
+| `id` | `number` | No |  |
+| `last_updated` | `string` | No |  |
+| `length` | `number` | No |  |
+| `max_combo` | `number` | No |  |
+| `mode` | `number` | No |  |
+| `od` | `number` | No |  |
+| `playcount` | `number` | No |  |
+| `status` | `string` | No |  |
+| `title` | `string` | No |  |
+| `version` | `string` | No |  |
 
 ### Operations
 
@@ -168,7 +168,7 @@ const beatmap = client.Beatmap()
 Load a single entity matching the given criteria.
 
 ```ts
-const result = await client.Beatmap().load({ id: 'beatmap_id' })
+const result = await client.Beatmap().load({ id: 1 })
 ```
 
 ### Common Methods
@@ -212,7 +212,7 @@ const download = client.Download()
 Load a single entity matching the given criteria.
 
 ```ts
-const result = await client.Download().load({ id: 'download_id' })
+const result = await client.Download().load({ id: 1 })
 ```
 
 ### Common Methods
@@ -253,26 +253,26 @@ const search = client.Search()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `approved_date` | ``$STRING`` | No |  |
-| `ar` | ``$NUMBER`` | No |  |
-| `artist` | ``$STRING`` | No |  |
-| `beatmapset_id` | ``$INTEGER`` | No |  |
-| `bpm` | ``$NUMBER`` | No |  |
-| `creator` | ``$STRING`` | No |  |
-| `cs` | ``$NUMBER`` | No |  |
-| `difficulty_rating` | ``$NUMBER`` | No |  |
-| `favourite_count` | ``$INTEGER`` | No |  |
-| `hp` | ``$NUMBER`` | No |  |
-| `id` | ``$INTEGER`` | No |  |
-| `last_updated` | ``$STRING`` | No |  |
-| `length` | ``$INTEGER`` | No |  |
-| `max_combo` | ``$INTEGER`` | No |  |
-| `mode` | ``$INTEGER`` | No |  |
-| `od` | ``$NUMBER`` | No |  |
-| `playcount` | ``$INTEGER`` | No |  |
-| `status` | ``$STRING`` | No |  |
-| `title` | ``$STRING`` | No |  |
-| `version` | ``$STRING`` | No |  |
+| `approved_date` | `string` | No |  |
+| `ar` | `number` | No |  |
+| `artist` | `string` | No |  |
+| `beatmapset_id` | `number` | No |  |
+| `bpm` | `number` | No |  |
+| `creator` | `string` | No |  |
+| `cs` | `number` | No |  |
+| `difficulty_rating` | `number` | No |  |
+| `favourite_count` | `number` | No |  |
+| `hp` | `number` | No |  |
+| `id` | `number` | No |  |
+| `last_updated` | `string` | No |  |
+| `length` | `number` | No |  |
+| `max_combo` | `number` | No |  |
+| `mode` | `number` | No |  |
+| `od` | `number` | No |  |
+| `playcount` | `number` | No |  |
+| `status` | `string` | No |  |
+| `title` | `string` | No |  |
+| `version` | `string` | No |  |
 
 ### Operations
 

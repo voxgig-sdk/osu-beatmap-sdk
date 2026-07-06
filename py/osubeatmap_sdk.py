@@ -221,19 +221,19 @@ class OsuBeatmapSDK:
 
 
     def Beatmap(self, data=None) -> "BeatmapEntity":
-        """Entity factory: client.Beatmap().list({}) / client.Beatmap().load({"id": ...})."""
+        """Entity factory: client.Beatmap().list() / client.Beatmap().load({"id": ...})."""
         from entity.beatmap_entity import BeatmapEntity
         return BeatmapEntity(self, data)
 
 
     def Download(self, data=None) -> "DownloadEntity":
-        """Entity factory: client.Download().list({}) / client.Download().load({"id": ...})."""
+        """Entity factory: client.Download().list() / client.Download().load({"id": ...})."""
         from entity.download_entity import DownloadEntity
         return DownloadEntity(self, data)
 
 
     def Search(self, data=None) -> "SearchEntity":
-        """Entity factory: client.Search().list({}) / client.Search().load({"id": ...})."""
+        """Entity factory: client.Search().list() / client.Search().load({"id": ...})."""
         from entity.search_entity import SearchEntity
         return SearchEntity(self, data)
 

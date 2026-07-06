@@ -105,26 +105,26 @@ beatmap := client.Beatmap(nil)
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `approved_date` | ``$STRING`` | No |  |
-| `ar` | ``$NUMBER`` | No |  |
-| `artist` | ``$STRING`` | No |  |
-| `beatmapset_id` | ``$INTEGER`` | No |  |
-| `bpm` | ``$NUMBER`` | No |  |
-| `creator` | ``$STRING`` | No |  |
-| `cs` | ``$NUMBER`` | No |  |
-| `difficulty_rating` | ``$NUMBER`` | No |  |
-| `favourite_count` | ``$INTEGER`` | No |  |
-| `hp` | ``$NUMBER`` | No |  |
-| `id` | ``$INTEGER`` | No |  |
-| `last_updated` | ``$STRING`` | No |  |
-| `length` | ``$INTEGER`` | No |  |
-| `max_combo` | ``$INTEGER`` | No |  |
-| `mode` | ``$INTEGER`` | No |  |
-| `od` | ``$NUMBER`` | No |  |
-| `playcount` | ``$INTEGER`` | No |  |
-| `status` | ``$STRING`` | No |  |
-| `title` | ``$STRING`` | No |  |
-| `version` | ``$STRING`` | No |  |
+| `approved_date` | `string` | No |  |
+| `ar` | `float64` | No |  |
+| `artist` | `string` | No |  |
+| `beatmapset_id` | `int` | No |  |
+| `bpm` | `float64` | No |  |
+| `creator` | `string` | No |  |
+| `cs` | `float64` | No |  |
+| `difficulty_rating` | `float64` | No |  |
+| `favourite_count` | `int` | No |  |
+| `hp` | `float64` | No |  |
+| `id` | `int` | No |  |
+| `last_updated` | `string` | No |  |
+| `length` | `int` | No |  |
+| `max_combo` | `int` | No |  |
+| `mode` | `int` | No |  |
+| `od` | `float64` | No |  |
+| `playcount` | `int` | No |  |
+| `status` | `string` | No |  |
+| `title` | `string` | No |  |
+| `version` | `string` | No |  |
 
 ### Operations
 
@@ -210,26 +210,26 @@ search := client.Search(nil)
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `approved_date` | ``$STRING`` | No |  |
-| `ar` | ``$NUMBER`` | No |  |
-| `artist` | ``$STRING`` | No |  |
-| `beatmapset_id` | ``$INTEGER`` | No |  |
-| `bpm` | ``$NUMBER`` | No |  |
-| `creator` | ``$STRING`` | No |  |
-| `cs` | ``$NUMBER`` | No |  |
-| `difficulty_rating` | ``$NUMBER`` | No |  |
-| `favourite_count` | ``$INTEGER`` | No |  |
-| `hp` | ``$NUMBER`` | No |  |
-| `id` | ``$INTEGER`` | No |  |
-| `last_updated` | ``$STRING`` | No |  |
-| `length` | ``$INTEGER`` | No |  |
-| `max_combo` | ``$INTEGER`` | No |  |
-| `mode` | ``$INTEGER`` | No |  |
-| `od` | ``$NUMBER`` | No |  |
-| `playcount` | ``$INTEGER`` | No |  |
-| `status` | ``$STRING`` | No |  |
-| `title` | ``$STRING`` | No |  |
-| `version` | ``$STRING`` | No |  |
+| `approved_date` | `string` | No |  |
+| `ar` | `float64` | No |  |
+| `artist` | `string` | No |  |
+| `beatmapset_id` | `int` | No |  |
+| `bpm` | `float64` | No |  |
+| `creator` | `string` | No |  |
+| `cs` | `float64` | No |  |
+| `difficulty_rating` | `float64` | No |  |
+| `favourite_count` | `int` | No |  |
+| `hp` | `float64` | No |  |
+| `id` | `int` | No |  |
+| `last_updated` | `string` | No |  |
+| `length` | `int` | No |  |
+| `max_combo` | `int` | No |  |
+| `mode` | `int` | No |  |
+| `od` | `float64` | No |  |
+| `playcount` | `int` | No |  |
+| `status` | `string` | No |  |
+| `title` | `string` | No |  |
+| `version` | `string` | No |  |
 
 ### Operations
 

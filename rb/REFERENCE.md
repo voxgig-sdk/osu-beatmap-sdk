@@ -8,7 +8,7 @@ Complete API reference for the OsuBeatmap Ruby SDK.
 ### Constructor
 
 ```ruby
-require_relative 'osu-beatmap_sdk'
+require_relative 'OsuBeatmap_sdk'
 
 client = OsuBeatmapSDK.new(options)
 ```
@@ -101,26 +101,26 @@ beatmap = client.Beatmap
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `approved_date` | ``$STRING`` | No |  |
-| `ar` | ``$NUMBER`` | No |  |
-| `artist` | ``$STRING`` | No |  |
-| `beatmapset_id` | ``$INTEGER`` | No |  |
-| `bpm` | ``$NUMBER`` | No |  |
-| `creator` | ``$STRING`` | No |  |
-| `cs` | ``$NUMBER`` | No |  |
-| `difficulty_rating` | ``$NUMBER`` | No |  |
-| `favourite_count` | ``$INTEGER`` | No |  |
-| `hp` | ``$NUMBER`` | No |  |
-| `id` | ``$INTEGER`` | No |  |
-| `last_updated` | ``$STRING`` | No |  |
-| `length` | ``$INTEGER`` | No |  |
-| `max_combo` | ``$INTEGER`` | No |  |
-| `mode` | ``$INTEGER`` | No |  |
-| `od` | ``$NUMBER`` | No |  |
-| `playcount` | ``$INTEGER`` | No |  |
-| `status` | ``$STRING`` | No |  |
-| `title` | ``$STRING`` | No |  |
-| `version` | ``$STRING`` | No |  |
+| `approved_date` | `String` | No |  |
+| `ar` | `Float` | No |  |
+| `artist` | `String` | No |  |
+| `beatmapset_id` | `Integer` | No |  |
+| `bpm` | `Float` | No |  |
+| `creator` | `String` | No |  |
+| `cs` | `Float` | No |  |
+| `difficulty_rating` | `Float` | No |  |
+| `favourite_count` | `Integer` | No |  |
+| `hp` | `Float` | No |  |
+| `id` | `Integer` | No |  |
+| `last_updated` | `String` | No |  |
+| `length` | `Integer` | No |  |
+| `max_combo` | `Integer` | No |  |
+| `mode` | `Integer` | No |  |
+| `od` | `Float` | No |  |
+| `playcount` | `Integer` | No |  |
+| `status` | `String` | No |  |
+| `title` | `String` | No |  |
+| `version` | `String` | No |  |
 
 ### Operations
 
@@ -218,35 +218,35 @@ search = client.Search
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `approved_date` | ``$STRING`` | No |  |
-| `ar` | ``$NUMBER`` | No |  |
-| `artist` | ``$STRING`` | No |  |
-| `beatmapset_id` | ``$INTEGER`` | No |  |
-| `bpm` | ``$NUMBER`` | No |  |
-| `creator` | ``$STRING`` | No |  |
-| `cs` | ``$NUMBER`` | No |  |
-| `difficulty_rating` | ``$NUMBER`` | No |  |
-| `favourite_count` | ``$INTEGER`` | No |  |
-| `hp` | ``$NUMBER`` | No |  |
-| `id` | ``$INTEGER`` | No |  |
-| `last_updated` | ``$STRING`` | No |  |
-| `length` | ``$INTEGER`` | No |  |
-| `max_combo` | ``$INTEGER`` | No |  |
-| `mode` | ``$INTEGER`` | No |  |
-| `od` | ``$NUMBER`` | No |  |
-| `playcount` | ``$INTEGER`` | No |  |
-| `status` | ``$STRING`` | No |  |
-| `title` | ``$STRING`` | No |  |
-| `version` | ``$STRING`` | No |  |
+| `approved_date` | `String` | No |  |
+| `ar` | `Float` | No |  |
+| `artist` | `String` | No |  |
+| `beatmapset_id` | `Integer` | No |  |
+| `bpm` | `Float` | No |  |
+| `creator` | `String` | No |  |
+| `cs` | `Float` | No |  |
+| `difficulty_rating` | `Float` | No |  |
+| `favourite_count` | `Integer` | No |  |
+| `hp` | `Float` | No |  |
+| `id` | `Integer` | No |  |
+| `last_updated` | `String` | No |  |
+| `length` | `Integer` | No |  |
+| `max_combo` | `Integer` | No |  |
+| `mode` | `Integer` | No |  |
+| `od` | `Float` | No |  |
+| `playcount` | `Integer` | No |  |
+| `status` | `String` | No |  |
+| `title` | `String` | No |  |
+| `version` | `String` | No |  |
 
 ### Operations
 
-#### `list(reqmatch, ctrl = nil) -> Array`
+#### `list(reqmatch = nil, ctrl = nil) -> Array`
 
-List entities matching the given criteria. Returns an array. Raises on error.
+List entities matching the given criteria (call with no argument to list all). Returns an array. Raises on error.
 
 ```ruby
-results = client.Search.list(nil)
+results = client.Search.list
 ```
 
 ### Common Methods
