@@ -6,9 +6,6 @@
     },
     "kit": {
       "config": {
-        "auth": {
-          "prefix": "Bearer"
-        },
         "docs_order": [
           "ts",
           "py",
@@ -660,14 +657,17 @@
           "url": "https://osu.direct/api/docs"
         },
         "description": "Search, discover, and download osu! beatmaps effortlessly.",
+        "meta_source": "https://www.freepublicapis.com",
         "servers": [
           {
             "description": "Production server",
             "url": "https://osu.direct/api"
           }
         ],
+        "summary": "Search, discover, and download osu!",
         "title": "osu! beatmap API",
-        "version": "1.0.0"
+        "version": "1.0.0",
+        "website": "https://osu.direct"
       },
       "option": {},
       "target": {
@@ -720,6 +720,9 @@
           },
           "name": "go-cli",
           "phase": {
+            "agentguide": {
+              "active": false
+            },
             "entity": {
               "active": false
             },
@@ -770,6 +773,9 @@
           },
           "name": "go-mcp",
           "phase": {
+            "agentguide": {
+              "active": false
+            },
             "entity": {
               "active": false
             },

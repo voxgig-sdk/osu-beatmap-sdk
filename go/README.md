@@ -368,7 +368,7 @@ Create an instance: `beatmap := client.Beatmap(nil)`
 #### Example: Load
 
 ```go
-beatmap, err := client.Beatmap(nil).Load(map[string]any{"id": "beatmap_id"}, nil)
+beatmap, err := client.Beatmap(nil).Load(map[string]any{"id": 1}, nil)
 if err != nil {
     panic(err)
 }
@@ -389,7 +389,7 @@ Create an instance: `download := client.Download(nil)`
 #### Example: Load
 
 ```go
-download, err := client.Download(nil).Load(map[string]any{"id": "download_id"}, nil)
+download, err := client.Download(nil).Load(map[string]any{"id": 1}, nil)
 if err != nil {
     panic(err)
 }

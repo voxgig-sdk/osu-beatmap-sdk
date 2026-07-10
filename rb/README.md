@@ -35,7 +35,7 @@ client = OsuBeatmapSDK.new
 ```ruby
 begin
   # load returns the bare Beatmap record (raises on error).
-  beatmap = client.Beatmap.load({ "id" => "example_id" })
+  beatmap = client.Beatmap.load({ "id" => 1 })
   puts beatmap
 rescue => err
   warn "load failed: #{err}"
@@ -347,7 +347,7 @@ Create an instance: `beatmap = client.Beatmap`
 
 ```ruby
 # load returns the bare Beatmap record (raises on error).
-beatmap = client.Beatmap.load({ "id" => "beatmap_id" })
+beatmap = client.Beatmap.load({ "id" => 1 })
 ```
 
 
@@ -365,7 +365,7 @@ Create an instance: `download = client.Download`
 
 ```ruby
 # load returns the bare Download record (raises on error).
-download = client.Download.load({ "id" => "download_id" })
+download = client.Download.load({ "id" => 1 })
 ```
 
 

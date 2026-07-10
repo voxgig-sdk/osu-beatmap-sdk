@@ -42,7 +42,7 @@ client = OsuBeatmapSDK()
 
 ```python
 try:
-    beatmap = client.Beatmap().load({"id": "example_id"})
+    beatmap = client.Beatmap().load({"id": 1})
     print(beatmap)
 except Exception as err:
     print(f"load failed: {err}")
@@ -349,7 +349,7 @@ Create an instance: `beatmap = client.Beatmap()`
 #### Example: Load
 
 ```python
-beatmap = client.Beatmap().load({"id": "beatmap_id"})
+beatmap = client.Beatmap().load({"id": 1})
 ```
 
 
@@ -366,7 +366,7 @@ Create an instance: `download = client.Download()`
 #### Example: Load
 
 ```python
-download = client.Download().load({"id": "download_id"})
+download = client.Download().load({"id": 1})
 ```
 
 

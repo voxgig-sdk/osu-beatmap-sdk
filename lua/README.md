@@ -36,7 +36,7 @@ local client = sdk.new()
 ### 3. Load a beatmap
 
 ```lua
-local beatmap, err = client:Beatmap():load({ id = "example_id" })
+local beatmap, err = client:Beatmap():load({ id = 1 })
 if err then error(err) end
 print(beatmap)
 ```
@@ -335,7 +335,7 @@ Create an instance: `local beatmap = client:Beatmap(nil)`
 #### Example: Load
 
 ```lua
-local beatmap, err = client:Beatmap():load({ id = "beatmap_id" })
+local beatmap, err = client:Beatmap():load({ id = 1 })
 ```
 
 
@@ -352,7 +352,7 @@ Create an instance: `local download = client:Download(nil)`
 #### Example: Load
 
 ```lua
-local download, err = client:Download():load({ id = "download_id" })
+local download, err = client:Download():load({ id = 1 })
 ```
 
 

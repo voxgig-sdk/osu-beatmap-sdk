@@ -36,7 +36,7 @@ $client = new OsuBeatmapSDK();
 ```php
 try {
     // load() returns the bare Beatmap record (throws on error).
-    $beatmap = $client->Beatmap()->load(["id" => "example_id"]);
+    $beatmap = $client->Beatmap()->load(["id" => 1]);
     print_r($beatmap);
 } catch (\Throwable $err) {
     echo "Error: " . $err->getMessage();
@@ -357,7 +357,7 @@ Create an instance: `$beatmap = $client->Beatmap();`
 
 ```php
 // load() returns the bare Beatmap record (throws on error).
-$beatmap = $client->Beatmap()->load(["id" => "beatmap_id"]);
+$beatmap = $client->Beatmap()->load(["id" => 1]);
 ```
 
 
@@ -375,7 +375,7 @@ Create an instance: `$download = $client->Download();`
 
 ```php
 // load() returns the bare Download record (throws on error).
-$download = $client->Download()->load(["id" => "download_id"]);
+$download = $client->Download()->load(["id" => 1]);
 ```
 
 

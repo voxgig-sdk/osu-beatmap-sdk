@@ -15,9 +15,9 @@ main: {
           url: "https://osu.direct/api"
         }
       ]
+      summary: "Search, discover, and download osu!"
       title: "osu! beatmap API"
       version: "1.0.0"
+      website: "https://osu.direct"
     }
   }
-}
-

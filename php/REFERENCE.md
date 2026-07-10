@@ -128,7 +128,7 @@ $beatmap = $client->Beatmap();
 Load a single entity matching the given criteria. Throws on error.
 
 ```php
-$result = $client->Beatmap()->load(["id" => "beatmap_id"]);
+$result = $client->Beatmap()->load(["id" => 1]);
 ```
 
 ### Common Methods
@@ -174,7 +174,7 @@ $download = $client->Download();
 Load a single entity matching the given criteria. Throws on error.
 
 ```php
-$result = $client->Download()->load(["id" => "download_id"]);
+$result = $client->Download()->load(["id" => 1]);
 ```
 
 ### Common Methods

@@ -126,7 +126,7 @@ local beatmap = client:Beatmap(nil)
 Load a single entity matching the given criteria.
 
 ```lua
-local result, err = client:Beatmap():load({ id = "beatmap_id" })
+local result, err = client:Beatmap():load({ id = 1 })
 ```
 
 ### Common Methods
@@ -172,7 +172,7 @@ local download = client:Download(nil)
 Load a single entity matching the given criteria.
 
 ```lua
-local result, err = client:Download():load({ id = "download_id" })
+local result, err = client:Download():load({ id = 1 })
 ```
 
 ### Common Methods
