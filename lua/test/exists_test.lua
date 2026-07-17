@@ -1,4 +1,4 @@
--- ProjectName SDK exists test
+-- OsuBeatmap SDK exists test
 
 local sdk = require("osu-beatmap_sdk")
 
