@@ -70,11 +70,11 @@ function beatmap_direct_setup(mockres)
   local calls = {}
 
   local env = runner.env_override({
-    ["OSUBEATMAP_TEST_BEATMAP_ENTID"] = {},
-    ["OSUBEATMAP_TEST_LIVE"] = "FALSE",
+    ["OSU_BEATMAP_TEST_BEATMAP_ENTID"] = {},
+    ["OSU_BEATMAP_TEST_LIVE"] = "FALSE",
   })
 
-  local live = env["OSUBEATMAP_TEST_LIVE"] == "TRUE"
+  local live = env["OSU_BEATMAP_TEST_LIVE"] == "TRUE"
 
   if live then
     local merged_opts = {

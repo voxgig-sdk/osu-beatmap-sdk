@@ -3,9 +3,9 @@
 import json
 import pytest
 
-from utility.voxgig_struct import voxgig_struct as vs
+from osubeatmap_sdk.utility.voxgig_struct import voxgig_struct as vs
 from osubeatmap_sdk import OsuBeatmapSDK
-from core import helpers
+from osubeatmap_sdk.core import helpers
 from test import runner
 
 
@@ -58,11 +58,11 @@ def _search_direct_setup(mockres):
     calls = []
 
     env = runner.env_override({
-        "OSUBEATMAP_TEST_SEARCH_ENTID": {},
-        "OSUBEATMAP_TEST_LIVE": "FALSE",
+        "OSU_BEATMAP_TEST_SEARCH_ENTID": {},
+        "OSU_BEATMAP_TEST_LIVE": "FALSE",
     })
 
-    live = env.get("OSUBEATMAP_TEST_LIVE") == "TRUE"
+    live = env.get("OSU_BEATMAP_TEST_LIVE") == "TRUE"
 
     if live:
         merged_opts = {

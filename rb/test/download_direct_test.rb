@@ -69,11 +69,11 @@ def download_direct_setup(mockres)
   calls = []
 
   env = Runner.env_override({
-    "OSUBEATMAP_TEST_DOWNLOAD_ENTID" => {},
-    "OSUBEATMAP_TEST_LIVE" => "FALSE",
+    "OSU_BEATMAP_TEST_DOWNLOAD_ENTID" => {},
+    "OSU_BEATMAP_TEST_LIVE" => "FALSE",
   })
 
-  live = env["OSUBEATMAP_TEST_LIVE"] == "TRUE"
+  live = env["OSU_BEATMAP_TEST_LIVE"] == "TRUE"
 
   if live
     merged_opts = {

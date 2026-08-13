@@ -26,8 +26,8 @@ import {
 describe('BeatmapEntity', async () => {
 
   // Per-test live pacing. Delay is read from sdk-test-control.json's
-  // `test.live.delayMs`; only sleeps when OSUBEATMAP_TEST_LIVE=TRUE.
-  afterEach(liveDelay('OSUBEATMAP_TEST_LIVE'))
+  // `test.live.delayMs`; only sleeps when OSU_BEATMAP_TEST_LIVE=TRUE.
+  afterEach(liveDelay('OSU_BEATMAP_TEST_LIVE'))
 
   test('instance', async () => {
     const testsdk = OsuBeatmapSDK.test()
@@ -63,7 +63,7 @@ describe('BeatmapEntity', async () => {
     const beatmap_ref01_ent = client.Beatmap()
     const beatmap_ref01_match_dt0: any = {}
     beatmap_ref01_match_dt0.id = beatmap_ref01_data.id
-    const beatmap_ref01_data_dt0 = await beatmap_ref01_ent.load(beatmap_ref01_match_dt0)
+    const beatmap_ref01_data_dt0 = (await beatmap_ref01_ent.load(beatmap_ref01_match_dt0)).data()
     assert(beatmap_ref01_data_dt0.id === beatmap_ref01_data.id)
 
 

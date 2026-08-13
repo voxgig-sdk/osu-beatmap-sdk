@@ -23,8 +23,8 @@ module OsuBeatmapTestRunner
   end
 
   def self.env_override(m)
-    live = getenv("OSUBEATMAP_TEST_LIVE")
-    override = getenv("OSUBEATMAP_TEST_OVERRIDE")
+    live = getenv("OSU_BEATMAP_TEST_LIVE")
+    override = getenv("OSU_BEATMAP_TEST_OVERRIDE")
 
     if live == "TRUE" || override == "TRUE"
       m.each_key do |key|
@@ -44,8 +44,8 @@ module OsuBeatmapTestRunner
       end
     end
 
-    explain = getenv("OSUBEATMAP_TEST_EXPLAIN")
-    m["OSUBEATMAP_TEST_EXPLAIN"] = explain if explain && !explain.empty?
+    explain = getenv("OSU_BEATMAP_TEST_EXPLAIN")
+    m["OSU_BEATMAP_TEST_EXPLAIN"] = explain if explain && !explain.empty?
 
     m
   end

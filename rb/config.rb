@@ -189,6 +189,7 @@ module OsuBeatmapConfig
                       },
                     ],
                   },
+                  "kind" => "http",
                   "method" => "GET",
                   "orig" => "/beatmaps/{id}",
                   "parts" => [
@@ -248,6 +249,7 @@ module OsuBeatmapConfig
                       },
                     ],
                   },
+                  "kind" => "http",
                   "method" => "GET",
                   "orig" => "/download/{id}",
                   "parts" => [
@@ -471,6 +473,7 @@ module OsuBeatmapConfig
                       },
                     ],
                   },
+                  "kind" => "http",
                   "method" => "GET",
                   "orig" => "/search",
                   "parts" => [
@@ -487,7 +490,7 @@ module OsuBeatmapConfig
                   },
                   "transform" => {
                     "req" => "`reqdata`",
-                    "res" => "`body`",
+                    "res" => "`body.beatmaps`",
                   },
                   "index$" => 0,
                 },

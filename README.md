@@ -23,7 +23,7 @@ support (`list`, `load`):
 
 ```ts
 const client = new OsuBeatmapSDK()
-const beatmap = await client.Beatmap().load()
+const beatmap = await client.Beatmap().load({ id: 1 })
 ```
 
 Thinking in entities keeps the mental model small — for people and AI agents alike —
@@ -38,9 +38,18 @@ network, and no credentials:
 ### TypeScript
 
 ```ts
-const client = OsuBeatmapSDK.test()
+// The offline mock starts EMPTY — seed it with the records the test needs.
+// Shape: { entity: { <entity-name>: { <id>: <record> } } }
+const client = OsuBeatmapSDK.test({
+  entity: {
+    beatmap: {
+      test01: { id: 'test01' },
+    },
+  },
+})
 const beatmap = await client.Beatmap().load({ id: 1 })
-// beatmap is a bare Beatmap populated with mock data
+// beatmap is the Beatmap entity, populated with mock data
+// — call beatmap.data() for the record itself
 console.log(beatmap)
 ```
 
@@ -184,7 +193,7 @@ require_once 'osubeatmap_sdk.php';
 $client = new OsuBeatmapSDK();
 
 
-// Load a specific beatmap (returns the bare record; throws on error)
+// Load a specific beatmap (returns the ENTITY; call data_get() for the record; throws on error)
 $beatmap = $client->Beatmap()->load(["id" => 1]);
 print_r($beatmap);
 ```
@@ -212,7 +221,7 @@ require_relative "OsuBeatmap_sdk"
 client = OsuBeatmapSDK.new
 
 
-# Load a specific beatmap (returns the bare record; raises on error)
+# Load a specific beatmap (returns the ENTITY; call data_get for the record)
 beatmap = client.Beatmap.load({ "id" => 1 })
 puts beatmap
 ```
@@ -346,6 +355,9 @@ Pass custom features via the `extend` option at construction time.
 
 This SDK is generated from the upstream OpenAPI specification. It is an
 unofficial client and is not affiliated with the API provider.
+
+The OpenAPI spec(s) this SDK was generated from are kept in the
+[`.sdk/def/`](.sdk/def/) folder.
 
 - Upstream API: [https://osu.direct/api/docs](https://osu.direct/api/docs)
 

@@ -75,11 +75,11 @@ function beatmap_direct_setup($mockres)
     $calls = new \ArrayObject();
 
     $env = Runner::env_override([
-        "OSUBEATMAP_TEST_BEATMAP_ENTID" => [],
-        "OSUBEATMAP_TEST_LIVE" => "FALSE",
+        "OSU_BEATMAP_TEST_BEATMAP_ENTID" => [],
+        "OSU_BEATMAP_TEST_LIVE" => "FALSE",
     ]);
 
-    $live = $env["OSUBEATMAP_TEST_LIVE"] === "TRUE";
+    $live = $env["OSU_BEATMAP_TEST_LIVE"] === "TRUE";
 
     if ($live) {
         $merged_opts = [

@@ -16,11 +16,11 @@
 import pytest
 
 from osubeatmap_sdk import OsuBeatmapSDK
-from core.error import OsuBeatmapError
-from core.result import OsuBeatmapResult
-from core.response import OsuBeatmapResponse
-from core.spec import OsuBeatmapSpec
-from feature.base_feature import OsuBeatmapBaseFeature
+from osubeatmap_sdk.core.error import OsuBeatmapError
+from osubeatmap_sdk.core.result import OsuBeatmapResult
+from osubeatmap_sdk.core.response import OsuBeatmapResponse
+from osubeatmap_sdk.core.spec import OsuBeatmapSpec
+from osubeatmap_sdk.feature.base_feature import OsuBeatmapBaseFeature
 
 
 def _client():

@@ -21,7 +21,7 @@ class Config {
 
 
   main = {
-    name: 'ProjectName',
+    name: 'OsuBeatmap',
   }
 
 
@@ -222,6 +222,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "GET",
               "orig": "/beatmaps/{id}",
               "parts": [
@@ -281,6 +282,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "GET",
               "orig": "/download/{id}",
               "parts": [
@@ -504,6 +506,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "GET",
               "orig": "/search",
               "parts": [
@@ -520,7 +523,7 @@ class Config {
               },
               "transform": {
                 "req": "`reqdata`",
-                "res": "`body`"
+                "res": "`body.beatmaps`"
               },
               "index$": 0
             }

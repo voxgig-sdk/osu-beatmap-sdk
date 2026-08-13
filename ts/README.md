@@ -121,7 +121,8 @@ Create a mock client for unit testing — no server required:
 const client = OsuBeatmapSDK.test()
 
 const beatmap = await client.Beatmap().load({ id: 1 })
-// beatmap is a bare entity populated with mock response data
+// beatmap is the entity, populated with mock response data
+// — call beatmap.data() for the record itself
 console.log(beatmap)
 ```
 

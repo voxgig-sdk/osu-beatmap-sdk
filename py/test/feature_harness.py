@@ -14,12 +14,12 @@ from __future__ import annotations
 
 from urllib.parse import quote
 
-from config import make_config
-from features import _make_feature
-from core.control import OsuBeatmapControl
-from core.error import OsuBeatmapError
-from core.result import OsuBeatmapResult
-from core.spec import OsuBeatmapSpec
+from osubeatmap_sdk.config import make_config
+from osubeatmap_sdk.features import _make_feature
+from osubeatmap_sdk.core.control import OsuBeatmapControl
+from osubeatmap_sdk.core.error import OsuBeatmapError
+from osubeatmap_sdk.core.result import OsuBeatmapResult
+from osubeatmap_sdk.core.spec import OsuBeatmapSpec
 
 
 # True when this SDK was generated with the named feature.

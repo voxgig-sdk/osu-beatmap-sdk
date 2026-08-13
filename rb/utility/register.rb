@@ -24,6 +24,7 @@ require_relative 'prepare_method'
 require_relative 'prepare_params'
 require_relative 'prepare_path'
 require_relative 'prepare_query'
+require_relative 'graphql'
 require_relative 'result_basic'
 require_relative 'result_body'
 require_relative 'result_headers'
@@ -55,6 +56,8 @@ OsuBeatmapUtility.registrar = ->(u) {
   u.prepare_params = OsuBeatmapUtilities::PrepareParams
   u.prepare_path = OsuBeatmapUtilities::PreparePath
   u.prepare_query = OsuBeatmapUtilities::PrepareQuery
+  u.graphql_body = OsuBeatmapUtilities::GraphqlBody
+  u.graphql_errors = OsuBeatmapUtilities::GraphqlErrors
   u.result_basic = OsuBeatmapUtilities::ResultBasic
   u.result_body = OsuBeatmapUtilities::ResultBody
   u.result_headers = OsuBeatmapUtilities::ResultHeaders

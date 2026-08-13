@@ -1,4 +1,4 @@
-# ProjectName SDK exists test
+# OsuBeatmap SDK exists test
 
 import pytest
 from osubeatmap_sdk import OsuBeatmapSDK

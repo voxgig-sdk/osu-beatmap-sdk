@@ -43,8 +43,8 @@ class OsuBeatmapTestRunner
 
     public static function env_override(array $m): array
     {
-        $live = self::getenv('OSUBEATMAP_TEST_LIVE');
-        $override = self::getenv('OSUBEATMAP_TEST_OVERRIDE');
+        $live = self::getenv('OSU_BEATMAP_TEST_LIVE');
+        $override = self::getenv('OSU_BEATMAP_TEST_OVERRIDE');
 
         if ($live === 'TRUE' || $override === 'TRUE') {
             foreach (array_keys($m) as $key) {
@@ -63,9 +63,9 @@ class OsuBeatmapTestRunner
             }
         }
 
-        $explain = self::getenv('OSUBEATMAP_TEST_EXPLAIN');
+        $explain = self::getenv('OSU_BEATMAP_TEST_EXPLAIN');
         if ($explain !== null && $explain !== '') {
-            $m['OSUBEATMAP_TEST_EXPLAIN'] = $explain;
+            $m['OSU_BEATMAP_TEST_EXPLAIN'] = $explain;
         }
 
         return $m;

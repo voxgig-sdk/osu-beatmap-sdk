@@ -188,6 +188,7 @@ local function make_config()
                     },
                   },
                 },
+                ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/beatmaps/{id}",
                 ["parts"] = {
@@ -247,6 +248,7 @@ local function make_config()
                     },
                   },
                 },
+                ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/download/{id}",
                 ["parts"] = {
@@ -470,6 +472,7 @@ local function make_config()
                     },
                   },
                 },
+                ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/search",
                 ["parts"] = {
@@ -486,7 +489,7 @@ local function make_config()
                 },
                 ["transform"] = {
                   ["req"] = "`reqdata`",
-                  ["res"] = "`body`",
+                  ["res"] = "`body.beatmaps`",
                 },
                 ["index$"] = 0,
               },

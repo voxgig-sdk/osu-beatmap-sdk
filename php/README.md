@@ -35,7 +35,7 @@ $client = new OsuBeatmapSDK();
 
 ```php
 try {
-    // load() returns the bare Beatmap record (throws on error).
+    // load() returns the ENTITY — call data_get() for the Beatmap record (throws on error).
     $beatmap = $client->Beatmap()->load(["id" => 1]);
     print_r($beatmap);
 } catch (\Throwable $err) {
@@ -126,7 +126,8 @@ $client = OsuBeatmapSDK::test([
     "entity" => ["beatmap" => ["test01" => ["id" => "test01"]]],
 ]);
 
-// Entity ops return the bare mock record (throws on error).
+// Entity ops return the ENTITY (throws on error);
+// call data_get() for the mock record.
 $beatmap = $client->Beatmap()->load(["id" => "test01"]);
 print_r($beatmap);
 ```
@@ -228,7 +229,7 @@ All entities share the same interface.
 
 ### Result shape
 
-Entity operations return the bare result data (an `array` for single-entity
+Entity operations return the ENTITY (call data_get() for the record) (an `array` for single-entity
 ops, a `list` for `list`) and throw on error. Wrap calls in
 `try`/`catch` to handle failures.
 
@@ -356,7 +357,7 @@ Create an instance: `$beatmap = $client->Beatmap();`
 #### Example: Load
 
 ```php
-// load() returns the bare Beatmap record (throws on error).
+// load() returns the ENTITY — call data_get() for the Beatmap record (throws on error).
 $beatmap = $client->Beatmap()->load(["id" => 1]);
 ```
 
@@ -374,7 +375,7 @@ Create an instance: `$download = $client->Download();`
 #### Example: Load
 
 ```php
-// load() returns the bare Download record (throws on error).
+// load() returns the ENTITY — call data_get() for the Download record (throws on error).
 $download = $client->Download()->load(["id" => 1]);
 ```
 

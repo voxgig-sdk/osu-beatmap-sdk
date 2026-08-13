@@ -194,6 +194,7 @@ class OsuBeatmapConfig
                       ],
                     ],
                   ],
+                  'kind' => 'http',
                   'method' => 'GET',
                   'orig' => '/beatmaps/{id}',
                   'parts' => [
@@ -253,6 +254,7 @@ class OsuBeatmapConfig
                       ],
                     ],
                   ],
+                  'kind' => 'http',
                   'method' => 'GET',
                   'orig' => '/download/{id}',
                   'parts' => [
@@ -476,6 +478,7 @@ class OsuBeatmapConfig
                       ],
                     ],
                   ],
+                  'kind' => 'http',
                   'method' => 'GET',
                   'orig' => '/search',
                   'parts' => [
@@ -492,7 +495,7 @@ class OsuBeatmapConfig
                   ],
                   'transform' => [
                     'req' => '`reqdata`',
-                    'res' => '`body`',
+                    'res' => '`body.beatmaps`',
                   ],
                   'index$' => 0,
                 ],

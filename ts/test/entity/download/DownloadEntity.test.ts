@@ -26,8 +26,8 @@ import {
 describe('DownloadEntity', async () => {
 
   // Per-test live pacing. Delay is read from sdk-test-control.json's
-  // `test.live.delayMs`; only sleeps when OSUBEATMAP_TEST_LIVE=TRUE.
-  afterEach(liveDelay('OSUBEATMAP_TEST_LIVE'))
+  // `test.live.delayMs`; only sleeps when OSU_BEATMAP_TEST_LIVE=TRUE.
+  afterEach(liveDelay('OSU_BEATMAP_TEST_LIVE'))
 
   test('instance', async () => {
     const testsdk = OsuBeatmapSDK.test()

@@ -34,7 +34,7 @@ client = OsuBeatmapSDK.new
 
 ```ruby
 begin
-  # load returns the bare Beatmap record (raises on error).
+  # load returns the ENTITY — call data_get for the Beatmap record (raises on error).
   beatmap = client.Beatmap.load({ "id" => 1 })
   puts beatmap
 rescue => err
@@ -120,7 +120,8 @@ client = OsuBeatmapSDK.test({
   "entity" => { "beatmap" => { "test01" => { "id" => "test01" } } },
 })
 
-# Entity ops return the bare mock record (raises on error).
+# Entity ops return the ENTITY (raises on error);
+# call data_get for the mock record.
 beatmap = client.Beatmap.load({ "id" => "test01" })
 puts beatmap
 ```
@@ -346,7 +347,7 @@ Create an instance: `beatmap = client.Beatmap`
 #### Example: Load
 
 ```ruby
-# load returns the bare Beatmap record (raises on error).
+# load returns the ENTITY — call data_get for the Beatmap record (raises on error).
 beatmap = client.Beatmap.load({ "id" => 1 })
 ```
 
@@ -364,7 +365,7 @@ Create an instance: `download = client.Download`
 #### Example: Load
 
 ```ruby
-# load returns the bare Download record (raises on error).
+# load returns the ENTITY — call data_get for the Download record (raises on error).
 download = client.Download.load({ "id" => 1 })
 ```
 
