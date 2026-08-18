@@ -40,7 +40,7 @@ class OsuBeatmapSDK
         $utility = new OsuBeatmapUtility();
         $this->_utility = $utility;
 
-        $config = OsuBeatmapConfig::make_config();
+        $config = OsuBeatmapConfig::shared_config();
 
         $this->_rootctx = ($utility->make_context)([
             "client" => $this,

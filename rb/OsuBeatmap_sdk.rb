@@ -28,7 +28,7 @@ class OsuBeatmapSDK
     utility = OsuBeatmapUtility.new
     @_utility = utility
 
-    config = OsuBeatmapConfig.make_config
+    config = OsuBeatmapConfig.shared_config
 
     @_rootctx = utility.make_context.call({
       "client" => self,

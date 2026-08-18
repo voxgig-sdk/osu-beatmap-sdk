@@ -7,7 +7,7 @@
 # SDK Details.
 name: 'osu-beatmap'
 origin: 'voxgig-sdk'
-def: 'osu!-beatmap_0.1.0.json'
+def: 'osu-beatmap_0.1.0.json'
 
 
 # API Information

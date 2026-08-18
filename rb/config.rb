@@ -1,6 +1,20 @@
 # OsuBeatmap SDK configuration
 
 module OsuBeatmapConfig
+  # Return the process-wide config, built once on first use. The SDK reads
+  # the config on every request and never writes to it, so one instance is
+  # shared by every client rather than rebuilt per client.
+  #
+  # The returned hash is shared: treat it as read-only. Callers that need to
+  # mutate should use make_config, which always returns a fresh copy.
+  def self.shared_config
+    @shared_config ||= make_config
+  end
+
+
+  # Build a fresh, fully materialised config hash. Every call rebuilds the
+  # whole structure, so prefer shared_config unless you need a private copy
+  # you intend to mutate.
   def self.make_config
     {
       "main" => {
@@ -28,144 +42,84 @@ module OsuBeatmapConfig
         "beatmap" => {
           "fields" => [
             {
-              "active" => true,
               "name" => "approved_date",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 0,
             },
             {
-              "active" => true,
               "name" => "ar",
-              "req" => false,
               "type" => "`$NUMBER`",
-              "index$" => 1,
             },
             {
-              "active" => true,
               "name" => "artist",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 2,
             },
             {
-              "active" => true,
               "name" => "beatmapset_id",
-              "req" => false,
               "type" => "`$INTEGER`",
-              "index$" => 3,
             },
             {
-              "active" => true,
               "name" => "bpm",
-              "req" => false,
               "type" => "`$NUMBER`",
-              "index$" => 4,
             },
             {
-              "active" => true,
               "name" => "creator",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 5,
             },
             {
-              "active" => true,
               "name" => "cs",
-              "req" => false,
               "type" => "`$NUMBER`",
-              "index$" => 6,
             },
             {
-              "active" => true,
               "name" => "difficulty_rating",
-              "req" => false,
               "type" => "`$NUMBER`",
-              "index$" => 7,
             },
             {
-              "active" => true,
               "name" => "favourite_count",
-              "req" => false,
               "type" => "`$INTEGER`",
-              "index$" => 8,
             },
             {
-              "active" => true,
               "name" => "hp",
-              "req" => false,
               "type" => "`$NUMBER`",
-              "index$" => 9,
             },
             {
-              "active" => true,
               "name" => "id",
-              "req" => false,
               "type" => "`$INTEGER`",
-              "index$" => 10,
             },
             {
-              "active" => true,
               "name" => "last_updated",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 11,
             },
             {
-              "active" => true,
               "name" => "length",
-              "req" => false,
               "type" => "`$INTEGER`",
-              "index$" => 12,
             },
             {
-              "active" => true,
               "name" => "max_combo",
-              "req" => false,
               "type" => "`$INTEGER`",
-              "index$" => 13,
             },
             {
-              "active" => true,
               "name" => "mode",
-              "req" => false,
               "type" => "`$INTEGER`",
-              "index$" => 14,
             },
             {
-              "active" => true,
               "name" => "od",
-              "req" => false,
               "type" => "`$NUMBER`",
-              "index$" => 15,
             },
             {
-              "active" => true,
               "name" => "playcount",
-              "req" => false,
               "type" => "`$INTEGER`",
-              "index$" => 16,
             },
             {
-              "active" => true,
               "name" => "status",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 17,
             },
             {
-              "active" => true,
               "name" => "title",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 18,
             },
             {
-              "active" => true,
               "name" => "version",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 19,
             },
           ],
           "name" => "beatmap",
@@ -175,17 +129,14 @@ module OsuBeatmapConfig
               "name" => "load",
               "points" => [
                 {
-                  "active" => true,
                   "args" => {
                     "params" => [
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "id",
                         "orig" => "id",
                         "reqd" => true,
                         "type" => "`$INTEGER`",
-                        "index$" => 0,
                       },
                     ],
                   },
@@ -205,10 +156,8 @@ module OsuBeatmapConfig
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
-                  "index$" => 0,
                 },
               ],
-              "key$" => "load",
             },
           },
           "relations" => {
@@ -224,27 +173,22 @@ module OsuBeatmapConfig
               "name" => "load",
               "points" => [
                 {
-                  "active" => true,
                   "args" => {
                     "params" => [
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "id",
                         "orig" => "id",
                         "reqd" => true,
                         "type" => "`$INTEGER`",
-                        "index$" => 0,
                       },
                     ],
                     "query" => [
                       {
-                        "active" => true,
                         "example" => false,
                         "kind" => "query",
                         "name" => "no_video",
                         "orig" => "no_video",
-                        "reqd" => false,
                         "type" => "`$BOOLEAN`",
                       },
                     ],
@@ -266,10 +210,8 @@ module OsuBeatmapConfig
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
-                  "index$" => 0,
                 },
               ],
-              "key$" => "load",
             },
           },
           "relations" => {
@@ -279,144 +221,84 @@ module OsuBeatmapConfig
         "search" => {
           "fields" => [
             {
-              "active" => true,
               "name" => "approved_date",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 0,
             },
             {
-              "active" => true,
               "name" => "ar",
-              "req" => false,
               "type" => "`$NUMBER`",
-              "index$" => 1,
             },
             {
-              "active" => true,
               "name" => "artist",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 2,
             },
             {
-              "active" => true,
               "name" => "beatmapset_id",
-              "req" => false,
               "type" => "`$INTEGER`",
-              "index$" => 3,
             },
             {
-              "active" => true,
               "name" => "bpm",
-              "req" => false,
               "type" => "`$NUMBER`",
-              "index$" => 4,
             },
             {
-              "active" => true,
               "name" => "creator",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 5,
             },
             {
-              "active" => true,
               "name" => "cs",
-              "req" => false,
               "type" => "`$NUMBER`",
-              "index$" => 6,
             },
             {
-              "active" => true,
               "name" => "difficulty_rating",
-              "req" => false,
               "type" => "`$NUMBER`",
-              "index$" => 7,
             },
             {
-              "active" => true,
               "name" => "favourite_count",
-              "req" => false,
               "type" => "`$INTEGER`",
-              "index$" => 8,
             },
             {
-              "active" => true,
               "name" => "hp",
-              "req" => false,
               "type" => "`$NUMBER`",
-              "index$" => 9,
             },
             {
-              "active" => true,
               "name" => "id",
-              "req" => false,
               "type" => "`$INTEGER`",
-              "index$" => 10,
             },
             {
-              "active" => true,
               "name" => "last_updated",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 11,
             },
             {
-              "active" => true,
               "name" => "length",
-              "req" => false,
               "type" => "`$INTEGER`",
-              "index$" => 12,
             },
             {
-              "active" => true,
               "name" => "max_combo",
-              "req" => false,
               "type" => "`$INTEGER`",
-              "index$" => 13,
             },
             {
-              "active" => true,
               "name" => "mode",
-              "req" => false,
               "type" => "`$INTEGER`",
-              "index$" => 14,
             },
             {
-              "active" => true,
               "name" => "od",
-              "req" => false,
               "type" => "`$NUMBER`",
-              "index$" => 15,
             },
             {
-              "active" => true,
               "name" => "playcount",
-              "req" => false,
               "type" => "`$INTEGER`",
-              "index$" => 16,
             },
             {
-              "active" => true,
               "name" => "status",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 17,
             },
             {
-              "active" => true,
               "name" => "title",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 18,
             },
             {
-              "active" => true,
               "name" => "version",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 19,
             },
           ],
           "name" => "search",
@@ -426,49 +308,38 @@ module OsuBeatmapConfig
               "name" => "list",
               "points" => [
                 {
-                  "active" => true,
                   "args" => {
                     "query" => [
                       {
-                        "active" => true,
                         "example" => 50,
                         "kind" => "query",
                         "name" => "limit",
                         "orig" => "limit",
-                        "reqd" => false,
                         "type" => "`$INTEGER`",
                       },
                       {
-                        "active" => true,
                         "kind" => "query",
                         "name" => "mode",
                         "orig" => "mode",
-                        "reqd" => false,
                         "type" => "`$INTEGER`",
                       },
                       {
-                        "active" => true,
                         "example" => 0,
                         "kind" => "query",
                         "name" => "offset",
                         "orig" => "offset",
-                        "reqd" => false,
                         "type" => "`$INTEGER`",
                       },
                       {
-                        "active" => true,
                         "kind" => "query",
                         "name" => "q",
                         "orig" => "q",
-                        "reqd" => false,
                         "type" => "`$STRING`",
                       },
                       {
-                        "active" => true,
                         "kind" => "query",
                         "name" => "status",
                         "orig" => "status",
-                        "reqd" => false,
                         "type" => "`$STRING`",
                       },
                     ],
@@ -492,10 +363,8 @@ module OsuBeatmapConfig
                     "req" => "`reqdata`",
                     "res" => "`body.beatmaps`",
                   },
-                  "index$" => 0,
                 },
               ],
-              "key$" => "list",
             },
           },
           "relations" => {
