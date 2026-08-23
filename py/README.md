@@ -244,26 +244,26 @@ On error, `ok` is `False` and `err` contains the error value.
 
 | Field | Description |
 | --- | --- |
-| `approved_date` |  |
-| `ar` |  |
-| `artist` |  |
-| `beatmapset_id` |  |
-| `bpm` |  |
-| `creator` |  |
-| `cs` |  |
-| `difficulty_rating` |  |
-| `favourite_count` |  |
-| `hp` |  |
-| `id` |  |
-| `last_updated` |  |
-| `length` |  |
-| `max_combo` |  |
-| `mode` |  |
-| `od` |  |
-| `playcount` |  |
-| `status` |  |
-| `title` |  |
-| `version` |  |
+| `approved_date` | Date when beatmap was approved/ranked |
+| `ar` | Approach rate |
+| `artist` | Song artist |
+| `beatmapset_id` | Beatmap set ID |
+| `bpm` | Beats per minute |
+| `creator` | Beatmap creator username |
+| `cs` | Circle size |
+| `difficulty_rating` | Star rating |
+| `favourite_count` | Number of favorites |
+| `hp` | HP drain |
+| `id` | Beatmap ID |
+| `last_updated` | Last update date |
+| `length` | Song length in seconds |
+| `max_combo` | Maximum combo |
+| `mode` | Game mode (0=osu!, 1=Taiko, 2=Catch, 3=Mania) |
+| `od` | Overall difficulty |
+| `playcount` | Total play count |
+| `status` | Beatmap status (ranked, qualified, loved, etc.) |
+| `title` | Song title |
+| `version` | Difficulty name |
 
 Operations: Load.
 
@@ -282,26 +282,26 @@ API path: `/download/{id}`
 
 | Field | Description |
 | --- | --- |
-| `approved_date` |  |
-| `ar` |  |
-| `artist` |  |
-| `beatmapset_id` |  |
-| `bpm` |  |
-| `creator` |  |
-| `cs` |  |
-| `difficulty_rating` |  |
-| `favourite_count` |  |
-| `hp` |  |
-| `id` |  |
-| `last_updated` |  |
-| `length` |  |
-| `max_combo` |  |
-| `mode` |  |
-| `od` |  |
-| `playcount` |  |
-| `status` |  |
-| `title` |  |
-| `version` |  |
+| `approved_date` | Date when beatmap was approved/ranked |
+| `ar` | Approach rate |
+| `artist` | Song artist |
+| `beatmapset_id` | Beatmap set ID |
+| `bpm` | Beats per minute |
+| `creator` | Beatmap creator username |
+| `cs` | Circle size |
+| `difficulty_rating` | Star rating |
+| `favourite_count` | Number of favorites |
+| `hp` | HP drain |
+| `id` | Beatmap ID |
+| `last_updated` | Last update date |
+| `length` | Song length in seconds |
+| `max_combo` | Maximum combo |
+| `mode` | Game mode (0=osu!, 1=Taiko, 2=Catch, 3=Mania) |
+| `od` | Overall difficulty |
+| `playcount` | Total play count |
+| `status` | Beatmap status (ranked, qualified, loved, etc.) |
+| `title` | Song title |
+| `version` | Difficulty name |
 
 Operations: List.
 
@@ -326,26 +326,26 @@ Create an instance: `beatmap = client.Beatmap()`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `approved_date` | `str` |  |
-| `ar` | `float` |  |
-| `artist` | `str` |  |
-| `beatmapset_id` | `int` |  |
-| `bpm` | `float` |  |
-| `creator` | `str` |  |
-| `cs` | `float` |  |
-| `difficulty_rating` | `float` |  |
-| `favourite_count` | `int` |  |
-| `hp` | `float` |  |
-| `id` | `int` |  |
-| `last_updated` | `str` |  |
-| `length` | `int` |  |
-| `max_combo` | `int` |  |
-| `mode` | `int` |  |
-| `od` | `float` |  |
-| `playcount` | `int` |  |
-| `status` | `str` |  |
-| `title` | `str` |  |
-| `version` | `str` |  |
+| `approved_date` | `str` | Date when beatmap was approved/ranked |
+| `ar` | `float` | Approach rate |
+| `artist` | `str` | Song artist |
+| `beatmapset_id` | `int` | Beatmap set ID |
+| `bpm` | `float` | Beats per minute |
+| `creator` | `str` | Beatmap creator username |
+| `cs` | `float` | Circle size |
+| `difficulty_rating` | `float` | Star rating |
+| `favourite_count` | `int` | Number of favorites |
+| `hp` | `float` | HP drain |
+| `id` | `int` | Beatmap ID |
+| `last_updated` | `str` | Last update date |
+| `length` | `int` | Song length in seconds |
+| `max_combo` | `int` | Maximum combo |
+| `mode` | `int` | Game mode (0=osu!, 1=Taiko, 2=Catch, 3=Mania) |
+| `od` | `float` | Overall difficulty |
+| `playcount` | `int` | Total play count |
+| `status` | `str` | Beatmap status (ranked, qualified, loved, etc.) |
+| `title` | `str` | Song title |
+| `version` | `str` | Difficulty name |
 
 #### Example: Load
 
@@ -385,26 +385,26 @@ Create an instance: `search = client.Search()`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `approved_date` | `str` |  |
-| `ar` | `float` |  |
-| `artist` | `str` |  |
-| `beatmapset_id` | `int` |  |
-| `bpm` | `float` |  |
-| `creator` | `str` |  |
-| `cs` | `float` |  |
-| `difficulty_rating` | `float` |  |
-| `favourite_count` | `int` |  |
-| `hp` | `float` |  |
-| `id` | `int` |  |
-| `last_updated` | `str` |  |
-| `length` | `int` |  |
-| `max_combo` | `int` |  |
-| `mode` | `int` |  |
-| `od` | `float` |  |
-| `playcount` | `int` |  |
-| `status` | `str` |  |
-| `title` | `str` |  |
-| `version` | `str` |  |
+| `approved_date` | `str` | Date when beatmap was approved/ranked |
+| `ar` | `float` | Approach rate |
+| `artist` | `str` | Song artist |
+| `beatmapset_id` | `int` | Beatmap set ID |
+| `bpm` | `float` | Beats per minute |
+| `creator` | `str` | Beatmap creator username |
+| `cs` | `float` | Circle size |
+| `difficulty_rating` | `float` | Star rating |
+| `favourite_count` | `int` | Number of favorites |
+| `hp` | `float` | HP drain |
+| `id` | `int` | Beatmap ID |
+| `last_updated` | `str` | Last update date |
+| `length` | `int` | Song length in seconds |
+| `max_combo` | `int` | Maximum combo |
+| `mode` | `int` | Game mode (0=osu!, 1=Taiko, 2=Catch, 3=Mania) |
+| `od` | `float` | Overall difficulty |
+| `playcount` | `int` | Total play count |
+| `status` | `str` | Beatmap status (ranked, qualified, loved, etc.) |
+| `title` | `str` | Song title |
+| `version` | `str` | Difficulty name |
 
 #### Example: List
 

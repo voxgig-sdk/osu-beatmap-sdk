@@ -11,6 +11,9 @@ func MakeConfig() map[string]any {
 	return map[string]any{
 		"main": map[string]any{
 			"name": "OsuBeatmap",
+			"slug": "osu-beatmap",
+			"version": "0.0.1",
+			"target": "go",
 		},
 		"feature": map[string]any{
 			"test": map[string]any{
@@ -35,82 +38,102 @@ func MakeConfig() map[string]any {
 				"fields": []any{
 					map[string]any{
 						"name": "approved_date",
+						"short": "Date when beatmap was approved/ranked",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "ar",
+						"short": "Approach rate",
 						"type": "`$NUMBER`",
 					},
 					map[string]any{
 						"name": "artist",
+						"short": "Song artist",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "beatmapset_id",
+						"short": "Beatmap set ID",
 						"type": "`$INTEGER`",
 					},
 					map[string]any{
 						"name": "bpm",
+						"short": "Beats per minute",
 						"type": "`$NUMBER`",
 					},
 					map[string]any{
 						"name": "creator",
+						"short": "Beatmap creator username",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "cs",
+						"short": "Circle size",
 						"type": "`$NUMBER`",
 					},
 					map[string]any{
 						"name": "difficulty_rating",
+						"short": "Star rating",
 						"type": "`$NUMBER`",
 					},
 					map[string]any{
 						"name": "favourite_count",
+						"short": "Number of favorites",
 						"type": "`$INTEGER`",
 					},
 					map[string]any{
 						"name": "hp",
+						"short": "HP drain",
 						"type": "`$NUMBER`",
 					},
 					map[string]any{
 						"name": "id",
+						"short": "Beatmap ID",
 						"type": "`$INTEGER`",
 					},
 					map[string]any{
 						"name": "last_updated",
+						"short": "Last update date",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "length",
+						"short": "Song length in seconds",
 						"type": "`$INTEGER`",
 					},
 					map[string]any{
 						"name": "max_combo",
+						"short": "Maximum combo",
 						"type": "`$INTEGER`",
 					},
 					map[string]any{
 						"name": "mode",
+						"short": "Game mode (0=osu!, 1=Taiko, 2=Catch, 3=Mania)",
 						"type": "`$INTEGER`",
 					},
 					map[string]any{
 						"name": "od",
+						"short": "Overall difficulty",
 						"type": "`$NUMBER`",
 					},
 					map[string]any{
 						"name": "playcount",
+						"short": "Total play count",
 						"type": "`$INTEGER`",
 					},
 					map[string]any{
 						"name": "status",
+						"short": "Beatmap status (ranked, qualified, loved, etc.)",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "title",
+						"short": "Song title",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "version",
+						"short": "Difficulty name",
 						"type": "`$STRING`",
 					},
 				},
@@ -214,82 +237,102 @@ func MakeConfig() map[string]any {
 				"fields": []any{
 					map[string]any{
 						"name": "approved_date",
+						"short": "Date when beatmap was approved/ranked",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "ar",
+						"short": "Approach rate",
 						"type": "`$NUMBER`",
 					},
 					map[string]any{
 						"name": "artist",
+						"short": "Song artist",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "beatmapset_id",
+						"short": "Beatmap set ID",
 						"type": "`$INTEGER`",
 					},
 					map[string]any{
 						"name": "bpm",
+						"short": "Beats per minute",
 						"type": "`$NUMBER`",
 					},
 					map[string]any{
 						"name": "creator",
+						"short": "Beatmap creator username",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "cs",
+						"short": "Circle size",
 						"type": "`$NUMBER`",
 					},
 					map[string]any{
 						"name": "difficulty_rating",
+						"short": "Star rating",
 						"type": "`$NUMBER`",
 					},
 					map[string]any{
 						"name": "favourite_count",
+						"short": "Number of favorites",
 						"type": "`$INTEGER`",
 					},
 					map[string]any{
 						"name": "hp",
+						"short": "HP drain",
 						"type": "`$NUMBER`",
 					},
 					map[string]any{
 						"name": "id",
+						"short": "Beatmap ID",
 						"type": "`$INTEGER`",
 					},
 					map[string]any{
 						"name": "last_updated",
+						"short": "Last update date",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "length",
+						"short": "Song length in seconds",
 						"type": "`$INTEGER`",
 					},
 					map[string]any{
 						"name": "max_combo",
+						"short": "Maximum combo",
 						"type": "`$INTEGER`",
 					},
 					map[string]any{
 						"name": "mode",
+						"short": "Game mode (0=osu!, 1=Taiko, 2=Catch, 3=Mania)",
 						"type": "`$INTEGER`",
 					},
 					map[string]any{
 						"name": "od",
+						"short": "Overall difficulty",
 						"type": "`$NUMBER`",
 					},
 					map[string]any{
 						"name": "playcount",
+						"short": "Total play count",
 						"type": "`$INTEGER`",
 					},
 					map[string]any{
 						"name": "status",
+						"short": "Beatmap status (ranked, qualified, loved, etc.)",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "title",
+						"short": "Song title",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "version",
+						"short": "Difficulty name",
 						"type": "`$STRING`",
 					},
 				},

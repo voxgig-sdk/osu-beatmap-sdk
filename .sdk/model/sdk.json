@@ -36,120 +36,140 @@
               "active": true,
               "name": "approved_date",
               "req": false,
+              "short": "Date when beatmap was approved/ranked",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "ar",
               "req": false,
+              "short": "Approach rate",
               "type": "`$NUMBER`"
             },
             {
               "active": true,
               "name": "artist",
               "req": false,
+              "short": "Song artist",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "beatmapset_id",
               "req": false,
+              "short": "Beatmap set ID",
               "type": "`$INTEGER`"
             },
             {
               "active": true,
               "name": "bpm",
               "req": false,
+              "short": "Beats per minute",
               "type": "`$NUMBER`"
             },
             {
               "active": true,
               "name": "creator",
               "req": false,
+              "short": "Beatmap creator username",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "cs",
               "req": false,
+              "short": "Circle size",
               "type": "`$NUMBER`"
             },
             {
               "active": true,
               "name": "difficulty_rating",
               "req": false,
+              "short": "Star rating",
               "type": "`$NUMBER`"
             },
             {
               "active": true,
               "name": "favourite_count",
               "req": false,
+              "short": "Number of favorites",
               "type": "`$INTEGER`"
             },
             {
               "active": true,
               "name": "hp",
               "req": false,
+              "short": "HP drain",
               "type": "`$NUMBER`"
             },
             {
               "active": true,
               "name": "id",
               "req": false,
+              "short": "Beatmap ID",
               "type": "`$INTEGER`"
             },
             {
               "active": true,
               "name": "last_updated",
               "req": false,
+              "short": "Last update date",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "length",
               "req": false,
+              "short": "Song length in seconds",
               "type": "`$INTEGER`"
             },
             {
               "active": true,
               "name": "max_combo",
               "req": false,
+              "short": "Maximum combo",
               "type": "`$INTEGER`"
             },
             {
               "active": true,
               "name": "mode",
               "req": false,
+              "short": "Game mode (0=osu!, 1=Taiko, 2=Catch, 3=Mania)",
               "type": "`$INTEGER`"
             },
             {
               "active": true,
               "name": "od",
               "req": false,
+              "short": "Overall difficulty",
               "type": "`$NUMBER`"
             },
             {
               "active": true,
               "name": "playcount",
               "req": false,
+              "short": "Total play count",
               "type": "`$INTEGER`"
             },
             {
               "active": true,
               "name": "status",
               "req": false,
+              "short": "Beatmap status (ranked, qualified, loved, etc.)",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "title",
               "req": false,
+              "short": "Song title",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "version",
               "req": false,
+              "short": "Difficulty name",
               "type": "`$STRING`"
             }
           ],
@@ -273,120 +293,140 @@
               "active": true,
               "name": "approved_date",
               "req": false,
+              "short": "Date when beatmap was approved/ranked",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "ar",
               "req": false,
+              "short": "Approach rate",
               "type": "`$NUMBER`"
             },
             {
               "active": true,
               "name": "artist",
               "req": false,
+              "short": "Song artist",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "beatmapset_id",
               "req": false,
+              "short": "Beatmap set ID",
               "type": "`$INTEGER`"
             },
             {
               "active": true,
               "name": "bpm",
               "req": false,
+              "short": "Beats per minute",
               "type": "`$NUMBER`"
             },
             {
               "active": true,
               "name": "creator",
               "req": false,
+              "short": "Beatmap creator username",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "cs",
               "req": false,
+              "short": "Circle size",
               "type": "`$NUMBER`"
             },
             {
               "active": true,
               "name": "difficulty_rating",
               "req": false,
+              "short": "Star rating",
               "type": "`$NUMBER`"
             },
             {
               "active": true,
               "name": "favourite_count",
               "req": false,
+              "short": "Number of favorites",
               "type": "`$INTEGER`"
             },
             {
               "active": true,
               "name": "hp",
               "req": false,
+              "short": "HP drain",
               "type": "`$NUMBER`"
             },
             {
               "active": true,
               "name": "id",
               "req": false,
+              "short": "Beatmap ID",
               "type": "`$INTEGER`"
             },
             {
               "active": true,
               "name": "last_updated",
               "req": false,
+              "short": "Last update date",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "length",
               "req": false,
+              "short": "Song length in seconds",
               "type": "`$INTEGER`"
             },
             {
               "active": true,
               "name": "max_combo",
               "req": false,
+              "short": "Maximum combo",
               "type": "`$INTEGER`"
             },
             {
               "active": true,
               "name": "mode",
               "req": false,
+              "short": "Game mode (0=osu!, 1=Taiko, 2=Catch, 3=Mania)",
               "type": "`$INTEGER`"
             },
             {
               "active": true,
               "name": "od",
               "req": false,
+              "short": "Overall difficulty",
               "type": "`$NUMBER`"
             },
             {
               "active": true,
               "name": "playcount",
               "req": false,
+              "short": "Total play count",
               "type": "`$INTEGER`"
             },
             {
               "active": true,
               "name": "status",
               "req": false,
+              "short": "Beatmap status (ranked, qualified, loved, etc.)",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "title",
               "req": false,
+              "short": "Song title",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "version",
               "req": false,
+              "short": "Difficulty name",
               "type": "`$STRING`"
             }
           ],

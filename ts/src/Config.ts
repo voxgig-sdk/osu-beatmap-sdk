@@ -19,9 +19,20 @@ class Config {
     return fi
   }
 
+  // False for a feature added at runtime via options.extend (station's
+  // adopt path) - the constructor uses this to skip makeFeature for names
+  // no generated class backs.
+  hasFeature(this: any, fn: string) {
+    return null != FEATURE_CLASS[fn]
+  }
+
 
   main = {
     name: 'OsuBeatmap',
+        slug: "osu-beatmap",
+    version: "0.0.1",
+    target: "ts",
+
   }
 
 
@@ -62,82 +73,102 @@ class Config {
       "fields": [
         {
           "name": "approved_date",
+          "short": "Date when beatmap was approved/ranked",
           "type": "`$STRING`"
         },
         {
           "name": "ar",
+          "short": "Approach rate",
           "type": "`$NUMBER`"
         },
         {
           "name": "artist",
+          "short": "Song artist",
           "type": "`$STRING`"
         },
         {
           "name": "beatmapset_id",
+          "short": "Beatmap set ID",
           "type": "`$INTEGER`"
         },
         {
           "name": "bpm",
+          "short": "Beats per minute",
           "type": "`$NUMBER`"
         },
         {
           "name": "creator",
+          "short": "Beatmap creator username",
           "type": "`$STRING`"
         },
         {
           "name": "cs",
+          "short": "Circle size",
           "type": "`$NUMBER`"
         },
         {
           "name": "difficulty_rating",
+          "short": "Star rating",
           "type": "`$NUMBER`"
         },
         {
           "name": "favourite_count",
+          "short": "Number of favorites",
           "type": "`$INTEGER`"
         },
         {
           "name": "hp",
+          "short": "HP drain",
           "type": "`$NUMBER`"
         },
         {
           "name": "id",
+          "short": "Beatmap ID",
           "type": "`$INTEGER`"
         },
         {
           "name": "last_updated",
+          "short": "Last update date",
           "type": "`$STRING`"
         },
         {
           "name": "length",
+          "short": "Song length in seconds",
           "type": "`$INTEGER`"
         },
         {
           "name": "max_combo",
+          "short": "Maximum combo",
           "type": "`$INTEGER`"
         },
         {
           "name": "mode",
+          "short": "Game mode (0=osu!, 1=Taiko, 2=Catch, 3=Mania)",
           "type": "`$INTEGER`"
         },
         {
           "name": "od",
+          "short": "Overall difficulty",
           "type": "`$NUMBER`"
         },
         {
           "name": "playcount",
+          "short": "Total play count",
           "type": "`$INTEGER`"
         },
         {
           "name": "status",
+          "short": "Beatmap status (ranked, qualified, loved, etc.)",
           "type": "`$STRING`"
         },
         {
           "name": "title",
+          "short": "Song title",
           "type": "`$STRING`"
         },
         {
           "name": "version",
+          "short": "Difficulty name",
           "type": "`$STRING`"
         }
       ],
@@ -241,82 +272,102 @@ class Config {
       "fields": [
         {
           "name": "approved_date",
+          "short": "Date when beatmap was approved/ranked",
           "type": "`$STRING`"
         },
         {
           "name": "ar",
+          "short": "Approach rate",
           "type": "`$NUMBER`"
         },
         {
           "name": "artist",
+          "short": "Song artist",
           "type": "`$STRING`"
         },
         {
           "name": "beatmapset_id",
+          "short": "Beatmap set ID",
           "type": "`$INTEGER`"
         },
         {
           "name": "bpm",
+          "short": "Beats per minute",
           "type": "`$NUMBER`"
         },
         {
           "name": "creator",
+          "short": "Beatmap creator username",
           "type": "`$STRING`"
         },
         {
           "name": "cs",
+          "short": "Circle size",
           "type": "`$NUMBER`"
         },
         {
           "name": "difficulty_rating",
+          "short": "Star rating",
           "type": "`$NUMBER`"
         },
         {
           "name": "favourite_count",
+          "short": "Number of favorites",
           "type": "`$INTEGER`"
         },
         {
           "name": "hp",
+          "short": "HP drain",
           "type": "`$NUMBER`"
         },
         {
           "name": "id",
+          "short": "Beatmap ID",
           "type": "`$INTEGER`"
         },
         {
           "name": "last_updated",
+          "short": "Last update date",
           "type": "`$STRING`"
         },
         {
           "name": "length",
+          "short": "Song length in seconds",
           "type": "`$INTEGER`"
         },
         {
           "name": "max_combo",
+          "short": "Maximum combo",
           "type": "`$INTEGER`"
         },
         {
           "name": "mode",
+          "short": "Game mode (0=osu!, 1=Taiko, 2=Catch, 3=Mania)",
           "type": "`$INTEGER`"
         },
         {
           "name": "od",
+          "short": "Overall difficulty",
           "type": "`$NUMBER`"
         },
         {
           "name": "playcount",
+          "short": "Total play count",
           "type": "`$INTEGER`"
         },
         {
           "name": "status",
+          "short": "Beatmap status (ranked, qualified, loved, etc.)",
           "type": "`$STRING`"
         },
         {
           "name": "title",
+          "short": "Song title",
           "type": "`$STRING`"
         },
         {
           "name": "version",
+          "short": "Difficulty name",
           "type": "`$STRING`"
         }
       ],

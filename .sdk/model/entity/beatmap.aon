@@ -8,101 +8,121 @@ main: kit: entity: beatmap: {
     {
       name: "approved_date"
       req: false
+      short: "Date when beatmap was approved/ranked"
       type: "`$STRING`"
     }
     {
       name: "ar"
       req: false
+      short: "Approach rate"
       type: "`$NUMBER`"
     }
     {
       name: "artist"
       req: false
+      short: "Song artist"
       type: "`$STRING`"
     }
     {
       name: "beatmapset_id"
       req: false
+      short: "Beatmap set ID"
       type: "`$INTEGER`"
     }
     {
       name: "bpm"
       req: false
+      short: "Beats per minute"
       type: "`$NUMBER`"
     }
     {
       name: "creator"
       req: false
+      short: "Beatmap creator username"
       type: "`$STRING`"
     }
     {
       name: "cs"
       req: false
+      short: "Circle size"
       type: "`$NUMBER`"
     }
     {
       name: "difficulty_rating"
       req: false
+      short: "Star rating"
       type: "`$NUMBER`"
     }
     {
       name: "favourite_count"
       req: false
+      short: "Number of favorites"
       type: "`$INTEGER`"
     }
     {
       name: "hp"
       req: false
+      short: "HP drain"
       type: "`$NUMBER`"
     }
     {
       name: "id"
       req: false
+      short: "Beatmap ID"
       type: "`$INTEGER`"
     }
     {
       name: "last_updated"
       req: false
+      short: "Last update date"
       type: "`$STRING`"
     }
     {
       name: "length"
       req: false
+      short: "Song length in seconds"
       type: "`$INTEGER`"
     }
     {
       name: "max_combo"
       req: false
+      short: "Maximum combo"
       type: "`$INTEGER`"
     }
     {
       name: "mode"
       req: false
+      short: "Game mode (0=osu!, 1=Taiko, 2=Catch, 3=Mania)"
       type: "`$INTEGER`"
     }
     {
       name: "od"
       req: false
+      short: "Overall difficulty"
       type: "`$NUMBER`"
     }
     {
       name: "playcount"
       req: false
+      short: "Total play count"
       type: "`$INTEGER`"
     }
     {
       name: "status"
       req: false
+      short: "Beatmap status (ranked, qualified, loved, etc.)"
       type: "`$STRING`"
     }
     {
       name: "title"
       req: false
+      short: "Song title"
       type: "`$STRING`"
     }
     {
       name: "version"
       req: false
+      short: "Difficulty name"
       type: "`$STRING`"
     }
   ]
