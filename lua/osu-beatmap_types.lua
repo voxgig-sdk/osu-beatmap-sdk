@@ -32,6 +32,7 @@
 ---@field id number
 
 ---@class Download
+---@field id? string
 
 ---@class DownloadLoadMatch
 ---@field id number

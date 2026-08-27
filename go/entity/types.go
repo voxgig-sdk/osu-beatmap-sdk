@@ -43,6 +43,7 @@ type BeatmapLoadMatch struct {
 
 // Download is the typed data model for the download entity.
 type Download struct {
+	Id *string `json:"id,omitempty"`
 }
 
 // DownloadLoadMatch is the typed request payload for Download.LoadTyped.

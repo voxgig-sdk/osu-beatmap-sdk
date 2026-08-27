@@ -43,8 +43,8 @@ class BeatmapLoadMatch(TypedDict):
     id: int
 
 
-class Download(TypedDict):
-    pass
+class Download(TypedDict, total=False):
+    id: str
 
 
 class DownloadLoadMatch(TypedDict):

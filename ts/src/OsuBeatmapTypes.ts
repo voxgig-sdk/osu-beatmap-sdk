@@ -33,6 +33,7 @@ export interface BeatmapLoadMatch {
 }
 
 export interface Download {
+  id?: string
 }
 
 export interface DownloadLoadMatch {

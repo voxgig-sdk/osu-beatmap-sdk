@@ -28,6 +28,7 @@ module OsuBeatmapConfig
           "options" => {
             "active" => false,
           },
+          "transport" => "base",
         },
       },
       "options" => {
@@ -188,7 +189,12 @@ module OsuBeatmapConfig
           },
         },
         "download" => {
-          "fields" => [],
+          "fields" => [
+            {
+              "name" => "id",
+              "type" => "`$STRING`",
+            },
+          ],
           "name" => "download",
           "op" => {
             "load" => {

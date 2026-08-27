@@ -46,6 +46,7 @@ class BeatmapLoadMatch
 /** Download entity data model. */
 class Download
 {
+    public ?string $id = null;
 }
 
 /** Request payload for Download#load. */

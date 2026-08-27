@@ -42,6 +42,7 @@ class OsuBeatmapConfig
           'options' => [
             'active' => false,
           ],
+          'transport' => 'base',
         ],
             ],
             "options" => [
@@ -202,7 +203,12 @@ class OsuBeatmapConfig
           ],
         ],
         'download' => [
-          'fields' => [],
+          'fields' => [
+            [
+              'name' => 'id',
+              'type' => '`$STRING`',
+            ],
+          ],
           'name' => 'download',
           'op' => [
             'load' => [
