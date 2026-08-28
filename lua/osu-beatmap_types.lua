@@ -36,6 +36,7 @@
 
 ---@class DownloadLoadMatch
 ---@field id number
+---@field no_video? boolean
 
 ---@class Search
 ---@field approved_date? string
@@ -60,26 +61,11 @@
 ---@field version? string
 
 ---@class SearchListMatch
----@field approved_date? string
----@field ar? number
----@field artist? string
----@field beatmapset_id? number
----@field bpm? number
----@field creator? string
----@field cs? number
----@field difficulty_rating? number
----@field favourite_count? number
----@field hp? number
----@field id? number
----@field last_updated? string
----@field length? number
----@field max_combo? number
+---@field limit? number
 ---@field mode? number
----@field od? number
----@field playcount? number
+---@field offset? number
+---@field q? string
 ---@field status? string
----@field title? string
----@field version? string
 
 local M = {}
 

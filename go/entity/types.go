@@ -49,6 +49,7 @@ type Download struct {
 // DownloadLoadMatch is the typed request payload for Download.LoadTyped.
 type DownloadLoadMatch struct {
 	Id int `json:"id"`
+	NoVideo *bool `json:"no_video,omitempty"`
 }
 
 // Search is the typed data model for the search entity.
@@ -77,26 +78,11 @@ type Search struct {
 
 // SearchListMatch is the typed request payload for Search.ListTyped.
 type SearchListMatch struct {
-	ApprovedDate *string `json:"approved_date,omitempty"`
-	Ar *float64 `json:"ar,omitempty"`
-	Artist *string `json:"artist,omitempty"`
-	BeatmapsetId *int `json:"beatmapset_id,omitempty"`
-	Bpm *float64 `json:"bpm,omitempty"`
-	Creator *string `json:"creator,omitempty"`
-	Cs *float64 `json:"cs,omitempty"`
-	DifficultyRating *float64 `json:"difficulty_rating,omitempty"`
-	FavouriteCount *int `json:"favourite_count,omitempty"`
-	Hp *float64 `json:"hp,omitempty"`
-	Id *int `json:"id,omitempty"`
-	LastUpdated *string `json:"last_updated,omitempty"`
-	Length *int `json:"length,omitempty"`
-	MaxCombo *int `json:"max_combo,omitempty"`
+	Limit *int `json:"limit,omitempty"`
 	Mode *int `json:"mode,omitempty"`
-	Od *float64 `json:"od,omitempty"`
-	Playcount *int `json:"playcount,omitempty"`
+	Offset *int `json:"offset,omitempty"`
+	Q *string `json:"q,omitempty"`
 	Status *string `json:"status,omitempty"`
-	Title *string `json:"title,omitempty"`
-	Version *string `json:"version,omitempty"`
 }
 
 // asMap turns a typed request/data struct into the map[string]any the

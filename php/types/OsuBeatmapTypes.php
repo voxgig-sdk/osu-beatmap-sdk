@@ -53,6 +53,7 @@ class Download
 class DownloadLoadMatch
 {
     public int $id;
+    public ?bool $no_video = null;
 }
 
 /** Search entity data model. */
@@ -83,25 +84,10 @@ class Search
 /** Request payload for Search#list. */
 class SearchListMatch
 {
-    public ?string $approved_date = null;
-    public ?float $ar = null;
-    public ?string $artist = null;
-    public ?int $beatmapset_id = null;
-    public ?float $bpm = null;
-    public ?string $creator = null;
-    public ?float $cs = null;
-    public ?float $difficulty_rating = null;
-    public ?int $favourite_count = null;
-    public ?float $hp = null;
-    public ?int $id = null;
-    public ?string $last_updated = null;
-    public ?int $length = null;
-    public ?int $max_combo = null;
+    public ?int $limit = null;
     public ?int $mode = null;
-    public ?float $od = null;
-    public ?int $playcount = null;
+    public ?int $offset = null;
+    public ?string $q = null;
     public ?string $status = null;
-    public ?string $title = null;
-    public ?string $version = null;
 }
 

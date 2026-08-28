@@ -38,6 +38,7 @@ export interface Download {
 
 export interface DownloadLoadMatch {
   id: number
+  no_video?: boolean
 }
 
 export interface Search {
@@ -64,25 +65,10 @@ export interface Search {
 }
 
 export interface SearchListMatch {
-  approved_date?: string
-  ar?: number
-  artist?: string
-  beatmapset_id?: number
-  bpm?: number
-  creator?: string
-  cs?: number
-  difficulty_rating?: number
-  favourite_count?: number
-  hp?: number
-  id?: number
-  last_updated?: string
-  length?: number
-  max_combo?: number
+  limit?: number
   mode?: number
-  od?: number
-  playcount?: number
+  offset?: number
+  q?: string
   status?: string
-  title?: string
-  version?: string
 }
 

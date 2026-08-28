@@ -47,8 +47,12 @@ class Download(TypedDict, total=False):
     id: str
 
 
-class DownloadLoadMatch(TypedDict):
+class DownloadLoadMatchRequired(TypedDict):
     id: int
+
+
+class DownloadLoadMatch(DownloadLoadMatchRequired, total=False):
+    no_video: bool
 
 
 class Search(TypedDict, total=False):
@@ -75,23 +79,8 @@ class Search(TypedDict, total=False):
 
 
 class SearchListMatch(TypedDict, total=False):
-    approved_date: str
-    ar: float
-    artist: str
-    beatmapset_id: int
-    bpm: float
-    creator: str
-    cs: float
-    difficulty_rating: float
-    favourite_count: int
-    hp: float
-    id: int
-    last_updated: str
-    length: int
-    max_combo: int
+    limit: int
     mode: int
-    od: float
-    playcount: int
+    offset: int
+    q: str
     status: str
-    title: str
-    version: str

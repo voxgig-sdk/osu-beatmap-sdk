@@ -115,8 +115,12 @@ Download = Struct.new(
 #
 # @!attribute [rw] id
 #   @return [Integer]
+#
+# @!attribute [rw] no_video
+#   @return [Boolean, nil]
 DownloadLoadMatch = Struct.new(
   :id,
+  :no_video,
   keyword_init: true
 )
 
@@ -207,86 +211,26 @@ Search = Struct.new(
 
 # Request payload for Search#list.
 #
-# @!attribute [rw] approved_date
-#   @return [String, nil]
-#
-# @!attribute [rw] ar
-#   @return [Float, nil]
-#
-# @!attribute [rw] artist
-#   @return [String, nil]
-#
-# @!attribute [rw] beatmapset_id
-#   @return [Integer, nil]
-#
-# @!attribute [rw] bpm
-#   @return [Float, nil]
-#
-# @!attribute [rw] creator
-#   @return [String, nil]
-#
-# @!attribute [rw] cs
-#   @return [Float, nil]
-#
-# @!attribute [rw] difficulty_rating
-#   @return [Float, nil]
-#
-# @!attribute [rw] favourite_count
-#   @return [Integer, nil]
-#
-# @!attribute [rw] hp
-#   @return [Float, nil]
-#
-# @!attribute [rw] id
-#   @return [Integer, nil]
-#
-# @!attribute [rw] last_updated
-#   @return [String, nil]
-#
-# @!attribute [rw] length
-#   @return [Integer, nil]
-#
-# @!attribute [rw] max_combo
+# @!attribute [rw] limit
 #   @return [Integer, nil]
 #
 # @!attribute [rw] mode
 #   @return [Integer, nil]
 #
-# @!attribute [rw] od
-#   @return [Float, nil]
-#
-# @!attribute [rw] playcount
+# @!attribute [rw] offset
 #   @return [Integer, nil]
+#
+# @!attribute [rw] q
+#   @return [String, nil]
 #
 # @!attribute [rw] status
 #   @return [String, nil]
-#
-# @!attribute [rw] title
-#   @return [String, nil]
-#
-# @!attribute [rw] version
-#   @return [String, nil]
 SearchListMatch = Struct.new(
-  :approved_date,
-  :ar,
-  :artist,
-  :beatmapset_id,
-  :bpm,
-  :creator,
-  :cs,
-  :difficulty_rating,
-  :favourite_count,
-  :hp,
-  :id,
-  :last_updated,
-  :length,
-  :max_combo,
+  :limit,
   :mode,
-  :od,
-  :playcount,
+  :offset,
+  :q,
   :status,
-  :title,
-  :version,
   keyword_init: true
 )
 
