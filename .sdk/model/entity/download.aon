@@ -46,9 +46,13 @@ main: kit: entity: download: {
           }
           method: "GET"
           orig: "/download/{id}"
-          parts: [
-            "download"
-            "{id}"
+          segments: [
+            {
+              lit: "download"
+            }
+            {
+              var: "id"
+            }
           ]
           select: {
             exist: [

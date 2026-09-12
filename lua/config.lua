@@ -34,11 +34,13 @@ local function make_config()
       ["beatmap"] = {
         ["fields"] = {
           {
+            ["format"] = "date-time",
             ["name"] = "approved_date",
             ["short"] = "Date when beatmap was approved/ranked",
             ["type"] = "`$STRING`",
           },
           {
+            ["format"] = "float",
             ["name"] = "ar",
             ["short"] = "Approach rate",
             ["type"] = "`$NUMBER`",
@@ -54,6 +56,7 @@ local function make_config()
             ["type"] = "`$INTEGER`",
           },
           {
+            ["format"] = "float",
             ["name"] = "bpm",
             ["short"] = "Beats per minute",
             ["type"] = "`$NUMBER`",
@@ -64,11 +67,13 @@ local function make_config()
             ["type"] = "`$STRING`",
           },
           {
+            ["format"] = "float",
             ["name"] = "cs",
             ["short"] = "Circle size",
             ["type"] = "`$NUMBER`",
           },
           {
+            ["format"] = "float",
             ["name"] = "difficulty_rating",
             ["short"] = "Star rating",
             ["type"] = "`$NUMBER`",
@@ -79,6 +84,7 @@ local function make_config()
             ["type"] = "`$INTEGER`",
           },
           {
+            ["format"] = "float",
             ["name"] = "hp",
             ["short"] = "HP drain",
             ["type"] = "`$NUMBER`",
@@ -89,6 +95,7 @@ local function make_config()
             ["type"] = "`$INTEGER`",
           },
           {
+            ["format"] = "date-time",
             ["name"] = "last_updated",
             ["short"] = "Last update date",
             ["type"] = "`$STRING`",
@@ -109,6 +116,7 @@ local function make_config()
             ["type"] = "`$INTEGER`",
           },
           {
+            ["format"] = "float",
             ["name"] = "od",
             ["short"] = "Overall difficulty",
             ["type"] = "`$NUMBER`",
@@ -134,6 +142,10 @@ local function make_config()
             ["type"] = "`$STRING`",
           },
         },
+        ["id"] = {
+          ["field"] = "id",
+          ["name"] = "id",
+        },
         ["name"] = "beatmap",
         ["op"] = {
           ["load"] = {
@@ -155,9 +167,13 @@ local function make_config()
                 ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/beatmaps/{id}",
-                ["parts"] = {
-                  "beatmaps",
-                  "{id}",
+                ["segments"] = {
+                  {
+                    ["lit"] = "beatmaps",
+                  },
+                  {
+                    ["var"] = "id",
+                  },
                 },
                 ["select"] = {
                   ["exist"] = {
@@ -167,6 +183,10 @@ local function make_config()
                 ["transform"] = {
                   ["req"] = "`reqdata`",
                   ["res"] = "`body`",
+                },
+                ["parts"] = {
+                  "beatmaps",
+                  "{id}",
                 },
               },
             },
@@ -182,6 +202,10 @@ local function make_config()
             ["name"] = "id",
             ["type"] = "`$STRING`",
           },
+        },
+        ["id"] = {
+          ["field"] = "id",
+          ["name"] = "id",
         },
         ["name"] = "download",
         ["op"] = {
@@ -213,9 +237,13 @@ local function make_config()
                 ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/download/{id}",
-                ["parts"] = {
-                  "download",
-                  "{id}",
+                ["segments"] = {
+                  {
+                    ["lit"] = "download",
+                  },
+                  {
+                    ["var"] = "id",
+                  },
                 },
                 ["select"] = {
                   ["exist"] = {
@@ -226,6 +254,10 @@ local function make_config()
                 ["transform"] = {
                   ["req"] = "`reqdata`",
                   ["res"] = "`body`",
+                },
+                ["parts"] = {
+                  "download",
+                  "{id}",
                 },
               },
             },
@@ -238,11 +270,13 @@ local function make_config()
       ["search"] = {
         ["fields"] = {
           {
+            ["format"] = "date-time",
             ["name"] = "approved_date",
             ["short"] = "Date when beatmap was approved/ranked",
             ["type"] = "`$STRING`",
           },
           {
+            ["format"] = "float",
             ["name"] = "ar",
             ["short"] = "Approach rate",
             ["type"] = "`$NUMBER`",
@@ -258,6 +292,7 @@ local function make_config()
             ["type"] = "`$INTEGER`",
           },
           {
+            ["format"] = "float",
             ["name"] = "bpm",
             ["short"] = "Beats per minute",
             ["type"] = "`$NUMBER`",
@@ -268,11 +303,13 @@ local function make_config()
             ["type"] = "`$STRING`",
           },
           {
+            ["format"] = "float",
             ["name"] = "cs",
             ["short"] = "Circle size",
             ["type"] = "`$NUMBER`",
           },
           {
+            ["format"] = "float",
             ["name"] = "difficulty_rating",
             ["short"] = "Star rating",
             ["type"] = "`$NUMBER`",
@@ -283,6 +320,7 @@ local function make_config()
             ["type"] = "`$INTEGER`",
           },
           {
+            ["format"] = "float",
             ["name"] = "hp",
             ["short"] = "HP drain",
             ["type"] = "`$NUMBER`",
@@ -293,6 +331,7 @@ local function make_config()
             ["type"] = "`$INTEGER`",
           },
           {
+            ["format"] = "date-time",
             ["name"] = "last_updated",
             ["short"] = "Last update date",
             ["type"] = "`$STRING`",
@@ -313,6 +352,7 @@ local function make_config()
             ["type"] = "`$INTEGER`",
           },
           {
+            ["format"] = "float",
             ["name"] = "od",
             ["short"] = "Overall difficulty",
             ["type"] = "`$NUMBER`",
@@ -337,6 +377,10 @@ local function make_config()
             ["short"] = "Difficulty name",
             ["type"] = "`$STRING`",
           },
+        },
+        ["id"] = {
+          ["field"] = "id",
+          ["name"] = "id",
         },
         ["name"] = "search",
         ["op"] = {
@@ -384,8 +428,10 @@ local function make_config()
                 ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/search",
-                ["parts"] = {
-                  "search",
+                ["segments"] = {
+                  {
+                    ["lit"] = "search",
+                  },
                 },
                 ["select"] = {
                   ["exist"] = {
@@ -399,6 +445,9 @@ local function make_config()
                 ["transform"] = {
                   ["req"] = "`reqdata`",
                   ["res"] = "`body.beatmaps`",
+                },
+                ["parts"] = {
+                  "search",
                 },
               },
             },

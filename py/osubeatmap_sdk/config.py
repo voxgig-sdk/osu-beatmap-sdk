@@ -1,6 +1,14 @@
 # OsuBeatmap SDK configuration
 
 
+# The sekreto plugin DEFINITIONS the model selected per feature, imported
+# above by name from the modules the catalogue's active `plugin.def`
+# entries declare. Handed to each feature (secrets builds its Sekreto
+# with them): a provider kind not listed here is unknown to that SDK.
+FEATURE_PLUGINS = {
+}
+
+
 _shared_config = None
 
 
@@ -55,11 +63,13 @@ def make_config():
       "beatmap": {
         "fields": [
           {
+            "format": "date-time",
             "name": "approved_date",
             "short": "Date when beatmap was approved/ranked",
             "type": "`$STRING`",
           },
           {
+            "format": "float",
             "name": "ar",
             "short": "Approach rate",
             "type": "`$NUMBER`",
@@ -75,6 +85,7 @@ def make_config():
             "type": "`$INTEGER`",
           },
           {
+            "format": "float",
             "name": "bpm",
             "short": "Beats per minute",
             "type": "`$NUMBER`",
@@ -85,11 +96,13 @@ def make_config():
             "type": "`$STRING`",
           },
           {
+            "format": "float",
             "name": "cs",
             "short": "Circle size",
             "type": "`$NUMBER`",
           },
           {
+            "format": "float",
             "name": "difficulty_rating",
             "short": "Star rating",
             "type": "`$NUMBER`",
@@ -100,6 +113,7 @@ def make_config():
             "type": "`$INTEGER`",
           },
           {
+            "format": "float",
             "name": "hp",
             "short": "HP drain",
             "type": "`$NUMBER`",
@@ -110,6 +124,7 @@ def make_config():
             "type": "`$INTEGER`",
           },
           {
+            "format": "date-time",
             "name": "last_updated",
             "short": "Last update date",
             "type": "`$STRING`",
@@ -130,6 +145,7 @@ def make_config():
             "type": "`$INTEGER`",
           },
           {
+            "format": "float",
             "name": "od",
             "short": "Overall difficulty",
             "type": "`$NUMBER`",
@@ -155,6 +171,10 @@ def make_config():
             "type": "`$STRING`",
           },
         ],
+        "id": {
+          "field": "id",
+          "name": "id",
+        },
         "name": "beatmap",
         "op": {
           "load": {
@@ -176,9 +196,13 @@ def make_config():
                 "kind": "http",
                 "method": "GET",
                 "orig": "/beatmaps/{id}",
-                "parts": [
-                  "beatmaps",
-                  "{id}",
+                "segments": [
+                  {
+                    "lit": "beatmaps",
+                  },
+                  {
+                    "var": "id",
+                  },
                 ],
                 "select": {
                   "exist": [
@@ -189,6 +213,10 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
+                "parts": [
+                  "beatmaps",
+                  "{id}",
+                ],
               },
             ],
           },
@@ -204,6 +232,10 @@ def make_config():
             "type": "`$STRING`",
           },
         ],
+        "id": {
+          "field": "id",
+          "name": "id",
+        },
         "name": "download",
         "op": {
           "load": {
@@ -234,9 +266,13 @@ def make_config():
                 "kind": "http",
                 "method": "GET",
                 "orig": "/download/{id}",
-                "parts": [
-                  "download",
-                  "{id}",
+                "segments": [
+                  {
+                    "lit": "download",
+                  },
+                  {
+                    "var": "id",
+                  },
                 ],
                 "select": {
                   "exist": [
@@ -248,6 +284,10 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
+                "parts": [
+                  "download",
+                  "{id}",
+                ],
               },
             ],
           },
@@ -259,11 +299,13 @@ def make_config():
       "search": {
         "fields": [
           {
+            "format": "date-time",
             "name": "approved_date",
             "short": "Date when beatmap was approved/ranked",
             "type": "`$STRING`",
           },
           {
+            "format": "float",
             "name": "ar",
             "short": "Approach rate",
             "type": "`$NUMBER`",
@@ -279,6 +321,7 @@ def make_config():
             "type": "`$INTEGER`",
           },
           {
+            "format": "float",
             "name": "bpm",
             "short": "Beats per minute",
             "type": "`$NUMBER`",
@@ -289,11 +332,13 @@ def make_config():
             "type": "`$STRING`",
           },
           {
+            "format": "float",
             "name": "cs",
             "short": "Circle size",
             "type": "`$NUMBER`",
           },
           {
+            "format": "float",
             "name": "difficulty_rating",
             "short": "Star rating",
             "type": "`$NUMBER`",
@@ -304,6 +349,7 @@ def make_config():
             "type": "`$INTEGER`",
           },
           {
+            "format": "float",
             "name": "hp",
             "short": "HP drain",
             "type": "`$NUMBER`",
@@ -314,6 +360,7 @@ def make_config():
             "type": "`$INTEGER`",
           },
           {
+            "format": "date-time",
             "name": "last_updated",
             "short": "Last update date",
             "type": "`$STRING`",
@@ -334,6 +381,7 @@ def make_config():
             "type": "`$INTEGER`",
           },
           {
+            "format": "float",
             "name": "od",
             "short": "Overall difficulty",
             "type": "`$NUMBER`",
@@ -359,6 +407,10 @@ def make_config():
             "type": "`$STRING`",
           },
         ],
+        "id": {
+          "field": "id",
+          "name": "id",
+        },
         "name": "search",
         "op": {
           "list": {
@@ -405,8 +457,10 @@ def make_config():
                 "kind": "http",
                 "method": "GET",
                 "orig": "/search",
-                "parts": [
-                  "search",
+                "segments": [
+                  {
+                    "lit": "search",
+                  },
                 ],
                 "select": {
                   "exist": [
@@ -421,6 +475,9 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body.beatmaps`",
                 },
+                "parts": [
+                  "search",
+                ],
               },
             ],
           },

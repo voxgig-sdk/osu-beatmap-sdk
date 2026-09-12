@@ -6,12 +6,14 @@ main: kit: entity: search: {
 
   fields: [
     {
+      format: "date-time"
       name: "approved_date"
       req: false
       short: "Date when beatmap was approved/ranked"
       type: "`$STRING`"
     }
     {
+      format: "float"
       name: "ar"
       req: false
       short: "Approach rate"
@@ -30,6 +32,7 @@ main: kit: entity: search: {
       type: "`$INTEGER`"
     }
     {
+      format: "float"
       name: "bpm"
       req: false
       short: "Beats per minute"
@@ -42,12 +45,14 @@ main: kit: entity: search: {
       type: "`$STRING`"
     }
     {
+      format: "float"
       name: "cs"
       req: false
       short: "Circle size"
       type: "`$NUMBER`"
     }
     {
+      format: "float"
       name: "difficulty_rating"
       req: false
       short: "Star rating"
@@ -60,6 +65,7 @@ main: kit: entity: search: {
       type: "`$INTEGER`"
     }
     {
+      format: "float"
       name: "hp"
       req: false
       short: "HP drain"
@@ -72,6 +78,7 @@ main: kit: entity: search: {
       type: "`$INTEGER`"
     }
     {
+      format: "date-time"
       name: "last_updated"
       req: false
       short: "Last update date"
@@ -96,6 +103,7 @@ main: kit: entity: search: {
       type: "`$INTEGER`"
     }
     {
+      format: "float"
       name: "od"
       req: false
       short: "Overall difficulty"
@@ -181,8 +189,10 @@ main: kit: entity: search: {
           }
           method: "GET"
           orig: "/search"
-          parts: [
-            "search"
+          segments: [
+            {
+              lit: "search"
+            }
           ]
           select: {
             exist: [

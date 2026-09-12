@@ -60,11 +60,13 @@ class OsuBeatmapConfig
         'beatmap' => [
           'fields' => [
             [
+              'format' => 'date-time',
               'name' => 'approved_date',
               'short' => 'Date when beatmap was approved/ranked',
               'type' => '`$STRING`',
             ],
             [
+              'format' => 'float',
               'name' => 'ar',
               'short' => 'Approach rate',
               'type' => '`$NUMBER`',
@@ -80,6 +82,7 @@ class OsuBeatmapConfig
               'type' => '`$INTEGER`',
             ],
             [
+              'format' => 'float',
               'name' => 'bpm',
               'short' => 'Beats per minute',
               'type' => '`$NUMBER`',
@@ -90,11 +93,13 @@ class OsuBeatmapConfig
               'type' => '`$STRING`',
             ],
             [
+              'format' => 'float',
               'name' => 'cs',
               'short' => 'Circle size',
               'type' => '`$NUMBER`',
             ],
             [
+              'format' => 'float',
               'name' => 'difficulty_rating',
               'short' => 'Star rating',
               'type' => '`$NUMBER`',
@@ -105,6 +110,7 @@ class OsuBeatmapConfig
               'type' => '`$INTEGER`',
             ],
             [
+              'format' => 'float',
               'name' => 'hp',
               'short' => 'HP drain',
               'type' => '`$NUMBER`',
@@ -115,6 +121,7 @@ class OsuBeatmapConfig
               'type' => '`$INTEGER`',
             ],
             [
+              'format' => 'date-time',
               'name' => 'last_updated',
               'short' => 'Last update date',
               'type' => '`$STRING`',
@@ -135,6 +142,7 @@ class OsuBeatmapConfig
               'type' => '`$INTEGER`',
             ],
             [
+              'format' => 'float',
               'name' => 'od',
               'short' => 'Overall difficulty',
               'type' => '`$NUMBER`',
@@ -160,6 +168,10 @@ class OsuBeatmapConfig
               'type' => '`$STRING`',
             ],
           ],
+          'id' => [
+            'field' => 'id',
+            'name' => 'id',
+          ],
           'name' => 'beatmap',
           'op' => [
             'load' => [
@@ -181,9 +193,13 @@ class OsuBeatmapConfig
                   'kind' => 'http',
                   'method' => 'GET',
                   'orig' => '/beatmaps/{id}',
-                  'parts' => [
-                    'beatmaps',
-                    '{id}',
+                  'segments' => [
+                    [
+                      'lit' => 'beatmaps',
+                    ],
+                    [
+                      'var' => 'id',
+                    ],
                   ],
                   'select' => [
                     'exist' => [
@@ -193,6 +209,10 @@ class OsuBeatmapConfig
                   'transform' => [
                     'req' => '`reqdata`',
                     'res' => '`body`',
+                  ],
+                  'parts' => [
+                    'beatmaps',
+                    '{id}',
                   ],
                 ],
               ],
@@ -208,6 +228,10 @@ class OsuBeatmapConfig
               'name' => 'id',
               'type' => '`$STRING`',
             ],
+          ],
+          'id' => [
+            'field' => 'id',
+            'name' => 'id',
           ],
           'name' => 'download',
           'op' => [
@@ -239,9 +263,13 @@ class OsuBeatmapConfig
                   'kind' => 'http',
                   'method' => 'GET',
                   'orig' => '/download/{id}',
-                  'parts' => [
-                    'download',
-                    '{id}',
+                  'segments' => [
+                    [
+                      'lit' => 'download',
+                    ],
+                    [
+                      'var' => 'id',
+                    ],
                   ],
                   'select' => [
                     'exist' => [
@@ -252,6 +280,10 @@ class OsuBeatmapConfig
                   'transform' => [
                     'req' => '`reqdata`',
                     'res' => '`body`',
+                  ],
+                  'parts' => [
+                    'download',
+                    '{id}',
                   ],
                 ],
               ],
@@ -264,11 +296,13 @@ class OsuBeatmapConfig
         'search' => [
           'fields' => [
             [
+              'format' => 'date-time',
               'name' => 'approved_date',
               'short' => 'Date when beatmap was approved/ranked',
               'type' => '`$STRING`',
             ],
             [
+              'format' => 'float',
               'name' => 'ar',
               'short' => 'Approach rate',
               'type' => '`$NUMBER`',
@@ -284,6 +318,7 @@ class OsuBeatmapConfig
               'type' => '`$INTEGER`',
             ],
             [
+              'format' => 'float',
               'name' => 'bpm',
               'short' => 'Beats per minute',
               'type' => '`$NUMBER`',
@@ -294,11 +329,13 @@ class OsuBeatmapConfig
               'type' => '`$STRING`',
             ],
             [
+              'format' => 'float',
               'name' => 'cs',
               'short' => 'Circle size',
               'type' => '`$NUMBER`',
             ],
             [
+              'format' => 'float',
               'name' => 'difficulty_rating',
               'short' => 'Star rating',
               'type' => '`$NUMBER`',
@@ -309,6 +346,7 @@ class OsuBeatmapConfig
               'type' => '`$INTEGER`',
             ],
             [
+              'format' => 'float',
               'name' => 'hp',
               'short' => 'HP drain',
               'type' => '`$NUMBER`',
@@ -319,6 +357,7 @@ class OsuBeatmapConfig
               'type' => '`$INTEGER`',
             ],
             [
+              'format' => 'date-time',
               'name' => 'last_updated',
               'short' => 'Last update date',
               'type' => '`$STRING`',
@@ -339,6 +378,7 @@ class OsuBeatmapConfig
               'type' => '`$INTEGER`',
             ],
             [
+              'format' => 'float',
               'name' => 'od',
               'short' => 'Overall difficulty',
               'type' => '`$NUMBER`',
@@ -363,6 +403,10 @@ class OsuBeatmapConfig
               'short' => 'Difficulty name',
               'type' => '`$STRING`',
             ],
+          ],
+          'id' => [
+            'field' => 'id',
+            'name' => 'id',
           ],
           'name' => 'search',
           'op' => [
@@ -410,8 +454,10 @@ class OsuBeatmapConfig
                   'kind' => 'http',
                   'method' => 'GET',
                   'orig' => '/search',
-                  'parts' => [
-                    'search',
+                  'segments' => [
+                    [
+                      'lit' => 'search',
+                    ],
                   ],
                   'select' => [
                     'exist' => [
@@ -425,6 +471,9 @@ class OsuBeatmapConfig
                   'transform' => [
                     'req' => '`reqdata`',
                     'res' => '`body.beatmaps`',
+                  ],
+                  'parts' => [
+                    'search',
                   ],
                 ],
               ],

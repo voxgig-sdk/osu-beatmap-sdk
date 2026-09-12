@@ -38,11 +38,13 @@ func MakeConfig() map[string]any {
 			"beatmap": map[string]any{
 				"fields": []any{
 					map[string]any{
+						"format": "date-time",
 						"name": "approved_date",
 						"short": "Date when beatmap was approved/ranked",
 						"type": "`$STRING`",
 					},
 					map[string]any{
+						"format": "float",
 						"name": "ar",
 						"short": "Approach rate",
 						"type": "`$NUMBER`",
@@ -58,6 +60,7 @@ func MakeConfig() map[string]any {
 						"type": "`$INTEGER`",
 					},
 					map[string]any{
+						"format": "float",
 						"name": "bpm",
 						"short": "Beats per minute",
 						"type": "`$NUMBER`",
@@ -68,11 +71,13 @@ func MakeConfig() map[string]any {
 						"type": "`$STRING`",
 					},
 					map[string]any{
+						"format": "float",
 						"name": "cs",
 						"short": "Circle size",
 						"type": "`$NUMBER`",
 					},
 					map[string]any{
+						"format": "float",
 						"name": "difficulty_rating",
 						"short": "Star rating",
 						"type": "`$NUMBER`",
@@ -83,6 +88,7 @@ func MakeConfig() map[string]any {
 						"type": "`$INTEGER`",
 					},
 					map[string]any{
+						"format": "float",
 						"name": "hp",
 						"short": "HP drain",
 						"type": "`$NUMBER`",
@@ -93,6 +99,7 @@ func MakeConfig() map[string]any {
 						"type": "`$INTEGER`",
 					},
 					map[string]any{
+						"format": "date-time",
 						"name": "last_updated",
 						"short": "Last update date",
 						"type": "`$STRING`",
@@ -113,6 +120,7 @@ func MakeConfig() map[string]any {
 						"type": "`$INTEGER`",
 					},
 					map[string]any{
+						"format": "float",
 						"name": "od",
 						"short": "Overall difficulty",
 						"type": "`$NUMBER`",
@@ -138,6 +146,10 @@ func MakeConfig() map[string]any {
 						"type": "`$STRING`",
 					},
 				},
+				"id": map[string]any{
+					"field": "id",
+					"name": "id",
+				},
 				"name": "beatmap",
 				"op": map[string]any{
 					"load": map[string]any{
@@ -159,9 +171,13 @@ func MakeConfig() map[string]any {
 								"kind": "http",
 								"method": "GET",
 								"orig": "/beatmaps/{id}",
-								"parts": []any{
-									"beatmaps",
-									"{id}",
+								"segments": []any{
+									map[string]any{
+										"lit": "beatmaps",
+									},
+									map[string]any{
+										"var": "id",
+									},
 								},
 								"select": map[string]any{
 									"exist": []any{
@@ -171,6 +187,10 @@ func MakeConfig() map[string]any {
 								"transform": map[string]any{
 									"req": "`reqdata`",
 									"res": "`body`",
+								},
+								"parts": []any{
+									"beatmaps",
+									"{id}",
 								},
 							},
 						},
@@ -186,6 +206,10 @@ func MakeConfig() map[string]any {
 						"name": "id",
 						"type": "`$STRING`",
 					},
+				},
+				"id": map[string]any{
+					"field": "id",
+					"name": "id",
 				},
 				"name": "download",
 				"op": map[string]any{
@@ -217,9 +241,13 @@ func MakeConfig() map[string]any {
 								"kind": "http",
 								"method": "GET",
 								"orig": "/download/{id}",
-								"parts": []any{
-									"download",
-									"{id}",
+								"segments": []any{
+									map[string]any{
+										"lit": "download",
+									},
+									map[string]any{
+										"var": "id",
+									},
 								},
 								"select": map[string]any{
 									"exist": []any{
@@ -230,6 +258,10 @@ func MakeConfig() map[string]any {
 								"transform": map[string]any{
 									"req": "`reqdata`",
 									"res": "`body`",
+								},
+								"parts": []any{
+									"download",
+									"{id}",
 								},
 							},
 						},
@@ -242,11 +274,13 @@ func MakeConfig() map[string]any {
 			"search": map[string]any{
 				"fields": []any{
 					map[string]any{
+						"format": "date-time",
 						"name": "approved_date",
 						"short": "Date when beatmap was approved/ranked",
 						"type": "`$STRING`",
 					},
 					map[string]any{
+						"format": "float",
 						"name": "ar",
 						"short": "Approach rate",
 						"type": "`$NUMBER`",
@@ -262,6 +296,7 @@ func MakeConfig() map[string]any {
 						"type": "`$INTEGER`",
 					},
 					map[string]any{
+						"format": "float",
 						"name": "bpm",
 						"short": "Beats per minute",
 						"type": "`$NUMBER`",
@@ -272,11 +307,13 @@ func MakeConfig() map[string]any {
 						"type": "`$STRING`",
 					},
 					map[string]any{
+						"format": "float",
 						"name": "cs",
 						"short": "Circle size",
 						"type": "`$NUMBER`",
 					},
 					map[string]any{
+						"format": "float",
 						"name": "difficulty_rating",
 						"short": "Star rating",
 						"type": "`$NUMBER`",
@@ -287,6 +324,7 @@ func MakeConfig() map[string]any {
 						"type": "`$INTEGER`",
 					},
 					map[string]any{
+						"format": "float",
 						"name": "hp",
 						"short": "HP drain",
 						"type": "`$NUMBER`",
@@ -297,6 +335,7 @@ func MakeConfig() map[string]any {
 						"type": "`$INTEGER`",
 					},
 					map[string]any{
+						"format": "date-time",
 						"name": "last_updated",
 						"short": "Last update date",
 						"type": "`$STRING`",
@@ -317,6 +356,7 @@ func MakeConfig() map[string]any {
 						"type": "`$INTEGER`",
 					},
 					map[string]any{
+						"format": "float",
 						"name": "od",
 						"short": "Overall difficulty",
 						"type": "`$NUMBER`",
@@ -341,6 +381,10 @@ func MakeConfig() map[string]any {
 						"short": "Difficulty name",
 						"type": "`$STRING`",
 					},
+				},
+				"id": map[string]any{
+					"field": "id",
+					"name": "id",
 				},
 				"name": "search",
 				"op": map[string]any{
@@ -388,8 +432,10 @@ func MakeConfig() map[string]any {
 								"kind": "http",
 								"method": "GET",
 								"orig": "/search",
-								"parts": []any{
-									"search",
+								"segments": []any{
+									map[string]any{
+										"lit": "search",
+									},
 								},
 								"select": map[string]any{
 									"exist": []any{
@@ -404,6 +450,9 @@ func MakeConfig() map[string]any {
 									"req": "`reqdata`",
 									"res": "`body.beatmaps`",
 								},
+								"parts": []any{
+									"search",
+								},
 							},
 						},
 					},
@@ -414,6 +463,17 @@ func MakeConfig() map[string]any {
 			},
 		},
 	}
+}
+
+// The plugin definitions the model selected per feature, as []any so a
+// feature package can consume them without core naming its types. Empty
+// when no active feature declares active plugin groups for this target.
+var featurePlugins = map[string][]any{
+}
+
+// FeaturePlugins is the definitions list for one feature's chain.
+func FeaturePlugins(name string) []any {
+	return featurePlugins[name]
 }
 
 var (
