@@ -1324,7 +1324,7 @@
             "registry": {
               "active": false,
               "name": "npm",
-              "package": "",
+              "package": "@voxgig-sdk/osu-beatmap-sdk",
               "state": "pending",
               "url": "https://registry.npmjs.org",
               "vault": {

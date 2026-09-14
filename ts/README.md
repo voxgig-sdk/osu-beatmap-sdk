@@ -28,7 +28,7 @@ loading a specific record.
 ### 1. Create a client
 
 ```ts
-import { OsuBeatmapSDK } from '@voxgig-sdk/osu-beatmap'
+import { OsuBeatmapSDK } from '@voxgig-sdk/osu-beatmap-sdk'
 
 const client = new OsuBeatmapSDK()
 ```
@@ -548,7 +548,7 @@ osu-beatmap/
 Import the SDK from the package root:
 
 ```ts
-import { OsuBeatmapSDK } from '@voxgig-sdk/osu-beatmap'
+import { OsuBeatmapSDK } from '@voxgig-sdk/osu-beatmap-sdk'
 ```
 
 ### Entity state

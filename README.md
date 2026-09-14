@@ -105,7 +105,7 @@ local result, err = client:Beatmap():load({ id = "test01" })
 
 | Language | Package | Install |
 | --- | --- | --- |
-| TypeScript | `@voxgig-sdk/osu-beatmap` | publish pending — [install from git tag](https://github.com/voxgig-sdk/osu-beatmap-sdk/releases) |
+| TypeScript | `@voxgig-sdk/osu-beatmap-sdk` | publish pending — [install from git tag](https://github.com/voxgig-sdk/osu-beatmap-sdk/releases) |
 | Python | `voxgig-sdk-osu-beatmap` | publish pending — [install from git tag](https://github.com/voxgig-sdk/osu-beatmap-sdk/releases) |
 | PHP | `voxgig-sdk/osu-beatmap` | publish pending — [install from git tag](https://github.com/voxgig-sdk/osu-beatmap-sdk/releases) |
 | Golang | `github.com/voxgig-sdk/osu-beatmap-sdk/go` | `go get github.com/voxgig-sdk/osu-beatmap-sdk/go@latest` |
@@ -119,7 +119,7 @@ local result, err = client:Beatmap():load({ id = "test01" })
 ### TypeScript
 
 ```ts
-import { OsuBeatmapSDK } from '@voxgig-sdk/osu-beatmap'
+import { OsuBeatmapSDK } from '@voxgig-sdk/osu-beatmap-sdk'
 
 const client = new OsuBeatmapSDK()
 
