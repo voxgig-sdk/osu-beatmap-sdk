@@ -10,15 +10,15 @@
         "creator": "scd",
         "cs": 206,
         "difficulty_rating": 207,
-        "favourite_count": "sd0",
+        "favourite_count": 208,
         "hp": 209,
         "id": "BEATMAP00",
         "last_updated": "sd3",
-        "length": "sd4",
-        "max_combo": "sd5",
-        "mode": "sd6",
+        "length": 212,
+        "max_combo": 213,
+        "mode": 214,
         "od": 215,
-        "playcount": "sd8",
+        "playcount": 216,
         "status": "sd9",
         "title": "sda",
         "version": "sdb"
@@ -32,15 +32,15 @@
         "creator": "s195",
         "cs": 406,
         "difficulty_rating": 407,
-        "favourite_count": "s198",
+        "favourite_count": 408,
         "hp": 409,
         "id": "BEATMAP01",
         "last_updated": "s19b",
-        "length": "s19c",
-        "max_combo": "s19d",
-        "mode": "s19e",
+        "length": 412,
+        "max_combo": 413,
+        "mode": 414,
         "od": 415,
-        "playcount": "s1a0",
+        "playcount": 416,
         "status": "s1a1",
         "title": "s1a2",
         "version": "s1a3"
@@ -54,15 +54,15 @@
         "creator": "s25d",
         "cs": 606,
         "difficulty_rating": 607,
-        "favourite_count": "s260",
+        "favourite_count": 608,
         "hp": 609,
         "id": "BEATMAP02",
         "last_updated": "s263",
-        "length": "s264",
-        "max_combo": "s265",
-        "mode": "s266",
+        "length": 612,
+        "max_combo": 613,
+        "mode": 614,
         "od": 615,
-        "playcount": "s268",
+        "playcount": 616,
         "status": "s269",
         "title": "s26a",
         "version": "s26b"
@@ -80,17 +80,146 @@
         "creator": "s325",
         "cs": 806,
         "difficulty_rating": 807,
-        "favourite_count": "s328",
+        "favourite_count": 808,
         "hp": 809,
         "last_updated": "s32b",
-        "length": "s32c",
-        "max_combo": "s32d",
-        "mode": "s32e",
+        "length": 812,
+        "max_combo": 813,
+        "mode": 814,
         "od": 815,
-        "playcount": "s330",
+        "playcount": 816,
         "status": "s331",
         "title": "s332",
         "version": "s333"
+      }
+    }
+  },
+  "requests": {
+    "GET /beatmaps/{id}": {
+      "provenance": "operation-contract",
+      "contract": {
+        "operationId": "getBeatmapById",
+        "parameters": [
+          {
+            "description": "Beatmap ID",
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "protocol": "http",
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "properties": {
+                    "approved_date": {
+                      "description": "Date when beatmap was approved/ranked",
+                      "format": "date-time",
+                      "type": "string"
+                    },
+                    "ar": {
+                      "description": "Approach rate",
+                      "format": "float",
+                      "type": "number"
+                    },
+                    "artist": {
+                      "description": "Song artist",
+                      "type": "string"
+                    },
+                    "beatmapset_id": {
+                      "description": "Beatmap set ID",
+                      "type": "integer"
+                    },
+                    "bpm": {
+                      "description": "Beats per minute",
+                      "format": "float",
+                      "type": "number"
+                    },
+                    "creator": {
+                      "description": "Beatmap creator username",
+                      "type": "string"
+                    },
+                    "cs": {
+                      "description": "Circle size",
+                      "format": "float",
+                      "type": "number"
+                    },
+                    "difficulty_rating": {
+                      "description": "Star rating",
+                      "format": "float",
+                      "type": "number"
+                    },
+                    "favourite_count": {
+                      "description": "Number of favorites",
+                      "type": "integer"
+                    },
+                    "hp": {
+                      "description": "HP drain",
+                      "format": "float",
+                      "type": "number"
+                    },
+                    "id": {
+                      "description": "Beatmap ID",
+                      "type": "integer"
+                    },
+                    "last_updated": {
+                      "description": "Last update date",
+                      "format": "date-time",
+                      "type": "string"
+                    },
+                    "length": {
+                      "description": "Song length in seconds",
+                      "type": "integer"
+                    },
+                    "max_combo": {
+                      "description": "Maximum combo",
+                      "type": "integer"
+                    },
+                    "mode": {
+                      "description": "Game mode (0=osu!, 1=Taiko, 2=Catch, 3=Mania)",
+                      "type": "integer"
+                    },
+                    "od": {
+                      "description": "Overall difficulty",
+                      "format": "float",
+                      "type": "number"
+                    },
+                    "playcount": {
+                      "description": "Total play count",
+                      "type": "integer"
+                    },
+                    "status": {
+                      "description": "Beatmap status (ranked, qualified, loved, etc.)",
+                      "type": "string"
+                    },
+                    "title": {
+                      "description": "Song title",
+                      "type": "string"
+                    },
+                    "version": {
+                      "description": "Difficulty name",
+                      "type": "string"
+                    }
+                  },
+                  "type": "object"
+                }
+              }
+            },
+            "description": "Successful response"
+          },
+          "404": {
+            "description": "Beatmap not found"
+          },
+          "500": {
+            "description": "Internal server error"
+          }
+        },
+        "securitySource": "unspecified"
       }
     }
   }

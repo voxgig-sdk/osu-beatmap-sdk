@@ -40,6 +40,8 @@ const node_path_1 = __importDefault(require("node:path"));
 const Fs = __importStar(require("node:fs"));
 const node_test_1 = require("node:test");
 const node_assert_1 = __importDefault(require("node:assert"));
+const live_runner_1 = require("../../live-runner");
+const live_entity_1 = require("../../live-entity");
 const __1 = require("../../..");
 const utility_1 = require("../../utility");
 // AFTER the imports on purpose: TypeScript hoists `import` above any
@@ -59,16 +61,12 @@ const utility_1 = require("../../utility");
     (0, node_test_1.test)('basic', async (t) => {
         const live = 'TRUE' === process.env.OSU_BEATMAP_TEST_LIVE;
         for (const op of ['list']) {
-            if ((0, utility_1.maybeSkipControl)(t, 'entityOp', 'search.' + op, live))
+            if (!live && (0, utility_1.maybeSkipControl)(t, 'entityOp', 'search.' + op, live))
                 return;
         }
         const setup = basicSetup();
-        // The basic flow consumes synthetic IDs and field values from the
-        // fixture (entity TestData.json). Those don't exist on the live API.
-        // Skip live runs unless the user provided a real ENTID env override.
-        if (setup.syntheticOnly) {
-            t.skip('live entity test uses synthetic IDs from fixture — set OSU_BEATMAP_TEST_SEARCH_ENTID JSON to run live');
-            return;
+        if (setup.live) {
+            return (0, live_entity_1.runLiveEntity)(setup, { "active": true, "alias": { "field": {} }, "fields": [{ "active": true, "format": "date-time", "name": "approved_date", "req": false, "short": "Date when beatmap was approved/ranked", "type": "`$STRING`", "index$": 0 }, { "active": true, "format": "float", "name": "ar", "req": false, "short": "Approach rate", "type": "`$NUMBER`", "index$": 1 }, { "active": true, "name": "artist", "req": false, "short": "Song artist", "type": "`$STRING`", "index$": 2 }, { "active": true, "name": "beatmapset_id", "req": false, "short": "Beatmap set ID", "type": "`$INTEGER`", "index$": 3 }, { "active": true, "format": "float", "name": "bpm", "req": false, "short": "Beats per minute", "type": "`$NUMBER`", "index$": 4 }, { "active": true, "name": "creator", "req": false, "short": "Beatmap creator username", "type": "`$STRING`", "index$": 5 }, { "active": true, "format": "float", "name": "cs", "req": false, "short": "Circle size", "type": "`$NUMBER`", "index$": 6 }, { "active": true, "format": "float", "name": "difficulty_rating", "req": false, "short": "Star rating", "type": "`$NUMBER`", "index$": 7 }, { "active": true, "name": "favourite_count", "req": false, "short": "Number of favorites", "type": "`$INTEGER`", "index$": 8 }, { "active": true, "format": "float", "name": "hp", "req": false, "short": "HP drain", "type": "`$NUMBER`", "index$": 9 }, { "active": true, "name": "id", "req": false, "short": "Beatmap ID", "type": "`$INTEGER`", "index$": 10 }, { "active": true, "format": "date-time", "name": "last_updated", "req": false, "short": "Last update date", "type": "`$STRING`", "index$": 11 }, { "active": true, "name": "length", "req": false, "short": "Song length in seconds", "type": "`$INTEGER`", "index$": 12 }, { "active": true, "name": "max_combo", "req": false, "short": "Maximum combo", "type": "`$INTEGER`", "index$": 13 }, { "active": true, "name": "mode", "req": false, "short": "Game mode (0=osu!, 1=Taiko, 2=Catch, 3=Mania)", "type": "`$INTEGER`", "index$": 14 }, { "active": true, "format": "float", "name": "od", "req": false, "short": "Overall difficulty", "type": "`$NUMBER`", "index$": 15 }, { "active": true, "name": "playcount", "req": false, "short": "Total play count", "type": "`$INTEGER`", "index$": 16 }, { "active": true, "name": "status", "req": false, "short": "Beatmap status (ranked, qualified, loved, etc.)", "type": "`$STRING`", "index$": 17 }, { "active": true, "name": "title", "req": false, "short": "Song title", "type": "`$STRING`", "index$": 18 }, { "active": true, "name": "version", "req": false, "short": "Difficulty name", "type": "`$STRING`", "index$": 19 }], "id": { "field": "id", "name": "id" }, "name": "search", "op": { "list": { "input": "data", "name": "list", "points": [{ "active": true, "args": { "query": [{ "active": true, "example": 50, "kind": "query", "name": "limit", "orig": "limit", "reqd": false, "type": "`$INTEGER`", "index$": 0 }, { "active": true, "kind": "query", "name": "mode", "orig": "mode", "reqd": false, "type": "`$INTEGER`", "index$": 1 }, { "active": true, "example": 0, "kind": "query", "name": "offset", "orig": "offset", "reqd": false, "type": "`$INTEGER`", "index$": 2 }, { "active": true, "kind": "query", "name": "q", "orig": "q", "reqd": false, "type": "`$STRING`", "index$": 3 }, { "active": true, "kind": "query", "name": "status", "orig": "status", "reqd": false, "type": "`$STRING`", "index$": 4 }] }, "contract": { "id": "GET /search", "json": "{\"operationId\":\"searchBeatmaps\",\"parameters\":[{\"description\":\"Search query string\",\"in\":\"query\",\"name\":\"q\",\"required\":false,\"schema\":{\"type\":\"string\"}},{\"description\":\"Game mode filter (0=osu!, 1=Taiko, 2=Catch, 3=Mania)\",\"in\":\"query\",\"name\":\"mode\",\"required\":false,\"schema\":{\"enum\":[0,1,2,3],\"type\":\"integer\"}},{\"description\":\"Beatmap status (ranked, qualified, loved, pending, etc.)\",\"in\":\"query\",\"name\":\"status\",\"required\":false,\"schema\":{\"type\":\"string\"}},{\"description\":\"Pagination offset\",\"in\":\"query\",\"name\":\"offset\",\"required\":false,\"schema\":{\"default\":0,\"type\":\"integer\"}},{\"description\":\"Number of results to return\",\"in\":\"query\",\"name\":\"limit\",\"required\":false,\"schema\":{\"default\":50,\"maximum\":100,\"type\":\"integer\"}}],\"protocol\":\"http\",\"responses\":{\"200\":{\"content\":{\"application/json\":{\"schema\":{\"properties\":{\"beatmaps\":{\"items\":{\"properties\":{\"approved_date\":{\"description\":\"Date when beatmap was approved/ranked\",\"format\":\"date-time\",\"type\":\"string\"},\"ar\":{\"description\":\"Approach rate\",\"format\":\"float\",\"type\":\"number\"},\"artist\":{\"description\":\"Song artist\",\"type\":\"string\"},\"beatmapset_id\":{\"description\":\"Beatmap set ID\",\"type\":\"integer\"},\"bpm\":{\"description\":\"Beats per minute\",\"format\":\"float\",\"type\":\"number\"},\"creator\":{\"description\":\"Beatmap creator username\",\"type\":\"string\"},\"cs\":{\"description\":\"Circle size\",\"format\":\"float\",\"type\":\"number\"},\"difficulty_rating\":{\"description\":\"Star rating\",\"format\":\"float\",\"type\":\"number\"},\"favourite_count\":{\"description\":\"Number of favorites\",\"type\":\"integer\"},\"hp\":{\"description\":\"HP drain\",\"format\":\"float\",\"type\":\"number\"},\"id\":{\"description\":\"Beatmap ID\",\"type\":\"integer\"},\"last_updated\":{\"description\":\"Last update date\",\"format\":\"date-time\",\"type\":\"string\"},\"length\":{\"description\":\"Song length in seconds\",\"type\":\"integer\"},\"max_combo\":{\"description\":\"Maximum combo\",\"type\":\"integer\"},\"mode\":{\"description\":\"Game mode (0=osu!, 1=Taiko, 2=Catch, 3=Mania)\",\"type\":\"integer\"},\"od\":{\"description\":\"Overall difficulty\",\"format\":\"float\",\"type\":\"number\"},\"playcount\":{\"description\":\"Total play count\",\"type\":\"integer\"},\"status\":{\"description\":\"Beatmap status (ranked, qualified, loved, etc.)\",\"type\":\"string\"},\"title\":{\"description\":\"Song title\",\"type\":\"string\"},\"version\":{\"description\":\"Difficulty name\",\"type\":\"string\"}},\"type\":\"object\"},\"type\":\"array\"},\"total\":{\"description\":\"Total number of results\",\"type\":\"integer\"}},\"type\":\"object\"}}},\"description\":\"Successful search response\"},\"400\":{\"description\":\"Bad request - invalid parameters\"},\"500\":{\"description\":\"Internal server error\"}},\"securitySource\":\"unspecified\"}", "source": "openapi3", "version": 1 }, "kind": "http", "method": "GET", "orig": "/search", "segments": [{ "lit": "search" }], "select": { "exist": ["limit", "mode", "offset", "q", "status"] }, "transform": { "req": "`reqdata`", "res": "`body.beatmaps`" }, "index$": 0 }], "key$": "list" } }, "relations": { "ancestors": [] }, "key$": "search", "name__orig": "search", "Name": "Search", "name_": "search", "name-": "search", "NAME": "SEARCH", "index$": 2 }, { "active": true, "entity": "search", "key$": "BasicSearchFlow", "kind": "basic", "name": "BasicSearchFlow", "param": {}, "step": [{ "active": true, "data": {}, "input": {}, "match": {}, "op": "list", "spec": [], "valid": [{ "apply": "ItemExists", "def": { "ref": "search_ref01" } }], "index$": 0 }] }, 'Search');
         }
         const client = setup.client;
         const struct = setup.struct;
@@ -101,12 +99,6 @@ function basicSetup(extra) {
                 '`$VAL`': ['`$FORMAT`', 'upper', '`$COPY`']
             }]
     });
-    // Detect whether the user provided a real ENTID JSON via env var. The
-    // basic flow consumes synthetic IDs from the fixture file; without an
-    // override those synthetic IDs reach the live API and 4xx. Surface this
-    // to the test so it can skip rather than fail.
-    const idmapEnvVal = process.env['OSU_BEATMAP_TEST_SEARCH_ENTID'];
-    const idmapOverridden = null != idmapEnvVal && idmapEnvVal.trim().startsWith('{');
     const env = (0, utility_1.envOverride)({
         'OSU_BEATMAP_TEST_SEARCH_ENTID': idmap,
         'OSU_BEATMAP_TEST_LIVE': 'FALSE',
@@ -114,7 +106,13 @@ function basicSetup(extra) {
     });
     idmap = env['OSU_BEATMAP_TEST_SEARCH_ENTID'];
     const live = 'TRUE' === env.OSU_BEATMAP_TEST_LIVE;
+    const transport = (0, live_runner_1.createLiveTransport)();
     if (live) {
+        const rawIds = process.env['OSU_BEATMAP_TEST_SEARCH_ENTID'];
+        idmap = rawIds && rawIds.trim() ? JSON.parse(rawIds) : {};
+        if (!idmap || Array.isArray(idmap) || typeof idmap !== 'object') {
+            throw new Error('Live ENTID must be a JSON object');
+        }
         client = new __1.OsuBeatmapSDK(merge([
             // FIRST, so the generated fields below win: sdk-test-control.json's
             // test.client.options adds to the live client, it does not redirect it.
@@ -125,7 +123,8 @@ function basicSetup(extra) {
             // argument at all - so a bare 'extra' silently discarded the apikey
             // and server values above and handed the SDK undefined. Harmless
             // while there was nothing in that object; not harmless now.
-            extra || {}
+            extra || {},
+            { system: { fetch: transport.fetch } }
         ]));
     }
     const setup = {
@@ -137,7 +136,7 @@ function basicSetup(extra) {
         data: entityData,
         explain: 'TRUE' === env.OSU_BEATMAP_TEST_EXPLAIN,
         live,
-        syntheticOnly: live && !idmapOverridden,
+        transport,
         now: Date.now(),
     };
     return setup;

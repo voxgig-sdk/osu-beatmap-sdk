@@ -44,6 +44,12 @@ main: kit: entity: download: {
               }
             ]
           }
+          contract: {
+            id: "GET /download/{id}"
+            json: "{\"operationId\":\"downloadBeatmap\",\"parameters\":[{\"description\":\"Beatmap set ID to download\",\"in\":\"path\",\"name\":\"id\",\"required\":true,\"schema\":{\"type\":\"integer\"}},{\"description\":\"Download without video\",\"in\":\"query\",\"name\":\"noVideo\",\"required\":false,\"schema\":{\"default\":false,\"type\":\"boolean\"}}],\"protocol\":\"http\",\"responses\":{\"200\":{\"content\":{\"application/octet-stream\":{\"schema\":{\"format\":\"binary\",\"type\":\"string\"}}},\"description\":\"Beatmap file download\"},\"404\":{\"description\":\"Beatmap not found\"},\"500\":{\"description\":\"Internal server error\"}},\"securitySource\":\"unspecified\"}"
+            source: "openapi3"
+            version: 1
+          }
           method: "GET"
           orig: "/download/{id}"
           segments: [

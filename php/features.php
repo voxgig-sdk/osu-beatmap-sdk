@@ -4,7 +4,10 @@ declare(strict_types=1);
 // OsuBeatmap SDK feature factory
 
 require_once __DIR__ . '/feature/BaseFeature.php';
+require_once __DIR__ . '/feature/RatelimitFeature.php';
+require_once __DIR__ . '/feature/RetryFeature.php';
 require_once __DIR__ . '/feature/TestFeature.php';
+require_once __DIR__ . '/feature/TimeoutFeature.php';
 
 
 class OsuBeatmapFeatures
@@ -14,8 +17,14 @@ class OsuBeatmapFeatures
         switch ($name) {
             case "base":
                 return new OsuBeatmapBaseFeature();
+            case "ratelimit":
+                return new OsuBeatmapRatelimitFeature();
+            case "retry":
+                return new OsuBeatmapRetryFeature();
             case "test":
                 return new OsuBeatmapTestFeature();
+            case "timeout":
+                return new OsuBeatmapTimeoutFeature();
             default:
                 return new OsuBeatmapBaseFeature();
         }
@@ -31,7 +40,10 @@ class OsuBeatmapFeatures
     {
         switch ($name) {
             case "base":
+            case "ratelimit":
+            case "retry":
             case "test":
+            case "timeout":
                 return true;
             default:
                 return false;
