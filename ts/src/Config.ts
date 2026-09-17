@@ -127,15 +127,15 @@ class Config {
 
     entity: {
       
-      beatmap: {
-      },
-
-      download: {
-      },
-
-      search: {
-      },
-
+        beatmap: {
+        },
+  
+        download: {
+        },
+  
+        search: {
+        },
+  
     }
   }
 

@@ -1,5 +1,5 @@
 # Flows
 
-@"BasicBeatmapFlow.aon"
-@"BasicDownloadFlow.aon"
-@"BasicSearchFlow.aon"
+@"./BasicBeatmapFlow.aon"
+@"./BasicDownloadFlow.aon"
+@"./BasicSearchFlow.aon"

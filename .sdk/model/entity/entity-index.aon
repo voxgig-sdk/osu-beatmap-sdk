@@ -1,5 +1,5 @@
 # Entity Models
 
-@"beatmap.aon"
-@"download.aon"
-@"search.aon"
+@"./beatmap.aon"
+@"./download.aon"
+@"./search.aon"
