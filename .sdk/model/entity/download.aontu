@@ -1,0 +1,80 @@
+# Entity: download
+
+main: kit: entity: download: {
+
+  alias: field: {}
+
+  fields: {
+    id: {
+      h: "Id"
+      n: "id"
+      r: false
+      t: "`$STRING`"
+    }
+  }
+
+  id: {
+    field: "id"
+    name: "id"
+  }
+
+  name: "download"
+  op: {
+    load: {
+      name: "load"
+      points: [
+        {
+          co: {
+            id: "GET /download/{id}"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "id"
+                or: "id"
+                r: true
+                t: "`$INTEGER`"
+              }
+            ]
+            query: [
+              {
+                ex: false
+                k: "query"
+                n: "no_video"
+                or: "no_video"
+                r: false
+                t: "`$BOOLEAN`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/download/{id}"
+          q: {
+            exist: [
+              "id"
+              "no_video"
+            ]
+          }
+          s: [
+            {
+              lit: "download"
+            }
+            {
+              var: "id"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

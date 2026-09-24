@@ -16,12 +16,6 @@ const FEATURE_CLASS: Record<string, typeof BaseFeature> = {
 }
 
 
-// Per-feature plugin DEFINITIONS (voxgig/plugin `Definition` values), from
-// the model's active plugin groups. A feature that takes a `plugins` option
-// (secrets over sekreto) reads its own entry; a feature with no plugins has
-// none. Named imports above make each definition statically reachable, so
-// an SDK carries exactly the plugin modules its model selects — the same
-// leanness the old side-effect registry imports bought, without a registry.
 const FEATURE_PLUGINS: Record<string, any[]> = {
   
 }
@@ -32,7 +26,6 @@ class Config {
   makeFeature(this: any, fn: string) {
     const fc = FEATURE_CLASS[fn]
     const fi = new fc()
-    // TODO: errors etc
     return fi
   }
 
@@ -144,112 +137,132 @@ class Config {
     "beatmap": {
       "fields": [
         {
-          "format": "date-time",
           "name": "approved_date",
+          "title": "Approved Date",
+          "type": "`$STRING`",
           "short": "Date when beatmap was approved/ranked",
-          "type": "`$STRING`"
+          "format": "date-time"
         },
         {
-          "format": "float",
           "name": "ar",
+          "title": "Ar",
+          "type": "`$NUMBER`",
           "short": "Approach rate",
-          "type": "`$NUMBER`"
+          "format": "float"
         },
         {
           "name": "artist",
-          "short": "Song artist",
-          "type": "`$STRING`"
+          "title": "Artist",
+          "type": "`$STRING`",
+          "short": "Song artist"
         },
         {
           "name": "beatmapset_id",
-          "short": "Beatmap set ID",
-          "type": "`$INTEGER`"
+          "title": "Beatmapset Id",
+          "type": "`$INTEGER`",
+          "short": "Beatmap set ID"
         },
         {
-          "format": "float",
           "name": "bpm",
+          "title": "Bpm",
+          "type": "`$NUMBER`",
           "short": "Beats per minute",
-          "type": "`$NUMBER`"
+          "format": "float"
         },
         {
           "name": "creator",
-          "short": "Beatmap creator username",
-          "type": "`$STRING`"
+          "title": "Creator",
+          "type": "`$STRING`",
+          "short": "Beatmap creator username"
         },
         {
-          "format": "float",
           "name": "cs",
+          "title": "Cs",
+          "type": "`$NUMBER`",
           "short": "Circle size",
-          "type": "`$NUMBER`"
+          "format": "float"
         },
         {
-          "format": "float",
           "name": "difficulty_rating",
+          "title": "Difficulty Rating",
+          "type": "`$NUMBER`",
           "short": "Star rating",
-          "type": "`$NUMBER`"
+          "format": "float"
         },
         {
           "name": "favourite_count",
-          "short": "Number of favorites",
-          "type": "`$INTEGER`"
+          "title": "Favourite Count",
+          "type": "`$INTEGER`",
+          "short": "Number of favorites"
         },
         {
-          "format": "float",
           "name": "hp",
+          "title": "Hp",
+          "type": "`$NUMBER`",
           "short": "HP drain",
-          "type": "`$NUMBER`"
+          "format": "float"
         },
         {
           "name": "id",
-          "short": "Beatmap ID",
-          "type": "`$INTEGER`"
+          "title": "Id",
+          "type": "`$INTEGER`",
+          "short": "Beatmap ID"
         },
         {
-          "format": "date-time",
           "name": "last_updated",
+          "title": "Last Updated",
+          "type": "`$STRING`",
           "short": "Last update date",
-          "type": "`$STRING`"
+          "format": "date-time"
         },
         {
           "name": "length",
-          "short": "Song length in seconds",
-          "type": "`$INTEGER`"
+          "title": "Length",
+          "type": "`$INTEGER`",
+          "short": "Song length in seconds"
         },
         {
           "name": "max_combo",
-          "short": "Maximum combo",
-          "type": "`$INTEGER`"
+          "title": "Max Combo",
+          "type": "`$INTEGER`",
+          "short": "Maximum combo"
         },
         {
           "name": "mode",
-          "short": "Game mode (0=osu!, 1=Taiko, 2=Catch, 3=Mania)",
-          "type": "`$INTEGER`"
+          "title": "Mode",
+          "type": "`$INTEGER`",
+          "short": "Game mode (0=osu!, 1=Taiko, 2=Catch, 3=Mania)"
         },
         {
-          "format": "float",
           "name": "od",
+          "title": "Od",
+          "type": "`$NUMBER`",
           "short": "Overall difficulty",
-          "type": "`$NUMBER`"
+          "format": "float"
         },
         {
           "name": "playcount",
-          "short": "Total play count",
-          "type": "`$INTEGER`"
+          "title": "Playcount",
+          "type": "`$INTEGER`",
+          "short": "Total play count"
         },
         {
           "name": "status",
-          "short": "Beatmap status (ranked, qualified, loved, etc.)",
-          "type": "`$STRING`"
+          "title": "Status",
+          "type": "`$STRING`",
+          "short": "Beatmap status (ranked, qualified, loved, etc.)"
         },
         {
           "name": "title",
-          "short": "Song title",
-          "type": "`$STRING`"
+          "title": "Title",
+          "type": "`$STRING`",
+          "short": "Song title"
         },
         {
           "name": "version",
-          "short": "Difficulty name",
-          "type": "`$STRING`"
+          "title": "Version",
+          "type": "`$STRING`",
+          "short": "Difficulty name"
         }
       ],
       "id": {
@@ -263,17 +276,6 @@ class Config {
           "name": "load",
           "points": [
             {
-              "args": {
-                "params": [
-                  {
-                    "kind": "param",
-                    "name": "id",
-                    "orig": "id",
-                    "reqd": true,
-                    "type": "`$INTEGER`"
-                  }
-                ]
-              },
               "kind": "http",
               "method": "GET",
               "orig": "/beatmaps/{id}",
@@ -285,19 +287,31 @@ class Config {
                   "var": "id"
                 }
               ],
-              "select": {
-                "exist": [
-                  "id"
-                ]
-              },
+              "parts": [
+                "beatmaps",
+                "{id}"
+              ],
+              "rename": {},
               "transform": {
                 "req": "`reqdata`",
                 "res": "`body`"
               },
-              "parts": [
-                "beatmaps",
-                "{id}"
-              ]
+              "args": {
+                "params": [
+                  {
+                    "name": "id",
+                    "orig": "id",
+                    "type": "`$INTEGER`",
+                    "kind": "param",
+                    "reqd": true
+                  }
+                ]
+              },
+              "select": {
+                "exist": [
+                  "id"
+                ]
+              }
             }
           ]
         }
@@ -310,6 +324,7 @@ class Config {
       "fields": [
         {
           "name": "id",
+          "title": "Id",
           "type": "`$STRING`"
         }
       ],
@@ -324,26 +339,6 @@ class Config {
           "name": "load",
           "points": [
             {
-              "args": {
-                "params": [
-                  {
-                    "kind": "param",
-                    "name": "id",
-                    "orig": "id",
-                    "reqd": true,
-                    "type": "`$INTEGER`"
-                  }
-                ],
-                "query": [
-                  {
-                    "example": false,
-                    "kind": "query",
-                    "name": "no_video",
-                    "orig": "no_video",
-                    "type": "`$BOOLEAN`"
-                  }
-                ]
-              },
               "kind": "http",
               "method": "GET",
               "orig": "/download/{id}",
@@ -355,20 +350,41 @@ class Config {
                   "var": "id"
                 }
               ],
+              "parts": [
+                "download",
+                "{id}"
+              ],
+              "rename": {},
+              "transform": {
+                "req": "`reqdata`",
+                "res": "`body`"
+              },
+              "args": {
+                "params": [
+                  {
+                    "name": "id",
+                    "orig": "id",
+                    "type": "`$INTEGER`",
+                    "kind": "param",
+                    "reqd": true
+                  }
+                ],
+                "query": [
+                  {
+                    "name": "no_video",
+                    "orig": "no_video",
+                    "type": "`$BOOLEAN`",
+                    "kind": "query",
+                    "example": false
+                  }
+                ]
+              },
               "select": {
                 "exist": [
                   "id",
                   "no_video"
                 ]
-              },
-              "transform": {
-                "req": "`reqdata`",
-                "res": "`body`"
-              },
-              "parts": [
-                "download",
-                "{id}"
-              ]
+              }
             }
           ]
         }
@@ -380,112 +396,132 @@ class Config {
     "search": {
       "fields": [
         {
-          "format": "date-time",
           "name": "approved_date",
+          "title": "Approved Date",
+          "type": "`$STRING`",
           "short": "Date when beatmap was approved/ranked",
-          "type": "`$STRING`"
+          "format": "date-time"
         },
         {
-          "format": "float",
           "name": "ar",
+          "title": "Ar",
+          "type": "`$NUMBER`",
           "short": "Approach rate",
-          "type": "`$NUMBER`"
+          "format": "float"
         },
         {
           "name": "artist",
-          "short": "Song artist",
-          "type": "`$STRING`"
+          "title": "Artist",
+          "type": "`$STRING`",
+          "short": "Song artist"
         },
         {
           "name": "beatmapset_id",
-          "short": "Beatmap set ID",
-          "type": "`$INTEGER`"
+          "title": "Beatmapset Id",
+          "type": "`$INTEGER`",
+          "short": "Beatmap set ID"
         },
         {
-          "format": "float",
           "name": "bpm",
+          "title": "Bpm",
+          "type": "`$NUMBER`",
           "short": "Beats per minute",
-          "type": "`$NUMBER`"
+          "format": "float"
         },
         {
           "name": "creator",
-          "short": "Beatmap creator username",
-          "type": "`$STRING`"
+          "title": "Creator",
+          "type": "`$STRING`",
+          "short": "Beatmap creator username"
         },
         {
-          "format": "float",
           "name": "cs",
+          "title": "Cs",
+          "type": "`$NUMBER`",
           "short": "Circle size",
-          "type": "`$NUMBER`"
+          "format": "float"
         },
         {
-          "format": "float",
           "name": "difficulty_rating",
+          "title": "Difficulty Rating",
+          "type": "`$NUMBER`",
           "short": "Star rating",
-          "type": "`$NUMBER`"
+          "format": "float"
         },
         {
           "name": "favourite_count",
-          "short": "Number of favorites",
-          "type": "`$INTEGER`"
+          "title": "Favourite Count",
+          "type": "`$INTEGER`",
+          "short": "Number of favorites"
         },
         {
-          "format": "float",
           "name": "hp",
+          "title": "Hp",
+          "type": "`$NUMBER`",
           "short": "HP drain",
-          "type": "`$NUMBER`"
+          "format": "float"
         },
         {
           "name": "id",
-          "short": "Beatmap ID",
-          "type": "`$INTEGER`"
+          "title": "Id",
+          "type": "`$INTEGER`",
+          "short": "Beatmap ID"
         },
         {
-          "format": "date-time",
           "name": "last_updated",
+          "title": "Last Updated",
+          "type": "`$STRING`",
           "short": "Last update date",
-          "type": "`$STRING`"
+          "format": "date-time"
         },
         {
           "name": "length",
-          "short": "Song length in seconds",
-          "type": "`$INTEGER`"
+          "title": "Length",
+          "type": "`$INTEGER`",
+          "short": "Song length in seconds"
         },
         {
           "name": "max_combo",
-          "short": "Maximum combo",
-          "type": "`$INTEGER`"
+          "title": "Max Combo",
+          "type": "`$INTEGER`",
+          "short": "Maximum combo"
         },
         {
           "name": "mode",
-          "short": "Game mode (0=osu!, 1=Taiko, 2=Catch, 3=Mania)",
-          "type": "`$INTEGER`"
+          "title": "Mode",
+          "type": "`$INTEGER`",
+          "short": "Game mode (0=osu!, 1=Taiko, 2=Catch, 3=Mania)"
         },
         {
-          "format": "float",
           "name": "od",
+          "title": "Od",
+          "type": "`$NUMBER`",
           "short": "Overall difficulty",
-          "type": "`$NUMBER`"
+          "format": "float"
         },
         {
           "name": "playcount",
-          "short": "Total play count",
-          "type": "`$INTEGER`"
+          "title": "Playcount",
+          "type": "`$INTEGER`",
+          "short": "Total play count"
         },
         {
           "name": "status",
-          "short": "Beatmap status (ranked, qualified, loved, etc.)",
-          "type": "`$STRING`"
+          "title": "Status",
+          "type": "`$STRING`",
+          "short": "Beatmap status (ranked, qualified, loved, etc.)"
         },
         {
           "name": "title",
-          "short": "Song title",
-          "type": "`$STRING`"
+          "title": "Title",
+          "type": "`$STRING`",
+          "short": "Song title"
         },
         {
           "name": "version",
-          "short": "Difficulty name",
-          "type": "`$STRING`"
+          "title": "Version",
+          "type": "`$STRING`",
+          "short": "Difficulty name"
         }
       ],
       "id": {
@@ -499,42 +535,6 @@ class Config {
           "name": "list",
           "points": [
             {
-              "args": {
-                "query": [
-                  {
-                    "example": 50,
-                    "kind": "query",
-                    "name": "limit",
-                    "orig": "limit",
-                    "type": "`$INTEGER`"
-                  },
-                  {
-                    "kind": "query",
-                    "name": "mode",
-                    "orig": "mode",
-                    "type": "`$INTEGER`"
-                  },
-                  {
-                    "example": 0,
-                    "kind": "query",
-                    "name": "offset",
-                    "orig": "offset",
-                    "type": "`$INTEGER`"
-                  },
-                  {
-                    "kind": "query",
-                    "name": "q",
-                    "orig": "q",
-                    "type": "`$STRING`"
-                  },
-                  {
-                    "kind": "query",
-                    "name": "status",
-                    "orig": "status",
-                    "type": "`$STRING`"
-                  }
-                ]
-              },
               "kind": "http",
               "method": "GET",
               "orig": "/search",
@@ -543,6 +543,50 @@ class Config {
                   "lit": "search"
                 }
               ],
+              "parts": [
+                "search"
+              ],
+              "rename": {},
+              "transform": {
+                "req": "`reqdata`",
+                "res": "`body.beatmaps`"
+              },
+              "args": {
+                "query": [
+                  {
+                    "name": "limit",
+                    "orig": "limit",
+                    "type": "`$INTEGER`",
+                    "kind": "query",
+                    "example": 50
+                  },
+                  {
+                    "name": "mode",
+                    "orig": "mode",
+                    "type": "`$INTEGER`",
+                    "kind": "query"
+                  },
+                  {
+                    "name": "offset",
+                    "orig": "offset",
+                    "type": "`$INTEGER`",
+                    "kind": "query",
+                    "example": 0
+                  },
+                  {
+                    "name": "q",
+                    "orig": "q",
+                    "type": "`$STRING`",
+                    "kind": "query"
+                  },
+                  {
+                    "name": "status",
+                    "orig": "status",
+                    "type": "`$STRING`",
+                    "kind": "query"
+                  }
+                ]
+              },
               "select": {
                 "exist": [
                   "limit",
@@ -551,14 +595,7 @@ class Config {
                   "q",
                   "status"
                 ]
-              },
-              "transform": {
-                "req": "`reqdata`",
-                "res": "`body.beatmaps`"
-              },
-              "parts": [
-                "search"
-              ]
+              }
             }
           ]
         }

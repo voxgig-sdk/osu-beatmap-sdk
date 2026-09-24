@@ -1,0 +1,242 @@
+# Entity: search
+
+main: kit: entity: search: {
+
+  alias: field: {}
+
+  fields: {
+    approved_date: {
+      fo: "date-time"
+      h: "Approved Date"
+      n: "approved_date"
+      r: false
+      sh: "Date when beatmap was approved/ranked"
+      t: "`$STRING`"
+    }
+    ar: {
+      fo: "float"
+      h: "Ar"
+      n: "ar"
+      r: false
+      sh: "Approach rate"
+      t: "`$NUMBER`"
+    }
+    artist: {
+      h: "Artist"
+      n: "artist"
+      r: false
+      sh: "Song artist"
+      t: "`$STRING`"
+    }
+    beatmapset_id: {
+      h: "Beatmapset Id"
+      n: "beatmapset_id"
+      r: false
+      sh: "Beatmap set ID"
+      t: "`$INTEGER`"
+    }
+    bpm: {
+      fo: "float"
+      h: "Bpm"
+      n: "bpm"
+      r: false
+      sh: "Beats per minute"
+      t: "`$NUMBER`"
+    }
+    creator: {
+      h: "Creator"
+      n: "creator"
+      r: false
+      sh: "Beatmap creator username"
+      t: "`$STRING`"
+    }
+    cs: {
+      fo: "float"
+      h: "Cs"
+      n: "cs"
+      r: false
+      sh: "Circle size"
+      t: "`$NUMBER`"
+    }
+    difficulty_rating: {
+      fo: "float"
+      h: "Difficulty Rating"
+      n: "difficulty_rating"
+      r: false
+      sh: "Star rating"
+      t: "`$NUMBER`"
+    }
+    favourite_count: {
+      h: "Favourite Count"
+      n: "favourite_count"
+      r: false
+      sh: "Number of favorites"
+      t: "`$INTEGER`"
+    }
+    hp: {
+      fo: "float"
+      h: "Hp"
+      n: "hp"
+      r: false
+      sh: "HP drain"
+      t: "`$NUMBER`"
+    }
+    id: {
+      h: "Id"
+      n: "id"
+      r: false
+      sh: "Beatmap ID"
+      t: "`$INTEGER`"
+    }
+    last_updated: {
+      fo: "date-time"
+      h: "Last Updated"
+      n: "last_updated"
+      r: false
+      sh: "Last update date"
+      t: "`$STRING`"
+    }
+    length: {
+      h: "Length"
+      n: "length"
+      r: false
+      sh: "Song length in seconds"
+      t: "`$INTEGER`"
+    }
+    max_combo: {
+      h: "Max Combo"
+      n: "max_combo"
+      r: false
+      sh: "Maximum combo"
+      t: "`$INTEGER`"
+    }
+    mode: {
+      h: "Mode"
+      n: "mode"
+      r: false
+      sh: "Game mode (0=osu!, 1=Taiko, 2=Catch, 3=Mania)"
+      t: "`$INTEGER`"
+    }
+    od: {
+      fo: "float"
+      h: "Od"
+      n: "od"
+      r: false
+      sh: "Overall difficulty"
+      t: "`$NUMBER`"
+    }
+    playcount: {
+      h: "Playcount"
+      n: "playcount"
+      r: false
+      sh: "Total play count"
+      t: "`$INTEGER`"
+    }
+    status: {
+      h: "Status"
+      n: "status"
+      r: false
+      sh: "Beatmap status (ranked, qualified, loved, etc.)"
+      t: "`$STRING`"
+    }
+    title: {
+      h: "Title"
+      n: "title"
+      r: false
+      sh: "Song title"
+      t: "`$STRING`"
+    }
+    version: {
+      h: "Version"
+      n: "version"
+      r: false
+      sh: "Difficulty name"
+      t: "`$STRING`"
+    }
+  }
+
+  id: {
+    field: "id"
+    name: "id"
+  }
+
+  name: "search"
+  op: {
+    list: {
+      name: "list"
+      points: [
+        {
+          co: {
+            id: "GET /search"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            query: [
+              {
+                ex: 50
+                k: "query"
+                n: "limit"
+                or: "limit"
+                r: false
+                t: "`$INTEGER`"
+              }
+              {
+                k: "query"
+                n: "mode"
+                or: "mode"
+                r: false
+                t: "`$INTEGER`"
+              }
+              {
+                ex: 0
+                k: "query"
+                n: "offset"
+                or: "offset"
+                r: false
+                t: "`$INTEGER`"
+              }
+              {
+                k: "query"
+                n: "q"
+                or: "q"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                k: "query"
+                n: "status"
+                or: "status"
+                r: false
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/search"
+          q: {
+            exist: [
+              "limit"
+              "mode"
+              "offset"
+              "q"
+              "status"
+            ]
+          }
+          s: [
+            {
+              lit: "search"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body.beatmaps`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

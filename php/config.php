@@ -114,112 +114,132 @@ class OsuBeatmapConfig
         'beatmap' => [
           'fields' => [
             [
-              'format' => 'date-time',
               'name' => 'approved_date',
-              'short' => 'Date when beatmap was approved/ranked',
+              'title' => 'Approved Date',
               'type' => '`$STRING`',
+              'short' => 'Date when beatmap was approved/ranked',
+              'format' => 'date-time',
             ],
             [
-              'format' => 'float',
               'name' => 'ar',
-              'short' => 'Approach rate',
+              'title' => 'Ar',
               'type' => '`$NUMBER`',
+              'short' => 'Approach rate',
+              'format' => 'float',
             ],
             [
               'name' => 'artist',
-              'short' => 'Song artist',
+              'title' => 'Artist',
               'type' => '`$STRING`',
+              'short' => 'Song artist',
             ],
             [
               'name' => 'beatmapset_id',
-              'short' => 'Beatmap set ID',
+              'title' => 'Beatmapset Id',
               'type' => '`$INTEGER`',
+              'short' => 'Beatmap set ID',
             ],
             [
-              'format' => 'float',
               'name' => 'bpm',
-              'short' => 'Beats per minute',
+              'title' => 'Bpm',
               'type' => '`$NUMBER`',
+              'short' => 'Beats per minute',
+              'format' => 'float',
             ],
             [
               'name' => 'creator',
-              'short' => 'Beatmap creator username',
+              'title' => 'Creator',
               'type' => '`$STRING`',
+              'short' => 'Beatmap creator username',
             ],
             [
-              'format' => 'float',
               'name' => 'cs',
-              'short' => 'Circle size',
+              'title' => 'Cs',
               'type' => '`$NUMBER`',
+              'short' => 'Circle size',
+              'format' => 'float',
             ],
             [
-              'format' => 'float',
               'name' => 'difficulty_rating',
-              'short' => 'Star rating',
+              'title' => 'Difficulty Rating',
               'type' => '`$NUMBER`',
+              'short' => 'Star rating',
+              'format' => 'float',
             ],
             [
               'name' => 'favourite_count',
-              'short' => 'Number of favorites',
+              'title' => 'Favourite Count',
               'type' => '`$INTEGER`',
+              'short' => 'Number of favorites',
             ],
             [
-              'format' => 'float',
               'name' => 'hp',
-              'short' => 'HP drain',
+              'title' => 'Hp',
               'type' => '`$NUMBER`',
+              'short' => 'HP drain',
+              'format' => 'float',
             ],
             [
               'name' => 'id',
-              'short' => 'Beatmap ID',
+              'title' => 'Id',
               'type' => '`$INTEGER`',
+              'short' => 'Beatmap ID',
             ],
             [
-              'format' => 'date-time',
               'name' => 'last_updated',
-              'short' => 'Last update date',
+              'title' => 'Last Updated',
               'type' => '`$STRING`',
+              'short' => 'Last update date',
+              'format' => 'date-time',
             ],
             [
               'name' => 'length',
-              'short' => 'Song length in seconds',
+              'title' => 'Length',
               'type' => '`$INTEGER`',
+              'short' => 'Song length in seconds',
             ],
             [
               'name' => 'max_combo',
-              'short' => 'Maximum combo',
+              'title' => 'Max Combo',
               'type' => '`$INTEGER`',
+              'short' => 'Maximum combo',
             ],
             [
               'name' => 'mode',
-              'short' => 'Game mode (0=osu!, 1=Taiko, 2=Catch, 3=Mania)',
+              'title' => 'Mode',
               'type' => '`$INTEGER`',
+              'short' => 'Game mode (0=osu!, 1=Taiko, 2=Catch, 3=Mania)',
             ],
             [
-              'format' => 'float',
               'name' => 'od',
-              'short' => 'Overall difficulty',
+              'title' => 'Od',
               'type' => '`$NUMBER`',
+              'short' => 'Overall difficulty',
+              'format' => 'float',
             ],
             [
               'name' => 'playcount',
-              'short' => 'Total play count',
+              'title' => 'Playcount',
               'type' => '`$INTEGER`',
+              'short' => 'Total play count',
             ],
             [
               'name' => 'status',
-              'short' => 'Beatmap status (ranked, qualified, loved, etc.)',
+              'title' => 'Status',
               'type' => '`$STRING`',
+              'short' => 'Beatmap status (ranked, qualified, loved, etc.)',
             ],
             [
               'name' => 'title',
-              'short' => 'Song title',
+              'title' => 'Title',
               'type' => '`$STRING`',
+              'short' => 'Song title',
             ],
             [
               'name' => 'version',
-              'short' => 'Difficulty name',
+              'title' => 'Version',
               'type' => '`$STRING`',
+              'short' => 'Difficulty name',
             ],
           ],
           'id' => [
@@ -233,17 +253,6 @@ class OsuBeatmapConfig
               'name' => 'load',
               'points' => [
                 [
-                  'args' => [
-                    'params' => [
-                      [
-                        'kind' => 'param',
-                        'name' => 'id',
-                        'orig' => 'id',
-                        'reqd' => true,
-                        'type' => '`$INTEGER`',
-                      ],
-                    ],
-                  ],
                   'kind' => 'http',
                   'method' => 'GET',
                   'orig' => '/beatmaps/{id}',
@@ -255,18 +264,30 @@ class OsuBeatmapConfig
                       'var' => 'id',
                     ],
                   ],
-                  'select' => [
-                    'exist' => [
-                      'id',
-                    ],
+                  'parts' => [
+                    'beatmaps',
+                    '{id}',
                   ],
+                  'rename' => [],
                   'transform' => [
                     'req' => '`reqdata`',
                     'res' => '`body`',
                   ],
-                  'parts' => [
-                    'beatmaps',
-                    '{id}',
+                  'args' => [
+                    'params' => [
+                      [
+                        'name' => 'id',
+                        'orig' => 'id',
+                        'type' => '`$INTEGER`',
+                        'kind' => 'param',
+                        'reqd' => true,
+                      ],
+                    ],
+                  ],
+                  'select' => [
+                    'exist' => [
+                      'id',
+                    ],
                   ],
                 ],
               ],
@@ -280,6 +301,7 @@ class OsuBeatmapConfig
           'fields' => [
             [
               'name' => 'id',
+              'title' => 'Id',
               'type' => '`$STRING`',
             ],
           ],
@@ -294,26 +316,6 @@ class OsuBeatmapConfig
               'name' => 'load',
               'points' => [
                 [
-                  'args' => [
-                    'params' => [
-                      [
-                        'kind' => 'param',
-                        'name' => 'id',
-                        'orig' => 'id',
-                        'reqd' => true,
-                        'type' => '`$INTEGER`',
-                      ],
-                    ],
-                    'query' => [
-                      [
-                        'example' => false,
-                        'kind' => 'query',
-                        'name' => 'no_video',
-                        'orig' => 'no_video',
-                        'type' => '`$BOOLEAN`',
-                      ],
-                    ],
-                  ],
                   'kind' => 'http',
                   'method' => 'GET',
                   'orig' => '/download/{id}',
@@ -325,19 +327,40 @@ class OsuBeatmapConfig
                       'var' => 'id',
                     ],
                   ],
+                  'parts' => [
+                    'download',
+                    '{id}',
+                  ],
+                  'rename' => [],
+                  'transform' => [
+                    'req' => '`reqdata`',
+                    'res' => '`body`',
+                  ],
+                  'args' => [
+                    'params' => [
+                      [
+                        'name' => 'id',
+                        'orig' => 'id',
+                        'type' => '`$INTEGER`',
+                        'kind' => 'param',
+                        'reqd' => true,
+                      ],
+                    ],
+                    'query' => [
+                      [
+                        'name' => 'no_video',
+                        'orig' => 'no_video',
+                        'type' => '`$BOOLEAN`',
+                        'kind' => 'query',
+                        'example' => false,
+                      ],
+                    ],
+                  ],
                   'select' => [
                     'exist' => [
                       'id',
                       'no_video',
                     ],
-                  ],
-                  'transform' => [
-                    'req' => '`reqdata`',
-                    'res' => '`body`',
-                  ],
-                  'parts' => [
-                    'download',
-                    '{id}',
                   ],
                 ],
               ],
@@ -350,112 +373,132 @@ class OsuBeatmapConfig
         'search' => [
           'fields' => [
             [
-              'format' => 'date-time',
               'name' => 'approved_date',
-              'short' => 'Date when beatmap was approved/ranked',
+              'title' => 'Approved Date',
               'type' => '`$STRING`',
+              'short' => 'Date when beatmap was approved/ranked',
+              'format' => 'date-time',
             ],
             [
-              'format' => 'float',
               'name' => 'ar',
-              'short' => 'Approach rate',
+              'title' => 'Ar',
               'type' => '`$NUMBER`',
+              'short' => 'Approach rate',
+              'format' => 'float',
             ],
             [
               'name' => 'artist',
-              'short' => 'Song artist',
+              'title' => 'Artist',
               'type' => '`$STRING`',
+              'short' => 'Song artist',
             ],
             [
               'name' => 'beatmapset_id',
-              'short' => 'Beatmap set ID',
+              'title' => 'Beatmapset Id',
               'type' => '`$INTEGER`',
+              'short' => 'Beatmap set ID',
             ],
             [
-              'format' => 'float',
               'name' => 'bpm',
-              'short' => 'Beats per minute',
+              'title' => 'Bpm',
               'type' => '`$NUMBER`',
+              'short' => 'Beats per minute',
+              'format' => 'float',
             ],
             [
               'name' => 'creator',
-              'short' => 'Beatmap creator username',
+              'title' => 'Creator',
               'type' => '`$STRING`',
+              'short' => 'Beatmap creator username',
             ],
             [
-              'format' => 'float',
               'name' => 'cs',
-              'short' => 'Circle size',
+              'title' => 'Cs',
               'type' => '`$NUMBER`',
+              'short' => 'Circle size',
+              'format' => 'float',
             ],
             [
-              'format' => 'float',
               'name' => 'difficulty_rating',
-              'short' => 'Star rating',
+              'title' => 'Difficulty Rating',
               'type' => '`$NUMBER`',
+              'short' => 'Star rating',
+              'format' => 'float',
             ],
             [
               'name' => 'favourite_count',
-              'short' => 'Number of favorites',
+              'title' => 'Favourite Count',
               'type' => '`$INTEGER`',
+              'short' => 'Number of favorites',
             ],
             [
-              'format' => 'float',
               'name' => 'hp',
-              'short' => 'HP drain',
+              'title' => 'Hp',
               'type' => '`$NUMBER`',
+              'short' => 'HP drain',
+              'format' => 'float',
             ],
             [
               'name' => 'id',
-              'short' => 'Beatmap ID',
+              'title' => 'Id',
               'type' => '`$INTEGER`',
+              'short' => 'Beatmap ID',
             ],
             [
-              'format' => 'date-time',
               'name' => 'last_updated',
-              'short' => 'Last update date',
+              'title' => 'Last Updated',
               'type' => '`$STRING`',
+              'short' => 'Last update date',
+              'format' => 'date-time',
             ],
             [
               'name' => 'length',
-              'short' => 'Song length in seconds',
+              'title' => 'Length',
               'type' => '`$INTEGER`',
+              'short' => 'Song length in seconds',
             ],
             [
               'name' => 'max_combo',
-              'short' => 'Maximum combo',
+              'title' => 'Max Combo',
               'type' => '`$INTEGER`',
+              'short' => 'Maximum combo',
             ],
             [
               'name' => 'mode',
-              'short' => 'Game mode (0=osu!, 1=Taiko, 2=Catch, 3=Mania)',
+              'title' => 'Mode',
               'type' => '`$INTEGER`',
+              'short' => 'Game mode (0=osu!, 1=Taiko, 2=Catch, 3=Mania)',
             ],
             [
-              'format' => 'float',
               'name' => 'od',
-              'short' => 'Overall difficulty',
+              'title' => 'Od',
               'type' => '`$NUMBER`',
+              'short' => 'Overall difficulty',
+              'format' => 'float',
             ],
             [
               'name' => 'playcount',
-              'short' => 'Total play count',
+              'title' => 'Playcount',
               'type' => '`$INTEGER`',
+              'short' => 'Total play count',
             ],
             [
               'name' => 'status',
-              'short' => 'Beatmap status (ranked, qualified, loved, etc.)',
+              'title' => 'Status',
               'type' => '`$STRING`',
+              'short' => 'Beatmap status (ranked, qualified, loved, etc.)',
             ],
             [
               'name' => 'title',
-              'short' => 'Song title',
+              'title' => 'Title',
               'type' => '`$STRING`',
+              'short' => 'Song title',
             ],
             [
               'name' => 'version',
-              'short' => 'Difficulty name',
+              'title' => 'Version',
               'type' => '`$STRING`',
+              'short' => 'Difficulty name',
             ],
           ],
           'id' => [
@@ -469,48 +512,56 @@ class OsuBeatmapConfig
               'name' => 'list',
               'points' => [
                 [
-                  'args' => [
-                    'query' => [
-                      [
-                        'example' => 50,
-                        'kind' => 'query',
-                        'name' => 'limit',
-                        'orig' => 'limit',
-                        'type' => '`$INTEGER`',
-                      ],
-                      [
-                        'kind' => 'query',
-                        'name' => 'mode',
-                        'orig' => 'mode',
-                        'type' => '`$INTEGER`',
-                      ],
-                      [
-                        'example' => 0,
-                        'kind' => 'query',
-                        'name' => 'offset',
-                        'orig' => 'offset',
-                        'type' => '`$INTEGER`',
-                      ],
-                      [
-                        'kind' => 'query',
-                        'name' => 'q',
-                        'orig' => 'q',
-                        'type' => '`$STRING`',
-                      ],
-                      [
-                        'kind' => 'query',
-                        'name' => 'status',
-                        'orig' => 'status',
-                        'type' => '`$STRING`',
-                      ],
-                    ],
-                  ],
                   'kind' => 'http',
                   'method' => 'GET',
                   'orig' => '/search',
                   'segments' => [
                     [
                       'lit' => 'search',
+                    ],
+                  ],
+                  'parts' => [
+                    'search',
+                  ],
+                  'rename' => [],
+                  'transform' => [
+                    'req' => '`reqdata`',
+                    'res' => '`body.beatmaps`',
+                  ],
+                  'args' => [
+                    'query' => [
+                      [
+                        'name' => 'limit',
+                        'orig' => 'limit',
+                        'type' => '`$INTEGER`',
+                        'kind' => 'query',
+                        'example' => 50,
+                      ],
+                      [
+                        'name' => 'mode',
+                        'orig' => 'mode',
+                        'type' => '`$INTEGER`',
+                        'kind' => 'query',
+                      ],
+                      [
+                        'name' => 'offset',
+                        'orig' => 'offset',
+                        'type' => '`$INTEGER`',
+                        'kind' => 'query',
+                        'example' => 0,
+                      ],
+                      [
+                        'name' => 'q',
+                        'orig' => 'q',
+                        'type' => '`$STRING`',
+                        'kind' => 'query',
+                      ],
+                      [
+                        'name' => 'status',
+                        'orig' => 'status',
+                        'type' => '`$STRING`',
+                        'kind' => 'query',
+                      ],
                     ],
                   ],
                   'select' => [
@@ -521,13 +572,6 @@ class OsuBeatmapConfig
                       'q',
                       'status',
                     ],
-                  ],
-                  'transform' => [
-                    'req' => '`reqdata`',
-                    'res' => '`body.beatmaps`',
-                  ],
-                  'parts' => [
-                    'search',
                   ],
                 ],
               ],

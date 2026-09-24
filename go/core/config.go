@@ -92,112 +92,132 @@ func MakeConfig() map[string]any {
 			"beatmap": map[string]any{
 				"fields": []any{
 					map[string]any{
-						"format": "date-time",
 						"name": "approved_date",
-						"short": "Date when beatmap was approved/ranked",
+						"title": "Approved Date",
 						"type": "`$STRING`",
+						"short": "Date when beatmap was approved/ranked",
+						"format": "date-time",
 					},
 					map[string]any{
-						"format": "float",
 						"name": "ar",
-						"short": "Approach rate",
+						"title": "Ar",
 						"type": "`$NUMBER`",
+						"short": "Approach rate",
+						"format": "float",
 					},
 					map[string]any{
 						"name": "artist",
-						"short": "Song artist",
+						"title": "Artist",
 						"type": "`$STRING`",
+						"short": "Song artist",
 					},
 					map[string]any{
 						"name": "beatmapset_id",
-						"short": "Beatmap set ID",
+						"title": "Beatmapset Id",
 						"type": "`$INTEGER`",
+						"short": "Beatmap set ID",
 					},
 					map[string]any{
-						"format": "float",
 						"name": "bpm",
-						"short": "Beats per minute",
+						"title": "Bpm",
 						"type": "`$NUMBER`",
+						"short": "Beats per minute",
+						"format": "float",
 					},
 					map[string]any{
 						"name": "creator",
-						"short": "Beatmap creator username",
+						"title": "Creator",
 						"type": "`$STRING`",
+						"short": "Beatmap creator username",
 					},
 					map[string]any{
-						"format": "float",
 						"name": "cs",
-						"short": "Circle size",
+						"title": "Cs",
 						"type": "`$NUMBER`",
+						"short": "Circle size",
+						"format": "float",
 					},
 					map[string]any{
-						"format": "float",
 						"name": "difficulty_rating",
-						"short": "Star rating",
+						"title": "Difficulty Rating",
 						"type": "`$NUMBER`",
+						"short": "Star rating",
+						"format": "float",
 					},
 					map[string]any{
 						"name": "favourite_count",
-						"short": "Number of favorites",
+						"title": "Favourite Count",
 						"type": "`$INTEGER`",
+						"short": "Number of favorites",
 					},
 					map[string]any{
-						"format": "float",
 						"name": "hp",
-						"short": "HP drain",
+						"title": "Hp",
 						"type": "`$NUMBER`",
+						"short": "HP drain",
+						"format": "float",
 					},
 					map[string]any{
 						"name": "id",
-						"short": "Beatmap ID",
+						"title": "Id",
 						"type": "`$INTEGER`",
+						"short": "Beatmap ID",
 					},
 					map[string]any{
-						"format": "date-time",
 						"name": "last_updated",
-						"short": "Last update date",
+						"title": "Last Updated",
 						"type": "`$STRING`",
+						"short": "Last update date",
+						"format": "date-time",
 					},
 					map[string]any{
 						"name": "length",
-						"short": "Song length in seconds",
+						"title": "Length",
 						"type": "`$INTEGER`",
+						"short": "Song length in seconds",
 					},
 					map[string]any{
 						"name": "max_combo",
-						"short": "Maximum combo",
+						"title": "Max Combo",
 						"type": "`$INTEGER`",
+						"short": "Maximum combo",
 					},
 					map[string]any{
 						"name": "mode",
-						"short": "Game mode (0=osu!, 1=Taiko, 2=Catch, 3=Mania)",
+						"title": "Mode",
 						"type": "`$INTEGER`",
+						"short": "Game mode (0=osu!, 1=Taiko, 2=Catch, 3=Mania)",
 					},
 					map[string]any{
-						"format": "float",
 						"name": "od",
-						"short": "Overall difficulty",
+						"title": "Od",
 						"type": "`$NUMBER`",
+						"short": "Overall difficulty",
+						"format": "float",
 					},
 					map[string]any{
 						"name": "playcount",
-						"short": "Total play count",
+						"title": "Playcount",
 						"type": "`$INTEGER`",
+						"short": "Total play count",
 					},
 					map[string]any{
 						"name": "status",
-						"short": "Beatmap status (ranked, qualified, loved, etc.)",
+						"title": "Status",
 						"type": "`$STRING`",
+						"short": "Beatmap status (ranked, qualified, loved, etc.)",
 					},
 					map[string]any{
 						"name": "title",
-						"short": "Song title",
+						"title": "Title",
 						"type": "`$STRING`",
+						"short": "Song title",
 					},
 					map[string]any{
 						"name": "version",
-						"short": "Difficulty name",
+						"title": "Version",
 						"type": "`$STRING`",
+						"short": "Difficulty name",
 					},
 				},
 				"id": map[string]any{
@@ -211,17 +231,6 @@ func MakeConfig() map[string]any {
 						"name": "load",
 						"points": []any{
 							map[string]any{
-								"args": map[string]any{
-									"params": []any{
-										map[string]any{
-											"kind": "param",
-											"name": "id",
-											"orig": "id",
-											"reqd": true,
-											"type": "`$INTEGER`",
-										},
-									},
-								},
 								"kind": "http",
 								"method": "GET",
 								"orig": "/beatmaps/{id}",
@@ -233,18 +242,30 @@ func MakeConfig() map[string]any {
 										"var": "id",
 									},
 								},
-								"select": map[string]any{
-									"exist": []any{
-										"id",
-									},
+								"parts": []any{
+									"beatmaps",
+									"{id}",
 								},
+								"rename": map[string]any{},
 								"transform": map[string]any{
 									"req": "`reqdata`",
 									"res": "`body`",
 								},
-								"parts": []any{
-									"beatmaps",
-									"{id}",
+								"args": map[string]any{
+									"params": []any{
+										map[string]any{
+											"name": "id",
+											"orig": "id",
+											"type": "`$INTEGER`",
+											"kind": "param",
+											"reqd": true,
+										},
+									},
+								},
+								"select": map[string]any{
+									"exist": []any{
+										"id",
+									},
 								},
 							},
 						},
@@ -258,6 +279,7 @@ func MakeConfig() map[string]any {
 				"fields": []any{
 					map[string]any{
 						"name": "id",
+						"title": "Id",
 						"type": "`$STRING`",
 					},
 				},
@@ -272,26 +294,6 @@ func MakeConfig() map[string]any {
 						"name": "load",
 						"points": []any{
 							map[string]any{
-								"args": map[string]any{
-									"params": []any{
-										map[string]any{
-											"kind": "param",
-											"name": "id",
-											"orig": "id",
-											"reqd": true,
-											"type": "`$INTEGER`",
-										},
-									},
-									"query": []any{
-										map[string]any{
-											"example": false,
-											"kind": "query",
-											"name": "no_video",
-											"orig": "no_video",
-											"type": "`$BOOLEAN`",
-										},
-									},
-								},
 								"kind": "http",
 								"method": "GET",
 								"orig": "/download/{id}",
@@ -303,19 +305,40 @@ func MakeConfig() map[string]any {
 										"var": "id",
 									},
 								},
+								"parts": []any{
+									"download",
+									"{id}",
+								},
+								"rename": map[string]any{},
+								"transform": map[string]any{
+									"req": "`reqdata`",
+									"res": "`body`",
+								},
+								"args": map[string]any{
+									"params": []any{
+										map[string]any{
+											"name": "id",
+											"orig": "id",
+											"type": "`$INTEGER`",
+											"kind": "param",
+											"reqd": true,
+										},
+									},
+									"query": []any{
+										map[string]any{
+											"name": "no_video",
+											"orig": "no_video",
+											"type": "`$BOOLEAN`",
+											"kind": "query",
+											"example": false,
+										},
+									},
+								},
 								"select": map[string]any{
 									"exist": []any{
 										"id",
 										"no_video",
 									},
-								},
-								"transform": map[string]any{
-									"req": "`reqdata`",
-									"res": "`body`",
-								},
-								"parts": []any{
-									"download",
-									"{id}",
 								},
 							},
 						},
@@ -328,112 +351,132 @@ func MakeConfig() map[string]any {
 			"search": map[string]any{
 				"fields": []any{
 					map[string]any{
-						"format": "date-time",
 						"name": "approved_date",
-						"short": "Date when beatmap was approved/ranked",
+						"title": "Approved Date",
 						"type": "`$STRING`",
+						"short": "Date when beatmap was approved/ranked",
+						"format": "date-time",
 					},
 					map[string]any{
-						"format": "float",
 						"name": "ar",
-						"short": "Approach rate",
+						"title": "Ar",
 						"type": "`$NUMBER`",
+						"short": "Approach rate",
+						"format": "float",
 					},
 					map[string]any{
 						"name": "artist",
-						"short": "Song artist",
+						"title": "Artist",
 						"type": "`$STRING`",
+						"short": "Song artist",
 					},
 					map[string]any{
 						"name": "beatmapset_id",
-						"short": "Beatmap set ID",
+						"title": "Beatmapset Id",
 						"type": "`$INTEGER`",
+						"short": "Beatmap set ID",
 					},
 					map[string]any{
-						"format": "float",
 						"name": "bpm",
-						"short": "Beats per minute",
+						"title": "Bpm",
 						"type": "`$NUMBER`",
+						"short": "Beats per minute",
+						"format": "float",
 					},
 					map[string]any{
 						"name": "creator",
-						"short": "Beatmap creator username",
+						"title": "Creator",
 						"type": "`$STRING`",
+						"short": "Beatmap creator username",
 					},
 					map[string]any{
-						"format": "float",
 						"name": "cs",
-						"short": "Circle size",
+						"title": "Cs",
 						"type": "`$NUMBER`",
+						"short": "Circle size",
+						"format": "float",
 					},
 					map[string]any{
-						"format": "float",
 						"name": "difficulty_rating",
-						"short": "Star rating",
+						"title": "Difficulty Rating",
 						"type": "`$NUMBER`",
+						"short": "Star rating",
+						"format": "float",
 					},
 					map[string]any{
 						"name": "favourite_count",
-						"short": "Number of favorites",
+						"title": "Favourite Count",
 						"type": "`$INTEGER`",
+						"short": "Number of favorites",
 					},
 					map[string]any{
-						"format": "float",
 						"name": "hp",
-						"short": "HP drain",
+						"title": "Hp",
 						"type": "`$NUMBER`",
+						"short": "HP drain",
+						"format": "float",
 					},
 					map[string]any{
 						"name": "id",
-						"short": "Beatmap ID",
+						"title": "Id",
 						"type": "`$INTEGER`",
+						"short": "Beatmap ID",
 					},
 					map[string]any{
-						"format": "date-time",
 						"name": "last_updated",
-						"short": "Last update date",
+						"title": "Last Updated",
 						"type": "`$STRING`",
+						"short": "Last update date",
+						"format": "date-time",
 					},
 					map[string]any{
 						"name": "length",
-						"short": "Song length in seconds",
+						"title": "Length",
 						"type": "`$INTEGER`",
+						"short": "Song length in seconds",
 					},
 					map[string]any{
 						"name": "max_combo",
-						"short": "Maximum combo",
+						"title": "Max Combo",
 						"type": "`$INTEGER`",
+						"short": "Maximum combo",
 					},
 					map[string]any{
 						"name": "mode",
-						"short": "Game mode (0=osu!, 1=Taiko, 2=Catch, 3=Mania)",
+						"title": "Mode",
 						"type": "`$INTEGER`",
+						"short": "Game mode (0=osu!, 1=Taiko, 2=Catch, 3=Mania)",
 					},
 					map[string]any{
-						"format": "float",
 						"name": "od",
-						"short": "Overall difficulty",
+						"title": "Od",
 						"type": "`$NUMBER`",
+						"short": "Overall difficulty",
+						"format": "float",
 					},
 					map[string]any{
 						"name": "playcount",
-						"short": "Total play count",
+						"title": "Playcount",
 						"type": "`$INTEGER`",
+						"short": "Total play count",
 					},
 					map[string]any{
 						"name": "status",
-						"short": "Beatmap status (ranked, qualified, loved, etc.)",
+						"title": "Status",
 						"type": "`$STRING`",
+						"short": "Beatmap status (ranked, qualified, loved, etc.)",
 					},
 					map[string]any{
 						"name": "title",
-						"short": "Song title",
+						"title": "Title",
 						"type": "`$STRING`",
+						"short": "Song title",
 					},
 					map[string]any{
 						"name": "version",
-						"short": "Difficulty name",
+						"title": "Version",
 						"type": "`$STRING`",
+						"short": "Difficulty name",
 					},
 				},
 				"id": map[string]any{
@@ -447,48 +490,56 @@ func MakeConfig() map[string]any {
 						"name": "list",
 						"points": []any{
 							map[string]any{
-								"args": map[string]any{
-									"query": []any{
-										map[string]any{
-											"example": 50,
-											"kind": "query",
-											"name": "limit",
-											"orig": "limit",
-											"type": "`$INTEGER`",
-										},
-										map[string]any{
-											"kind": "query",
-											"name": "mode",
-											"orig": "mode",
-											"type": "`$INTEGER`",
-										},
-										map[string]any{
-											"example": 0,
-											"kind": "query",
-											"name": "offset",
-											"orig": "offset",
-											"type": "`$INTEGER`",
-										},
-										map[string]any{
-											"kind": "query",
-											"name": "q",
-											"orig": "q",
-											"type": "`$STRING`",
-										},
-										map[string]any{
-											"kind": "query",
-											"name": "status",
-											"orig": "status",
-											"type": "`$STRING`",
-										},
-									},
-								},
 								"kind": "http",
 								"method": "GET",
 								"orig": "/search",
 								"segments": []any{
 									map[string]any{
 										"lit": "search",
+									},
+								},
+								"parts": []any{
+									"search",
+								},
+								"rename": map[string]any{},
+								"transform": map[string]any{
+									"req": "`reqdata`",
+									"res": "`body.beatmaps`",
+								},
+								"args": map[string]any{
+									"query": []any{
+										map[string]any{
+											"name": "limit",
+											"orig": "limit",
+											"type": "`$INTEGER`",
+											"kind": "query",
+											"example": 50,
+										},
+										map[string]any{
+											"name": "mode",
+											"orig": "mode",
+											"type": "`$INTEGER`",
+											"kind": "query",
+										},
+										map[string]any{
+											"name": "offset",
+											"orig": "offset",
+											"type": "`$INTEGER`",
+											"kind": "query",
+											"example": 0,
+										},
+										map[string]any{
+											"name": "q",
+											"orig": "q",
+											"type": "`$STRING`",
+											"kind": "query",
+										},
+										map[string]any{
+											"name": "status",
+											"orig": "status",
+											"type": "`$STRING`",
+											"kind": "query",
+										},
 									},
 								},
 								"select": map[string]any{
@@ -499,13 +550,6 @@ func MakeConfig() map[string]any {
 										"q",
 										"status",
 									},
-								},
-								"transform": map[string]any{
-									"req": "`reqdata`",
-									"res": "`body.beatmaps`",
-								},
-								"parts": []any{
-									"search",
 								},
 							},
 						},

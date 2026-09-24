@@ -2,7 +2,6 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.SearchEntity = void 0;
 const OsuBeatmapEntityBase_1 = require("../OsuBeatmapEntityBase");
-// TODO: needs Entity superclass
 class SearchEntity extends OsuBeatmapEntityBase_1.OsuBeatmapEntityBase {
     constructor(client, entopts) {
         super(client, entopts);

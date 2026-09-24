@@ -19,7 +19,6 @@ import type {
   SearchListMatch,
 } from '../OsuBeatmapTypes'
 
-// TODO: needs Entity superclass
 class SearchEntity extends OsuBeatmapEntityBase<Search> {
 
   constructor(client: OsuBeatmapSDK, entopts: any) {

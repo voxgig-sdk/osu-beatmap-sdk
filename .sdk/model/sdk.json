@@ -24,162 +24,248 @@
         "repr": "auto"
       },
       "contributor": {},
+      "doc": {
+        "active": true,
+        "assets": {
+          "path": ".sdk/doc/assets"
+        },
+        "brand": {
+          "label": "",
+          "notice": "",
+          "shortNotice": "",
+          "url": ""
+        },
+        "ci": {
+          "active": true,
+          "branch": "main"
+        },
+        "content": {
+          "path": ".sdk/doc/content"
+        },
+        "edition": {
+          "summary": {
+            "active": true,
+            "base": "node_modules/@voxgig/docgen/project/.sdk",
+            "brand": {},
+            "filter": {
+              "entities": [],
+              "features": [],
+              "targets": []
+            },
+            "kind": "summary",
+            "name": "summary",
+            "origname": "",
+            "output": {
+              "path": "SUMMARY.md"
+            },
+            "package": "@voxgig/docgen",
+            "published": false,
+            "site": {
+              "active": true
+            },
+            "style": {},
+            "title": ""
+          }
+        },
+        "qa": {
+          "vocabulary": []
+        },
+        "style": {
+          "color": {
+            "accent": "#00c6d8",
+            "background": "#f5f5f9",
+            "darkBackground": "#0f1117",
+            "darkText": "#e6edf3",
+            "primary": "#e70042",
+            "text": "#0a0a0a"
+          },
+          "font": "Nunito, system-ui, sans-serif",
+          "fontFile": "",
+          "headingFont": "Nunito, system-ui, sans-serif",
+          "headingFontFile": "",
+          "logo": "",
+          "mode": "light",
+          "mono": "ui-monospace, monospace",
+          "monoFile": ""
+        },
+        "target": {}
+      },
       "entity": {
         "beatmap": {
           "active": true,
           "alias": {
             "field": {}
           },
-          "fields": [
-            {
-              "active": true,
-              "format": "date-time",
-              "name": "approved_date",
-              "req": false,
-              "short": "Date when beatmap was approved/ranked",
-              "type": "`$STRING`"
+          "fields": {
+            "approved_date": {
+              "a": true,
+              "fo": "date-time",
+              "h": "Approved Date",
+              "n": "approved_date",
+              "r": false,
+              "sh": "Date when beatmap was approved/ranked",
+              "t": "`$STRING`"
             },
-            {
-              "active": true,
-              "format": "float",
-              "name": "ar",
-              "req": false,
-              "short": "Approach rate",
-              "type": "`$NUMBER`"
+            "ar": {
+              "a": true,
+              "fo": "float",
+              "h": "Ar",
+              "n": "ar",
+              "r": false,
+              "sh": "Approach rate",
+              "t": "`$NUMBER`"
             },
-            {
-              "active": true,
-              "name": "artist",
-              "req": false,
-              "short": "Song artist",
-              "type": "`$STRING`"
+            "artist": {
+              "a": true,
+              "h": "Artist",
+              "n": "artist",
+              "r": false,
+              "sh": "Song artist",
+              "t": "`$STRING`"
             },
-            {
-              "active": true,
-              "name": "beatmapset_id",
-              "req": false,
-              "short": "Beatmap set ID",
-              "type": "`$INTEGER`"
+            "beatmapset_id": {
+              "a": true,
+              "h": "Beatmapset Id",
+              "n": "beatmapset_id",
+              "r": false,
+              "sh": "Beatmap set ID",
+              "t": "`$INTEGER`"
             },
-            {
-              "active": true,
-              "format": "float",
-              "name": "bpm",
-              "req": false,
-              "short": "Beats per minute",
-              "type": "`$NUMBER`"
+            "bpm": {
+              "a": true,
+              "fo": "float",
+              "h": "Bpm",
+              "n": "bpm",
+              "r": false,
+              "sh": "Beats per minute",
+              "t": "`$NUMBER`"
             },
-            {
-              "active": true,
-              "name": "creator",
-              "req": false,
-              "short": "Beatmap creator username",
-              "type": "`$STRING`"
+            "creator": {
+              "a": true,
+              "h": "Creator",
+              "n": "creator",
+              "r": false,
+              "sh": "Beatmap creator username",
+              "t": "`$STRING`"
             },
-            {
-              "active": true,
-              "format": "float",
-              "name": "cs",
-              "req": false,
-              "short": "Circle size",
-              "type": "`$NUMBER`"
+            "cs": {
+              "a": true,
+              "fo": "float",
+              "h": "Cs",
+              "n": "cs",
+              "r": false,
+              "sh": "Circle size",
+              "t": "`$NUMBER`"
             },
-            {
-              "active": true,
-              "format": "float",
-              "name": "difficulty_rating",
-              "req": false,
-              "short": "Star rating",
-              "type": "`$NUMBER`"
+            "difficulty_rating": {
+              "a": true,
+              "fo": "float",
+              "h": "Difficulty Rating",
+              "n": "difficulty_rating",
+              "r": false,
+              "sh": "Star rating",
+              "t": "`$NUMBER`"
             },
-            {
-              "active": true,
-              "name": "favourite_count",
-              "req": false,
-              "short": "Number of favorites",
-              "type": "`$INTEGER`"
+            "favourite_count": {
+              "a": true,
+              "h": "Favourite Count",
+              "n": "favourite_count",
+              "r": false,
+              "sh": "Number of favorites",
+              "t": "`$INTEGER`"
             },
-            {
-              "active": true,
-              "format": "float",
-              "name": "hp",
-              "req": false,
-              "short": "HP drain",
-              "type": "`$NUMBER`"
+            "hp": {
+              "a": true,
+              "fo": "float",
+              "h": "Hp",
+              "n": "hp",
+              "r": false,
+              "sh": "HP drain",
+              "t": "`$NUMBER`"
             },
-            {
-              "active": true,
-              "name": "id",
-              "req": false,
-              "short": "Beatmap ID",
-              "type": "`$INTEGER`"
+            "id": {
+              "a": true,
+              "h": "Id",
+              "n": "id",
+              "r": false,
+              "sh": "Beatmap ID",
+              "t": "`$INTEGER`"
             },
-            {
-              "active": true,
-              "format": "date-time",
-              "name": "last_updated",
-              "req": false,
-              "short": "Last update date",
-              "type": "`$STRING`"
+            "last_updated": {
+              "a": true,
+              "fo": "date-time",
+              "h": "Last Updated",
+              "n": "last_updated",
+              "r": false,
+              "sh": "Last update date",
+              "t": "`$STRING`"
             },
-            {
-              "active": true,
-              "name": "length",
-              "req": false,
-              "short": "Song length in seconds",
-              "type": "`$INTEGER`"
+            "length": {
+              "a": true,
+              "h": "Length",
+              "n": "length",
+              "r": false,
+              "sh": "Song length in seconds",
+              "t": "`$INTEGER`"
             },
-            {
-              "active": true,
-              "name": "max_combo",
-              "req": false,
-              "short": "Maximum combo",
-              "type": "`$INTEGER`"
+            "max_combo": {
+              "a": true,
+              "h": "Max Combo",
+              "n": "max_combo",
+              "r": false,
+              "sh": "Maximum combo",
+              "t": "`$INTEGER`"
             },
-            {
-              "active": true,
-              "name": "mode",
-              "req": false,
-              "short": "Game mode (0=osu!, 1=Taiko, 2=Catch, 3=Mania)",
-              "type": "`$INTEGER`"
+            "mode": {
+              "a": true,
+              "h": "Mode",
+              "n": "mode",
+              "r": false,
+              "sh": "Game mode (0=osu!, 1=Taiko, 2=Catch, 3=Mania)",
+              "t": "`$INTEGER`"
             },
-            {
-              "active": true,
-              "format": "float",
-              "name": "od",
-              "req": false,
-              "short": "Overall difficulty",
-              "type": "`$NUMBER`"
+            "od": {
+              "a": true,
+              "fo": "float",
+              "h": "Od",
+              "n": "od",
+              "r": false,
+              "sh": "Overall difficulty",
+              "t": "`$NUMBER`"
             },
-            {
-              "active": true,
-              "name": "playcount",
-              "req": false,
-              "short": "Total play count",
-              "type": "`$INTEGER`"
+            "playcount": {
+              "a": true,
+              "h": "Playcount",
+              "n": "playcount",
+              "r": false,
+              "sh": "Total play count",
+              "t": "`$INTEGER`"
             },
-            {
-              "active": true,
-              "name": "status",
-              "req": false,
-              "short": "Beatmap status (ranked, qualified, loved, etc.)",
-              "type": "`$STRING`"
+            "status": {
+              "a": true,
+              "h": "Status",
+              "n": "status",
+              "r": false,
+              "sh": "Beatmap status (ranked, qualified, loved, etc.)",
+              "t": "`$STRING`"
             },
-            {
-              "active": true,
-              "name": "title",
-              "req": false,
-              "short": "Song title",
-              "type": "`$STRING`"
+            "title": {
+              "a": true,
+              "h": "Title",
+              "n": "title",
+              "r": false,
+              "sh": "Song title",
+              "t": "`$STRING`"
             },
-            {
-              "active": true,
-              "name": "version",
-              "req": false,
-              "short": "Difficulty name",
-              "type": "`$STRING`"
+            "version": {
+              "a": true,
+              "h": "Version",
+              "n": "version",
+              "r": false,
+              "sh": "Difficulty name",
+              "t": "`$STRING`"
             }
-          ],
+          },
           "id": {
             "field": "id",
             "name": "id"
@@ -191,29 +277,34 @@
               "name": "load",
               "points": [
                 {
-                  "active": true,
-                  "args": {
+                  "a": true,
+                  "co": {
+                    "id": "GET /beatmaps/{id}",
+                    "source": "openapi3",
+                    "version": 2
+                  },
+                  "g": {
                     "params": [
                       {
-                        "active": true,
-                        "kind": "param",
-                        "name": "id",
-                        "orig": "id",
-                        "reqd": true,
-                        "type": "`$INTEGER`"
+                        "a": true,
+                        "k": "param",
+                        "n": "id",
+                        "or": "id",
+                        "r": true,
+                        "t": "`$INTEGER`"
                       }
                     ]
                   },
-                  "contract": {
-                    "id": "GET /beatmaps/{id}",
-                    "json": "{\"operationId\":\"getBeatmapById\",\"parameters\":[{\"description\":\"Beatmap ID\",\"in\":\"path\",\"name\":\"id\",\"required\":true,\"schema\":{\"type\":\"integer\"}}],\"protocol\":\"http\",\"responses\":{\"200\":{\"content\":{\"application/json\":{\"schema\":{\"properties\":{\"approved_date\":{\"description\":\"Date when beatmap was approved/ranked\",\"format\":\"date-time\",\"type\":\"string\"},\"ar\":{\"description\":\"Approach rate\",\"format\":\"float\",\"type\":\"number\"},\"artist\":{\"description\":\"Song artist\",\"type\":\"string\"},\"beatmapset_id\":{\"description\":\"Beatmap set ID\",\"type\":\"integer\"},\"bpm\":{\"description\":\"Beats per minute\",\"format\":\"float\",\"type\":\"number\"},\"creator\":{\"description\":\"Beatmap creator username\",\"type\":\"string\"},\"cs\":{\"description\":\"Circle size\",\"format\":\"float\",\"type\":\"number\"},\"difficulty_rating\":{\"description\":\"Star rating\",\"format\":\"float\",\"type\":\"number\"},\"favourite_count\":{\"description\":\"Number of favorites\",\"type\":\"integer\"},\"hp\":{\"description\":\"HP drain\",\"format\":\"float\",\"type\":\"number\"},\"id\":{\"description\":\"Beatmap ID\",\"type\":\"integer\"},\"last_updated\":{\"description\":\"Last update date\",\"format\":\"date-time\",\"type\":\"string\"},\"length\":{\"description\":\"Song length in seconds\",\"type\":\"integer\"},\"max_combo\":{\"description\":\"Maximum combo\",\"type\":\"integer\"},\"mode\":{\"description\":\"Game mode (0=osu!, 1=Taiko, 2=Catch, 3=Mania)\",\"type\":\"integer\"},\"od\":{\"description\":\"Overall difficulty\",\"format\":\"float\",\"type\":\"number\"},\"playcount\":{\"description\":\"Total play count\",\"type\":\"integer\"},\"status\":{\"description\":\"Beatmap status (ranked, qualified, loved, etc.)\",\"type\":\"string\"},\"title\":{\"description\":\"Song title\",\"type\":\"string\"},\"version\":{\"description\":\"Difficulty name\",\"type\":\"string\"}},\"type\":\"object\"}}},\"description\":\"Successful response\"},\"404\":{\"description\":\"Beatmap not found\"},\"500\":{\"description\":\"Internal server error\"}},\"securitySource\":\"unspecified\"}",
-                    "source": "openapi3",
-                    "version": 1
+                  "k": "http",
+                  "m": "GET",
+                  "o": "/beatmaps/{id}",
+                  "q": {
+                    "exist": [
+                      "id"
+                    ]
                   },
-                  "kind": "http",
-                  "method": "GET",
-                  "orig": "/beatmaps/{id}",
-                  "segments": [
+                  "r": {},
+                  "s": [
                     {
                       "lit": "beatmaps"
                     },
@@ -221,12 +312,7 @@
                       "var": "id"
                     }
                   ],
-                  "select": {
-                    "exist": [
-                      "id"
-                    ]
-                  },
-                  "transform": {
+                  "t": {
                     "req": "`reqdata`",
                     "res": "`body`"
                   }
@@ -243,14 +329,15 @@
           "alias": {
             "field": {}
           },
-          "fields": [
-            {
-              "active": true,
-              "name": "id",
-              "req": false,
-              "type": "`$STRING`"
+          "fields": {
+            "id": {
+              "a": true,
+              "h": "Id",
+              "n": "id",
+              "r": false,
+              "t": "`$STRING`"
             }
-          ],
+          },
           "id": {
             "field": "id",
             "name": "id"
@@ -262,40 +349,46 @@
               "name": "load",
               "points": [
                 {
-                  "active": true,
-                  "args": {
+                  "a": true,
+                  "co": {
+                    "id": "GET /download/{id}",
+                    "source": "openapi3",
+                    "version": 2
+                  },
+                  "g": {
                     "params": [
                       {
-                        "active": true,
-                        "kind": "param",
-                        "name": "id",
-                        "orig": "id",
-                        "reqd": true,
-                        "type": "`$INTEGER`"
+                        "a": true,
+                        "k": "param",
+                        "n": "id",
+                        "or": "id",
+                        "r": true,
+                        "t": "`$INTEGER`"
                       }
                     ],
                     "query": [
                       {
-                        "active": true,
-                        "example": false,
-                        "kind": "query",
-                        "name": "no_video",
-                        "orig": "no_video",
-                        "reqd": false,
-                        "type": "`$BOOLEAN`"
+                        "a": true,
+                        "ex": false,
+                        "k": "query",
+                        "n": "no_video",
+                        "or": "no_video",
+                        "r": false,
+                        "t": "`$BOOLEAN`"
                       }
                     ]
                   },
-                  "contract": {
-                    "id": "GET /download/{id}",
-                    "json": "{\"operationId\":\"downloadBeatmap\",\"parameters\":[{\"description\":\"Beatmap set ID to download\",\"in\":\"path\",\"name\":\"id\",\"required\":true,\"schema\":{\"type\":\"integer\"}},{\"description\":\"Download without video\",\"in\":\"query\",\"name\":\"noVideo\",\"required\":false,\"schema\":{\"default\":false,\"type\":\"boolean\"}}],\"protocol\":\"http\",\"responses\":{\"200\":{\"content\":{\"application/octet-stream\":{\"schema\":{\"format\":\"binary\",\"type\":\"string\"}}},\"description\":\"Beatmap file download\"},\"404\":{\"description\":\"Beatmap not found\"},\"500\":{\"description\":\"Internal server error\"}},\"securitySource\":\"unspecified\"}",
-                    "source": "openapi3",
-                    "version": 1
+                  "k": "http",
+                  "m": "GET",
+                  "o": "/download/{id}",
+                  "q": {
+                    "exist": [
+                      "id",
+                      "no_video"
+                    ]
                   },
-                  "kind": "http",
-                  "method": "GET",
-                  "orig": "/download/{id}",
-                  "segments": [
+                  "r": {},
+                  "s": [
                     {
                       "lit": "download"
                     },
@@ -303,13 +396,7 @@
                       "var": "id"
                     }
                   ],
-                  "select": {
-                    "exist": [
-                      "id",
-                      "no_video"
-                    ]
-                  },
-                  "transform": {
+                  "t": {
                     "req": "`reqdata`",
                     "res": "`body`"
                   }
@@ -326,156 +413,176 @@
           "alias": {
             "field": {}
           },
-          "fields": [
-            {
-              "active": true,
-              "format": "date-time",
-              "name": "approved_date",
-              "req": false,
-              "short": "Date when beatmap was approved/ranked",
-              "type": "`$STRING`"
+          "fields": {
+            "approved_date": {
+              "a": true,
+              "fo": "date-time",
+              "h": "Approved Date",
+              "n": "approved_date",
+              "r": false,
+              "sh": "Date when beatmap was approved/ranked",
+              "t": "`$STRING`"
             },
-            {
-              "active": true,
-              "format": "float",
-              "name": "ar",
-              "req": false,
-              "short": "Approach rate",
-              "type": "`$NUMBER`"
+            "ar": {
+              "a": true,
+              "fo": "float",
+              "h": "Ar",
+              "n": "ar",
+              "r": false,
+              "sh": "Approach rate",
+              "t": "`$NUMBER`"
             },
-            {
-              "active": true,
-              "name": "artist",
-              "req": false,
-              "short": "Song artist",
-              "type": "`$STRING`"
+            "artist": {
+              "a": true,
+              "h": "Artist",
+              "n": "artist",
+              "r": false,
+              "sh": "Song artist",
+              "t": "`$STRING`"
             },
-            {
-              "active": true,
-              "name": "beatmapset_id",
-              "req": false,
-              "short": "Beatmap set ID",
-              "type": "`$INTEGER`"
+            "beatmapset_id": {
+              "a": true,
+              "h": "Beatmapset Id",
+              "n": "beatmapset_id",
+              "r": false,
+              "sh": "Beatmap set ID",
+              "t": "`$INTEGER`"
             },
-            {
-              "active": true,
-              "format": "float",
-              "name": "bpm",
-              "req": false,
-              "short": "Beats per minute",
-              "type": "`$NUMBER`"
+            "bpm": {
+              "a": true,
+              "fo": "float",
+              "h": "Bpm",
+              "n": "bpm",
+              "r": false,
+              "sh": "Beats per minute",
+              "t": "`$NUMBER`"
             },
-            {
-              "active": true,
-              "name": "creator",
-              "req": false,
-              "short": "Beatmap creator username",
-              "type": "`$STRING`"
+            "creator": {
+              "a": true,
+              "h": "Creator",
+              "n": "creator",
+              "r": false,
+              "sh": "Beatmap creator username",
+              "t": "`$STRING`"
             },
-            {
-              "active": true,
-              "format": "float",
-              "name": "cs",
-              "req": false,
-              "short": "Circle size",
-              "type": "`$NUMBER`"
+            "cs": {
+              "a": true,
+              "fo": "float",
+              "h": "Cs",
+              "n": "cs",
+              "r": false,
+              "sh": "Circle size",
+              "t": "`$NUMBER`"
             },
-            {
-              "active": true,
-              "format": "float",
-              "name": "difficulty_rating",
-              "req": false,
-              "short": "Star rating",
-              "type": "`$NUMBER`"
+            "difficulty_rating": {
+              "a": true,
+              "fo": "float",
+              "h": "Difficulty Rating",
+              "n": "difficulty_rating",
+              "r": false,
+              "sh": "Star rating",
+              "t": "`$NUMBER`"
             },
-            {
-              "active": true,
-              "name": "favourite_count",
-              "req": false,
-              "short": "Number of favorites",
-              "type": "`$INTEGER`"
+            "favourite_count": {
+              "a": true,
+              "h": "Favourite Count",
+              "n": "favourite_count",
+              "r": false,
+              "sh": "Number of favorites",
+              "t": "`$INTEGER`"
             },
-            {
-              "active": true,
-              "format": "float",
-              "name": "hp",
-              "req": false,
-              "short": "HP drain",
-              "type": "`$NUMBER`"
+            "hp": {
+              "a": true,
+              "fo": "float",
+              "h": "Hp",
+              "n": "hp",
+              "r": false,
+              "sh": "HP drain",
+              "t": "`$NUMBER`"
             },
-            {
-              "active": true,
-              "name": "id",
-              "req": false,
-              "short": "Beatmap ID",
-              "type": "`$INTEGER`"
+            "id": {
+              "a": true,
+              "h": "Id",
+              "n": "id",
+              "r": false,
+              "sh": "Beatmap ID",
+              "t": "`$INTEGER`"
             },
-            {
-              "active": true,
-              "format": "date-time",
-              "name": "last_updated",
-              "req": false,
-              "short": "Last update date",
-              "type": "`$STRING`"
+            "last_updated": {
+              "a": true,
+              "fo": "date-time",
+              "h": "Last Updated",
+              "n": "last_updated",
+              "r": false,
+              "sh": "Last update date",
+              "t": "`$STRING`"
             },
-            {
-              "active": true,
-              "name": "length",
-              "req": false,
-              "short": "Song length in seconds",
-              "type": "`$INTEGER`"
+            "length": {
+              "a": true,
+              "h": "Length",
+              "n": "length",
+              "r": false,
+              "sh": "Song length in seconds",
+              "t": "`$INTEGER`"
             },
-            {
-              "active": true,
-              "name": "max_combo",
-              "req": false,
-              "short": "Maximum combo",
-              "type": "`$INTEGER`"
+            "max_combo": {
+              "a": true,
+              "h": "Max Combo",
+              "n": "max_combo",
+              "r": false,
+              "sh": "Maximum combo",
+              "t": "`$INTEGER`"
             },
-            {
-              "active": true,
-              "name": "mode",
-              "req": false,
-              "short": "Game mode (0=osu!, 1=Taiko, 2=Catch, 3=Mania)",
-              "type": "`$INTEGER`"
+            "mode": {
+              "a": true,
+              "h": "Mode",
+              "n": "mode",
+              "r": false,
+              "sh": "Game mode (0=osu!, 1=Taiko, 2=Catch, 3=Mania)",
+              "t": "`$INTEGER`"
             },
-            {
-              "active": true,
-              "format": "float",
-              "name": "od",
-              "req": false,
-              "short": "Overall difficulty",
-              "type": "`$NUMBER`"
+            "od": {
+              "a": true,
+              "fo": "float",
+              "h": "Od",
+              "n": "od",
+              "r": false,
+              "sh": "Overall difficulty",
+              "t": "`$NUMBER`"
             },
-            {
-              "active": true,
-              "name": "playcount",
-              "req": false,
-              "short": "Total play count",
-              "type": "`$INTEGER`"
+            "playcount": {
+              "a": true,
+              "h": "Playcount",
+              "n": "playcount",
+              "r": false,
+              "sh": "Total play count",
+              "t": "`$INTEGER`"
             },
-            {
-              "active": true,
-              "name": "status",
-              "req": false,
-              "short": "Beatmap status (ranked, qualified, loved, etc.)",
-              "type": "`$STRING`"
+            "status": {
+              "a": true,
+              "h": "Status",
+              "n": "status",
+              "r": false,
+              "sh": "Beatmap status (ranked, qualified, loved, etc.)",
+              "t": "`$STRING`"
             },
-            {
-              "active": true,
-              "name": "title",
-              "req": false,
-              "short": "Song title",
-              "type": "`$STRING`"
+            "title": {
+              "a": true,
+              "h": "Title",
+              "n": "title",
+              "r": false,
+              "sh": "Song title",
+              "t": "`$STRING`"
             },
-            {
-              "active": true,
-              "name": "version",
-              "req": false,
-              "short": "Difficulty name",
-              "type": "`$STRING`"
+            "version": {
+              "a": true,
+              "h": "Version",
+              "n": "version",
+              "r": false,
+              "sh": "Difficulty name",
+              "t": "`$STRING`"
             }
-          ],
+          },
           "id": {
             "field": "id",
             "name": "id"
@@ -487,68 +594,62 @@
               "name": "list",
               "points": [
                 {
-                  "active": true,
-                  "args": {
+                  "a": true,
+                  "co": {
+                    "id": "GET /search",
+                    "source": "openapi3",
+                    "version": 2
+                  },
+                  "g": {
                     "query": [
                       {
-                        "active": true,
-                        "example": 50,
-                        "kind": "query",
-                        "name": "limit",
-                        "orig": "limit",
-                        "reqd": false,
-                        "type": "`$INTEGER`"
+                        "a": true,
+                        "ex": 50,
+                        "k": "query",
+                        "n": "limit",
+                        "or": "limit",
+                        "r": false,
+                        "t": "`$INTEGER`"
                       },
                       {
-                        "active": true,
-                        "kind": "query",
-                        "name": "mode",
-                        "orig": "mode",
-                        "reqd": false,
-                        "type": "`$INTEGER`"
+                        "a": true,
+                        "k": "query",
+                        "n": "mode",
+                        "or": "mode",
+                        "r": false,
+                        "t": "`$INTEGER`"
                       },
                       {
-                        "active": true,
-                        "example": 0,
-                        "kind": "query",
-                        "name": "offset",
-                        "orig": "offset",
-                        "reqd": false,
-                        "type": "`$INTEGER`"
+                        "a": true,
+                        "ex": 0,
+                        "k": "query",
+                        "n": "offset",
+                        "or": "offset",
+                        "r": false,
+                        "t": "`$INTEGER`"
                       },
                       {
-                        "active": true,
-                        "kind": "query",
-                        "name": "q",
-                        "orig": "q",
-                        "reqd": false,
-                        "type": "`$STRING`"
+                        "a": true,
+                        "k": "query",
+                        "n": "q",
+                        "or": "q",
+                        "r": false,
+                        "t": "`$STRING`"
                       },
                       {
-                        "active": true,
-                        "kind": "query",
-                        "name": "status",
-                        "orig": "status",
-                        "reqd": false,
-                        "type": "`$STRING`"
+                        "a": true,
+                        "k": "query",
+                        "n": "status",
+                        "or": "status",
+                        "r": false,
+                        "t": "`$STRING`"
                       }
                     ]
                   },
-                  "contract": {
-                    "id": "GET /search",
-                    "json": "{\"operationId\":\"searchBeatmaps\",\"parameters\":[{\"description\":\"Search query string\",\"in\":\"query\",\"name\":\"q\",\"required\":false,\"schema\":{\"type\":\"string\"}},{\"description\":\"Game mode filter (0=osu!, 1=Taiko, 2=Catch, 3=Mania)\",\"in\":\"query\",\"name\":\"mode\",\"required\":false,\"schema\":{\"enum\":[0,1,2,3],\"type\":\"integer\"}},{\"description\":\"Beatmap status (ranked, qualified, loved, pending, etc.)\",\"in\":\"query\",\"name\":\"status\",\"required\":false,\"schema\":{\"type\":\"string\"}},{\"description\":\"Pagination offset\",\"in\":\"query\",\"name\":\"offset\",\"required\":false,\"schema\":{\"default\":0,\"type\":\"integer\"}},{\"description\":\"Number of results to return\",\"in\":\"query\",\"name\":\"limit\",\"required\":false,\"schema\":{\"default\":50,\"maximum\":100,\"type\":\"integer\"}}],\"protocol\":\"http\",\"responses\":{\"200\":{\"content\":{\"application/json\":{\"schema\":{\"properties\":{\"beatmaps\":{\"items\":{\"properties\":{\"approved_date\":{\"description\":\"Date when beatmap was approved/ranked\",\"format\":\"date-time\",\"type\":\"string\"},\"ar\":{\"description\":\"Approach rate\",\"format\":\"float\",\"type\":\"number\"},\"artist\":{\"description\":\"Song artist\",\"type\":\"string\"},\"beatmapset_id\":{\"description\":\"Beatmap set ID\",\"type\":\"integer\"},\"bpm\":{\"description\":\"Beats per minute\",\"format\":\"float\",\"type\":\"number\"},\"creator\":{\"description\":\"Beatmap creator username\",\"type\":\"string\"},\"cs\":{\"description\":\"Circle size\",\"format\":\"float\",\"type\":\"number\"},\"difficulty_rating\":{\"description\":\"Star rating\",\"format\":\"float\",\"type\":\"number\"},\"favourite_count\":{\"description\":\"Number of favorites\",\"type\":\"integer\"},\"hp\":{\"description\":\"HP drain\",\"format\":\"float\",\"type\":\"number\"},\"id\":{\"description\":\"Beatmap ID\",\"type\":\"integer\"},\"last_updated\":{\"description\":\"Last update date\",\"format\":\"date-time\",\"type\":\"string\"},\"length\":{\"description\":\"Song length in seconds\",\"type\":\"integer\"},\"max_combo\":{\"description\":\"Maximum combo\",\"type\":\"integer\"},\"mode\":{\"description\":\"Game mode (0=osu!, 1=Taiko, 2=Catch, 3=Mania)\",\"type\":\"integer\"},\"od\":{\"description\":\"Overall difficulty\",\"format\":\"float\",\"type\":\"number\"},\"playcount\":{\"description\":\"Total play count\",\"type\":\"integer\"},\"status\":{\"description\":\"Beatmap status (ranked, qualified, loved, etc.)\",\"type\":\"string\"},\"title\":{\"description\":\"Song title\",\"type\":\"string\"},\"version\":{\"description\":\"Difficulty name\",\"type\":\"string\"}},\"type\":\"object\"},\"type\":\"array\"},\"total\":{\"description\":\"Total number of results\",\"type\":\"integer\"}},\"type\":\"object\"}}},\"description\":\"Successful search response\"},\"400\":{\"description\":\"Bad request - invalid parameters\"},\"500\":{\"description\":\"Internal server error\"}},\"securitySource\":\"unspecified\"}",
-                    "source": "openapi3",
-                    "version": 1
-                  },
-                  "kind": "http",
-                  "method": "GET",
-                  "orig": "/search",
-                  "segments": [
-                    {
-                      "lit": "search"
-                    }
-                  ],
-                  "select": {
+                  "k": "http",
+                  "m": "GET",
+                  "o": "/search",
+                  "q": {
                     "exist": [
                       "limit",
                       "mode",
@@ -557,7 +658,13 @@
                       "status"
                     ]
                   },
-                  "transform": {
+                  "r": {},
+                  "s": [
+                    {
+                      "lit": "search"
+                    }
+                  ],
+                  "t": {
                     "req": "`reqdata`",
                     "res": "`body.beatmaps`"
                   }
@@ -986,19 +1093,19 @@
           "param": {},
           "step": [
             {
-              "active": true,
-              "data": {},
-              "input": {
+              "a": true,
+              "d": {},
+              "i": {
                 "ref": "beatmap_ref01",
                 "srcdatavar": "beatmap_ref01_data",
                 "suffix": "_dt0"
               },
-              "match": {
+              "m": {
                 "id": "beatmap01"
               },
-              "op": "load",
-              "spec": [],
-              "valid": [
+              "o": "load",
+              "s": [],
+              "v": [
                 {
                   "apply": "TextFieldMark",
                   "def": {
@@ -1018,19 +1125,19 @@
           "param": {},
           "step": [
             {
-              "active": true,
-              "data": {},
-              "input": {
+              "a": true,
+              "d": {},
+              "i": {
                 "ref": "download_ref01",
                 "srcdatavar": "download_ref01_data",
                 "suffix": "_dt0"
               },
-              "match": {
+              "m": {
                 "id": "download01"
               },
-              "op": "load",
-              "spec": [],
-              "valid": [
+              "o": "load",
+              "s": [],
+              "v": [
                 {
                   "apply": "TextFieldMark",
                   "def": {
@@ -1050,13 +1157,13 @@
           "param": {},
           "step": [
             {
-              "active": true,
-              "data": {},
-              "input": {},
-              "match": {},
-              "op": "list",
-              "spec": [],
-              "valid": [
+              "a": true,
+              "d": {},
+              "i": {},
+              "m": {},
+              "o": "list",
+              "s": [],
+              "v": [
                 {
                   "apply": "ItemExists",
                   "def": {
