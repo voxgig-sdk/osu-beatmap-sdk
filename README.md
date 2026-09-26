@@ -106,11 +106,11 @@ local result, err = client:Beatmap():load({ id = "test01" })
 | Language | Package | Install |
 | --- | --- | --- |
 | TypeScript | `@voxgig-sdk/osu-beatmap-sdk` | publish pending — [install from git tag](https://github.com/voxgig-sdk/osu-beatmap-sdk/tags) |
-| Python | `voxgig-sdk-osu-beatmap` | publish pending — [install from git tag](https://github.com/voxgig-sdk/osu-beatmap-sdk/tags) |
-| PHP | `voxgig-sdk/osu-beatmap` | publish pending — [install from git tag](https://github.com/voxgig-sdk/osu-beatmap-sdk/tags) |
+| Python | `voxgig-sdk-osu-beatmap-sdk` | publish pending — [install from git tag](https://github.com/voxgig-sdk/osu-beatmap-sdk/tags) |
+| PHP | `voxgig-sdk/osu-beatmap-sdk` | publish pending — [install from git tag](https://github.com/voxgig-sdk/osu-beatmap-sdk/tags) |
 | Golang | `github.com/voxgig-sdk/osu-beatmap-sdk/go` | `go get github.com/voxgig-sdk/osu-beatmap-sdk/go@latest` |
-| Ruby | `voxgig-sdk-osu-beatmap` | publish pending — [install from git tag](https://github.com/voxgig-sdk/osu-beatmap-sdk/tags) |
-| Lua | `voxgig-sdk-osu-beatmap` | publish pending — [install from git tag](https://github.com/voxgig-sdk/osu-beatmap-sdk/tags) |
+| Ruby | `voxgig-sdk-osu-beatmap-sdk` | publish pending — [install from git tag](https://github.com/voxgig-sdk/osu-beatmap-sdk/tags) |
+| Lua | `voxgig-sdk-osu-beatmap-sdk` | publish pending — [install from git tag](https://github.com/voxgig-sdk/osu-beatmap-sdk/tags) |
 | Go CLI | `github.com/voxgig-sdk/osu-beatmap-sdk/go-cli` | `go install github.com/voxgig-sdk/osu-beatmap-sdk/go-cli/cmd/osu-beatmap@latest` |
 | Go MCP server | `github.com/voxgig-sdk/osu-beatmap-sdk/go-mcp` | `go get github.com/voxgig-sdk/osu-beatmap-sdk/go-mcp@latest` |
 
@@ -342,10 +342,10 @@ forking the SDK.
 
 | Feature | Purpose |
 | --- | --- |
-| **RatelimitFeature** | Client-side rate limiting via a token bucket |
-| **RetryFeature** | Automatic retry of transient failures with exponential backoff |
-| **TestFeature** | In-memory mock transport for testing without a live server |
-| **TimeoutFeature** | Per-request timeout with transport abort |
+| **RatelimitFeature** | Rate limiting |
+| **RetryFeature** | Retry |
+| **TestFeature** | Test transport |
+| **TimeoutFeature** | Timeout |
 
 Pass custom features via the `extend` option at construction time.
 
