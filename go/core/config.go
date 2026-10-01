@@ -327,7 +327,7 @@ func MakeConfig() map[string]any {
 									"query": []any{
 										map[string]any{
 											"name": "no_video",
-											"orig": "no_video",
+											"orig": "noVideo",
 											"type": "`$BOOLEAN`",
 											"kind": "query",
 											"example": false,

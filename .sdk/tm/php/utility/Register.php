@@ -37,6 +37,8 @@ require_once __DIR__ . '/TransformResponse.php';
 
 OsuBeatmapUtility::setRegistrar(function (OsuBeatmapUtility $u): void {
     $u->clean = [OsuBeatmapClean::class, 'call'];
+    $u->clean_add = [OsuBeatmapClean::class, 'add'];
+    $u->clean_explain = [OsuBeatmapDone::class, 'clean_explain'];
     $u->done = [OsuBeatmapDone::class, 'call'];
     $u->make_error = [OsuBeatmapMakeError::class, 'call'];
     $u->feature_add = [OsuBeatmapFeatureAdd::class, 'call'];

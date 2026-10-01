@@ -349,7 +349,7 @@ class OsuBeatmapConfig
                     'query' => [
                       [
                         'name' => 'no_video',
-                        'orig' => 'no_video',
+                        'orig' => 'noVideo',
                         'type' => '`$BOOLEAN`',
                         'kind' => 'query',
                         'example' => false,

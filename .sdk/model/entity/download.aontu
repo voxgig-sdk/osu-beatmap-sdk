@@ -44,7 +44,7 @@ main: kit: entity: download: {
                 ex: false
                 k: "query"
                 n: "no_video"
-                or: "no_video"
+                or: "noVideo"
                 r: false
                 t: "`$BOOLEAN`"
               }

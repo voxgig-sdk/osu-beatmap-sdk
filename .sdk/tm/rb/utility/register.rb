@@ -33,6 +33,8 @@ require_relative 'transform_response'
 
 OsuBeatmapUtility.registrar = ->(u) {
   u.clean = OsuBeatmapUtilities::Clean
+  u.clean_add = OsuBeatmapUtilities::CleanAdd
+  u.clean_explain = OsuBeatmapUtilities::CleanExplain
   u.done = OsuBeatmapUtilities::Done
   u.make_error = OsuBeatmapUtilities::MakeError
   u.feature_add = OsuBeatmapUtilities::FeatureAdd
