@@ -54,6 +54,53 @@ const utility_1 = require("../../utility");
         const ent = testsdk.Search();
         (0, node_assert_1.default)(null != ent);
     });
+    class FailHook extends __1.BaseFeature {
+        name = 'failhook';
+        version = '0.0.1';
+        active = true;
+        unexpected = 0;
+        init() { }
+        PreSpec() { throw new Error('search hook failed'); }
+        PreUnexpected() { this.unexpected++; }
+    }
+    (0, node_test_1.test)('stream-error', async () => {
+        const offline = { net: { offline: true } };
+        await node_assert_1.default.rejects(async () => {
+            for await (const _item of __1.OsuBeatmapSDK.test(offline).Search().stream('list')) { }
+        }, /offline/);
+        for await (const _item of __1.OsuBeatmapSDK.test(offline).Search()
+            .stream('list', undefined, { ctrl: { throw: false } })) { }
+        if (null != __1.config.feature?.rbac) {
+            const denied = __1.OsuBeatmapSDK.test(undefined, { feature: { rbac: { active: true, deny: true } } });
+            await node_assert_1.default.rejects(async () => {
+                for await (const _item of denied.Search().stream('list')) { }
+            }, (err) => 'rbac_denied' === err.code);
+        }
+    });
+    (0, node_test_1.test)('stream-ctrl', async () => {
+        const explain = {};
+        const ctrl = { explain };
+        for await (const _item of __1.OsuBeatmapSDK.test().Search().stream('list', undefined, { ctrl })) { }
+        node_assert_1.default.deepStrictEqual(Object.keys(ctrl), ['explain']);
+        (0, node_assert_1.default)(explain === ctrl.explain && 0 < Object.keys(explain).length);
+    });
+    (0, node_test_1.test)('unexpected', async () => {
+        const hook = new FailHook();
+        const client = new __1.OsuBeatmapSDK({ feature: { test: { active: true } }, extend: [hook] });
+        await node_assert_1.default.rejects(client.Search().list(), /hook failed/);
+        (0, node_assert_1.default)(0 < hook.unexpected);
+        const fired = hook.unexpected;
+        node_assert_1.default.strictEqual(await client.Search().list(undefined, { throw: false }), undefined);
+        (0, node_assert_1.default)(fired < hook.unexpected);
+    });
+    (0, node_test_1.test)('validate', async (t) => {
+        if (null == __1.config.feature?.validate) {
+            t.skip('feature not present in this SDK: validate');
+            return;
+        }
+        const client = __1.OsuBeatmapSDK.test(undefined, { feature: { validate: { active: true } } });
+        await node_assert_1.default.rejects(client.Search().list({ "limit": "x" }), (err) => 'validate_failed' === err.code);
+    });
     (0, node_test_1.test)('basic', async (t) => {
         const live = 'TRUE' === process.env.OSU_BEATMAP_TEST_LIVE;
         for (const op of ['list']) {
@@ -62,7 +109,7 @@ const utility_1 = require("../../utility");
         }
         const setup = basicSetup();
         if (setup.live) {
-            return (0, live_entity_1.runLiveEntity)(setup, { "active": true, "alias": { "field": {} }, "fields": { "approved_date": { "a": true, "fo": "date-time", "h": "Approved Date", "n": "approved_date", "r": false, "sh": "Date when beatmap was approved/ranked", "t": "`$STRING`", "key$": "approved_date", "index$": 0 }, "ar": { "a": true, "fo": "float", "h": "Ar", "n": "ar", "r": false, "sh": "Approach rate", "t": "`$NUMBER`", "key$": "ar", "index$": 1 }, "artist": { "a": true, "h": "Artist", "n": "artist", "r": false, "sh": "Song artist", "t": "`$STRING`", "key$": "artist", "index$": 2 }, "beatmapset_id": { "a": true, "h": "Beatmapset Id", "n": "beatmapset_id", "r": false, "sh": "Beatmap set ID", "t": "`$INTEGER`", "key$": "beatmapset_id", "index$": 3 }, "bpm": { "a": true, "fo": "float", "h": "Bpm", "n": "bpm", "r": false, "sh": "Beats per minute", "t": "`$NUMBER`", "key$": "bpm", "index$": 4 }, "creator": { "a": true, "h": "Creator", "n": "creator", "r": false, "sh": "Beatmap creator username", "t": "`$STRING`", "key$": "creator", "index$": 5 }, "cs": { "a": true, "fo": "float", "h": "Cs", "n": "cs", "r": false, "sh": "Circle size", "t": "`$NUMBER`", "key$": "cs", "index$": 6 }, "difficulty_rating": { "a": true, "fo": "float", "h": "Difficulty Rating", "n": "difficulty_rating", "r": false, "sh": "Star rating", "t": "`$NUMBER`", "key$": "difficulty_rating", "index$": 7 }, "favourite_count": { "a": true, "h": "Favourite Count", "n": "favourite_count", "r": false, "sh": "Number of favorites", "t": "`$INTEGER`", "key$": "favourite_count", "index$": 8 }, "hp": { "a": true, "fo": "float", "h": "Hp", "n": "hp", "r": false, "sh": "HP drain", "t": "`$NUMBER`", "key$": "hp", "index$": 9 }, "id": { "a": true, "h": "Id", "n": "id", "r": false, "sh": "Beatmap ID", "t": "`$INTEGER`", "key$": "id", "index$": 10 }, "last_updated": { "a": true, "fo": "date-time", "h": "Last Updated", "n": "last_updated", "r": false, "sh": "Last update date", "t": "`$STRING`", "key$": "last_updated", "index$": 11 }, "length": { "a": true, "h": "Length", "n": "length", "r": false, "sh": "Song length in seconds", "t": "`$INTEGER`", "key$": "length", "index$": 12 }, "max_combo": { "a": true, "h": "Max Combo", "n": "max_combo", "r": false, "sh": "Maximum combo", "t": "`$INTEGER`", "key$": "max_combo", "index$": 13 }, "mode": { "a": true, "h": "Mode", "n": "mode", "r": false, "sh": "Game mode (0=osu!, 1=Taiko, 2=Catch, 3=Mania)", "t": "`$INTEGER`", "key$": "mode", "index$": 14 }, "od": { "a": true, "fo": "float", "h": "Od", "n": "od", "r": false, "sh": "Overall difficulty", "t": "`$NUMBER`", "key$": "od", "index$": 15 }, "playcount": { "a": true, "h": "Playcount", "n": "playcount", "r": false, "sh": "Total play count", "t": "`$INTEGER`", "key$": "playcount", "index$": 16 }, "status": { "a": true, "h": "Status", "n": "status", "r": false, "sh": "Beatmap status (ranked, qualified, loved, etc.)", "t": "`$STRING`", "key$": "status", "index$": 17 }, "title": { "a": true, "h": "Title", "n": "title", "r": false, "sh": "Song title", "t": "`$STRING`", "key$": "title", "index$": 18 }, "version": { "a": true, "h": "Version", "n": "version", "r": false, "sh": "Difficulty name", "t": "`$STRING`", "key$": "version", "index$": 19 } }, "id": { "field": "id", "name": "id" }, "name": "search", "op": { "list": { "input": "data", "name": "list", "points": [{ "a": true, "co": { "id": "GET /search", "source": "openapi3", "version": 2 }, "g": { "query": [{ "a": true, "ex": 50, "k": "query", "n": "limit", "or": "limit", "r": false, "t": "`$INTEGER`", "index$": 0 }, { "a": true, "k": "query", "n": "mode", "or": "mode", "r": false, "t": "`$INTEGER`", "index$": 1 }, { "a": true, "ex": 0, "k": "query", "n": "offset", "or": "offset", "r": false, "t": "`$INTEGER`", "index$": 2 }, { "a": true, "k": "query", "n": "q", "or": "q", "r": false, "t": "`$STRING`", "index$": 3 }, { "a": true, "k": "query", "n": "status", "or": "status", "r": false, "t": "`$STRING`", "index$": 4 }] }, "k": "http", "m": "GET", "o": "/search", "q": { "exist": ["limit", "mode", "offset", "q", "status"] }, "r": {}, "s": [{ "lit": "search" }], "t": { "req": "`reqdata`", "res": "`body.beatmaps`" }, "index$": 0 }], "key$": "list" } }, "relations": { "ancestors": [] }, "key$": "search", "name__orig": "search", "Name": "Search", "name_": "search", "name-": "search", "NAME": "SEARCH", "index$": 2 }, { "active": true, "entity": "search", "key$": "BasicSearchFlow", "kind": "basic", "name": "BasicSearchFlow", "param": {}, "step": [{ "a": true, "d": {}, "i": {}, "m": {}, "o": "list", "s": [], "v": [{ "apply": "ItemExists", "def": { "ref": "search_ref01" } }], "index$": 0 }] }, 'Search', { "GET /search": { "protocol": "http", "parameters": [{ "name": "q", "in": "query", "description": "Search query string", "required": false, "schema": { "type": "string" }, "index$": 0 }, { "name": "mode", "in": "query", "description": "Game mode filter (0=osu!, 1=Taiko, 2=Catch, 3=Mania)", "required": false, "schema": { "type": "integer", "enum": [0, 1, 2, 3] }, "index$": 1 }, { "name": "status", "in": "query", "description": "Beatmap status (ranked, qualified, loved, pending, etc.)", "required": false, "schema": { "type": "string" }, "index$": 2 }, { "name": "offset", "in": "query", "description": "Pagination offset", "required": false, "schema": { "type": "integer", "default": 0 }, "index$": 3 }, { "name": "limit", "in": "query", "description": "Number of results to return", "required": false, "schema": { "type": "integer", "default": 50, "maximum": 100 }, "index$": 4 }] } });
+            return (0, live_entity_1.runLiveEntity)(setup, { "active": true, "alias": { "field": {} }, "fields": { "approved_date": { "a": true, "fo": "date-time", "h": "Approved Date", "n": "approved_date", "r": false, "sh": "Date when beatmap was approved/ranked", "t": "`$STRING`", "key$": "approved_date", "index$": 0 }, "ar": { "a": true, "fo": "float", "h": "Ar", "n": "ar", "r": false, "sh": "Approach rate", "t": "`$NUMBER`", "key$": "ar", "index$": 1 }, "artist": { "a": true, "h": "Artist", "n": "artist", "r": false, "sh": "Song artist", "t": "`$STRING`", "key$": "artist", "index$": 2 }, "beatmapset_id": { "a": true, "h": "Beatmapset Id", "n": "beatmapset_id", "r": false, "sh": "Beatmap set ID", "t": "`$INTEGER`", "key$": "beatmapset_id", "index$": 3 }, "bpm": { "a": true, "fo": "float", "h": "Bpm", "n": "bpm", "r": false, "sh": "Beats per minute", "t": "`$NUMBER`", "key$": "bpm", "index$": 4 }, "creator": { "a": true, "h": "Creator", "n": "creator", "r": false, "sh": "Beatmap creator username", "t": "`$STRING`", "key$": "creator", "index$": 5 }, "cs": { "a": true, "fo": "float", "h": "Cs", "n": "cs", "r": false, "sh": "Circle size", "t": "`$NUMBER`", "key$": "cs", "index$": 6 }, "difficulty_rating": { "a": true, "fo": "float", "h": "Difficulty Rating", "n": "difficulty_rating", "r": false, "sh": "Star rating", "t": "`$NUMBER`", "key$": "difficulty_rating", "index$": 7 }, "favourite_count": { "a": true, "h": "Favourite Count", "n": "favourite_count", "r": false, "sh": "Number of favorites", "t": "`$INTEGER`", "key$": "favourite_count", "index$": 8 }, "hp": { "a": true, "fo": "float", "h": "Hp", "n": "hp", "r": false, "sh": "HP drain", "t": "`$NUMBER`", "key$": "hp", "index$": 9 }, "id": { "a": true, "h": "Id", "n": "id", "r": false, "sh": "Beatmap ID", "t": "`$INTEGER`", "key$": "id", "index$": 10 }, "last_updated": { "a": true, "fo": "date-time", "h": "Last Updated", "n": "last_updated", "r": false, "sh": "Last update date", "t": "`$STRING`", "key$": "last_updated", "index$": 11 }, "length": { "a": true, "h": "Length", "n": "length", "r": false, "sh": "Song length in seconds", "t": "`$INTEGER`", "key$": "length", "index$": 12 }, "max_combo": { "a": true, "h": "Max Combo", "n": "max_combo", "r": false, "sh": "Maximum combo", "t": "`$INTEGER`", "key$": "max_combo", "index$": 13 }, "mode": { "a": true, "h": "Mode", "n": "mode", "r": false, "sh": "Game mode (0=osu!, 1=Taiko, 2=Catch, 3=Mania)", "t": "`$INTEGER`", "key$": "mode", "index$": 14 }, "od": { "a": true, "fo": "float", "h": "Od", "n": "od", "r": false, "sh": "Overall difficulty", "t": "`$NUMBER`", "key$": "od", "index$": 15 }, "playcount": { "a": true, "h": "Playcount", "n": "playcount", "r": false, "sh": "Total play count", "t": "`$INTEGER`", "key$": "playcount", "index$": 16 }, "status": { "a": true, "h": "Status", "n": "status", "r": false, "sh": "Beatmap status (ranked, qualified, loved, etc.)", "t": "`$STRING`", "key$": "status", "index$": 17 }, "title": { "a": true, "h": "Title", "n": "title", "r": false, "sh": "Song title", "t": "`$STRING`", "key$": "title", "index$": 18 }, "version": { "a": true, "h": "Version", "n": "version", "r": false, "sh": "Difficulty name", "t": "`$STRING`", "key$": "version", "index$": 19 } }, "id": { "field": "id", "name": "id" }, "name": "search", "op": { "list": { "input": "data", "name": "list", "points": [{ "a": true, "co": { "id": "GET /search", "source": "openapi3", "version": 2 }, "g": { "query": [{ "a": true, "ex": 50, "k": "query", "n": "limit", "or": "limit", "r": false, "t": "`$INTEGER`", "index$": 0 }, { "a": true, "k": "query", "n": "mode", "or": "mode", "r": false, "t": "`$INTEGER`", "index$": 1 }, { "a": true, "ex": 0, "k": "query", "n": "offset", "or": "offset", "r": false, "t": "`$INTEGER`", "index$": 2 }, { "a": true, "k": "query", "n": "q", "or": "q", "r": false, "t": "`$STRING`", "index$": 3 }, { "a": true, "k": "query", "n": "status", "or": "status", "r": false, "t": "`$STRING`", "index$": 4 }] }, "k": "http", "m": "GET", "o": "/search", "q": {}, "r": {}, "rs": { "kind": "json", "media": "application/json" }, "s": [{ "lit": "search" }], "t": { "req": "`reqdata`", "res": "`body.beatmaps`" }, "index$": 0 }], "key$": "list" } }, "relations": { "ancestors": [] }, "key$": "search", "name__orig": "search", "Name": "Search", "name_": "search", "name-": "search", "NAME": "SEARCH", "index$": 2 }, { "active": true, "entity": "search", "key$": "BasicSearchFlow", "kind": "basic", "name": "BasicSearchFlow", "param": {}, "step": [{ "a": true, "d": {}, "i": {}, "m": {}, "o": "list", "s": [], "v": [{ "apply": "ItemExists", "def": { "ref": "search_ref01" } }], "index$": 0 }] }, 'Search', { "GET /search": { "protocol": "http", "parameters": [{ "name": "q", "in": "query", "description": "Search query string", "required": false, "schema": { "type": "string" }, "index$": 0 }, { "name": "mode", "in": "query", "description": "Game mode filter (0=osu!, 1=Taiko, 2=Catch, 3=Mania)", "required": false, "schema": { "type": "integer", "enum": [0, 1, 2, 3] }, "index$": 1 }, { "name": "status", "in": "query", "description": "Beatmap status (ranked, qualified, loved, pending, etc.)", "required": false, "schema": { "type": "string" }, "index$": 2 }, { "name": "offset", "in": "query", "description": "Pagination offset", "required": false, "schema": { "type": "integer", "default": 0 }, "index$": 3 }, { "name": "limit", "in": "query", "description": "Number of results to return", "required": false, "schema": { "type": "integer", "default": 50, "maximum": 100 }, "index$": 4 }] } }, { strict: LIVE_STRICT, t });
         }
         const client = setup.client;
         const struct = setup.struct;
@@ -75,6 +122,11 @@ const utility_1 = require("../../utility");
         const search_ref01_list = (await search_ref01_ent.list(search_ref01_match)).map((e) => e.data());
     });
 });
+// main.kit.test.live.strict is true (the default is true): a live
+// request that fails, or a live test missing an input it needs,
+// fails the test.
+// An account with no record for a test to read skips it either way.
+const LIVE_STRICT = true;
 function basicSetup(extra) {
     // TODO: fix test def options
     const options = {}; // null

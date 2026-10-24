@@ -21,6 +21,7 @@ export OSU_BEATMAP_APIKEY=sk_live_xxx
 # 4. Each command line is ONE boru expression, run against the API:
 ./osu-beatmap-cli load 1 beatmap            # {id:1} shorthand
 ./osu-beatmap-cli load '{id:1}' beatmap       # explicit match map
+./osu-beatmap-cli list search
 
 # 5. Override the API base URL for a single call
 OSU_BEATMAP_BASE=https://api.example.com ./osu-beatmap-cli load 1 beatmap

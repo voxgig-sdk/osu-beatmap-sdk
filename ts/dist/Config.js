@@ -87,6 +87,7 @@ class Config {
             },
             "optspec": {
                 "clearTimer": "`$FUNCTION`",
+                "now": "`$FUNCTION`",
                 "setTimer": "`$FUNCTION`"
             },
             "strict": false,
@@ -282,6 +283,10 @@ class Config {
                                 "exist": [
                                     "id"
                                 ]
+                            },
+                            "response": {
+                                "kind": "json",
+                                "media": "application/json"
                             }
                         }
                     ]
@@ -352,9 +357,13 @@ class Config {
                             },
                             "select": {
                                 "exist": [
-                                    "id",
-                                    "no_video"
+                                    "id"
                                 ]
+                            },
+                            "response": {
+                                "binary": true,
+                                "kind": "raw",
+                                "media": "application/octet-stream"
                             }
                         }
                     ]
@@ -535,7 +544,8 @@ class Config {
                                         "name": "mode",
                                         "orig": "mode",
                                         "type": "`$INTEGER`",
-                                        "kind": "query"
+                                        "kind": "query",
+                                        "field": true
                                     },
                                     {
                                         "name": "offset",
@@ -554,18 +564,15 @@ class Config {
                                         "name": "status",
                                         "orig": "status",
                                         "type": "`$STRING`",
-                                        "kind": "query"
+                                        "kind": "query",
+                                        "field": true
                                     }
                                 ]
                             },
-                            "select": {
-                                "exist": [
-                                    "limit",
-                                    "mode",
-                                    "offset",
-                                    "q",
-                                    "status"
-                                ]
+                            "select": {},
+                            "response": {
+                                "kind": "json",
+                                "media": "application/json"
                             }
                         }
                     ]

@@ -96,6 +96,7 @@ def make_config():
         },
         "optspec": {
           "clearTimer": "`$FUNCTION`",
+          "now": "`$FUNCTION`",
           "setTimer": "`$FUNCTION`",
         },
         "strict": False,
@@ -292,6 +293,10 @@ def make_config():
                     "id",
                   ],
                 },
+                "response": {
+                  "kind": "json",
+                  "media": "application/json",
+                },
               },
             ],
           },
@@ -362,8 +367,12 @@ def make_config():
                 "select": {
                   "exist": [
                     "id",
-                    "no_video",
                   ],
+                },
+                "response": {
+                  "binary": True,
+                  "kind": "raw",
+                  "media": "application/octet-stream",
                 },
               },
             ],
@@ -545,6 +554,7 @@ def make_config():
                       "orig": "mode",
                       "type": "`$INTEGER`",
                       "kind": "query",
+                      "field": True,
                     },
                     {
                       "name": "offset",
@@ -564,17 +574,14 @@ def make_config():
                       "orig": "status",
                       "type": "`$STRING`",
                       "kind": "query",
+                      "field": True,
                     },
                   ],
                 },
-                "select": {
-                  "exist": [
-                    "limit",
-                    "mode",
-                    "offset",
-                    "q",
-                    "status",
-                  ],
+                "select": {},
+                "response": {
+                  "kind": "json",
+                  "media": "application/json",
                 },
               },
             ],

@@ -55,8 +55,12 @@ main: kit: entity: download: {
           q: {
             exist: [
               "id"
-              "no_video"
             ]
+          }
+          rs: {
+            binary: true
+            kind: "raw"
+            media: "application/octet-stream"
           }
           s: [
             {

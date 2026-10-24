@@ -67,6 +67,7 @@ local function make_config()
         },
         ["optspec"] = {
           ["clearTimer"] = "`$FUNCTION`",
+          ["now"] = "`$FUNCTION`",
           ["setTimer"] = "`$FUNCTION`",
         },
         ["strict"] = false,
@@ -263,6 +264,10 @@ local function make_config()
                     "id",
                   },
                 },
+                ["response"] = {
+                  ["kind"] = "json",
+                  ["media"] = "application/json",
+                },
               },
             },
           },
@@ -333,8 +338,12 @@ local function make_config()
                 ["select"] = {
                   ["exist"] = {
                     "id",
-                    "no_video",
                   },
+                },
+                ["response"] = {
+                  ["binary"] = true,
+                  ["kind"] = "raw",
+                  ["media"] = "application/octet-stream",
                 },
               },
             },
@@ -516,6 +525,7 @@ local function make_config()
                       ["orig"] = "mode",
                       ["type"] = "`$INTEGER`",
                       ["kind"] = "query",
+                      ["field"] = true,
                     },
                     {
                       ["name"] = "offset",
@@ -535,17 +545,14 @@ local function make_config()
                       ["orig"] = "status",
                       ["type"] = "`$STRING`",
                       ["kind"] = "query",
+                      ["field"] = true,
                     },
                   },
                 },
-                ["select"] = {
-                  ["exist"] = {
-                    "limit",
-                    "mode",
-                    "offset",
-                    "q",
-                    "status",
-                  },
+                ["select"] = {},
+                ["response"] = {
+                  ["kind"] = "json",
+                  ["media"] = "application/json",
                 },
               },
             },

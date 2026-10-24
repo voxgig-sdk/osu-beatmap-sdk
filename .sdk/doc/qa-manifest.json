@@ -3,5 +3,19 @@
     "SUMMARY.md"
   ],
   "config": ".sdk/doc/qa/vale.ini",
-  "routes": {}
+  "routes": {},
+  "quoted": {
+    "SUMMARY.md": [
+      "Approach rate",
+      "Beatmap file download",
+      "Beatmap set ID",
+      "Beats per minute",
+      "Date when beatmap was approved/ranked",
+      "Production server",
+      "Search, discover, and download osu! beatmaps effortlessly.",
+      "Song artist",
+      "Successful response",
+      "Successful search response"
+    ]
+  }
 }

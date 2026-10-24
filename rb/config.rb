@@ -79,6 +79,7 @@ module OsuBeatmapConfig
           },
           "optspec" => {
             "clearTimer" => "`$FUNCTION`",
+            "now" => "`$FUNCTION`",
             "setTimer" => "`$FUNCTION`",
           },
           "strict" => false,
@@ -275,6 +276,10 @@ module OsuBeatmapConfig
                       "id",
                     ],
                   },
+                  "response" => {
+                    "kind" => "json",
+                    "media" => "application/json",
+                  },
                 },
               ],
             },
@@ -345,8 +350,12 @@ module OsuBeatmapConfig
                   "select" => {
                     "exist" => [
                       "id",
-                      "no_video",
                     ],
+                  },
+                  "response" => {
+                    "binary" => true,
+                    "kind" => "raw",
+                    "media" => "application/octet-stream",
                   },
                 },
               ],
@@ -528,6 +537,7 @@ module OsuBeatmapConfig
                         "orig" => "mode",
                         "type" => "`$INTEGER`",
                         "kind" => "query",
+                        "field" => true,
                       },
                       {
                         "name" => "offset",
@@ -547,17 +557,14 @@ module OsuBeatmapConfig
                         "orig" => "status",
                         "type" => "`$STRING`",
                         "kind" => "query",
+                        "field" => true,
                       },
                     ],
                   },
-                  "select" => {
-                    "exist" => [
-                      "limit",
-                      "mode",
-                      "offset",
-                      "q",
-                      "status",
-                    ],
+                  "select" => {},
+                  "response" => {
+                    "kind" => "json",
+                    "media" => "application/json",
                   },
                 },
               ],

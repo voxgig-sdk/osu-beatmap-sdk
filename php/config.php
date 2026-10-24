@@ -93,6 +93,7 @@ class OsuBeatmapConfig
           ],
           'optspec' => [
             'clearTimer' => '`$FUNCTION`',
+            'now' => '`$FUNCTION`',
             'setTimer' => '`$FUNCTION`',
           ],
           'strict' => false,
@@ -289,6 +290,10 @@ class OsuBeatmapConfig
                       'id',
                     ],
                   ],
+                  'response' => [
+                    'kind' => 'json',
+                    'media' => 'application/json',
+                  ],
                 ],
               ],
             ],
@@ -359,8 +364,12 @@ class OsuBeatmapConfig
                   'select' => [
                     'exist' => [
                       'id',
-                      'no_video',
                     ],
+                  ],
+                  'response' => [
+                    'binary' => true,
+                    'kind' => 'raw',
+                    'media' => 'application/octet-stream',
                   ],
                 ],
               ],
@@ -542,6 +551,7 @@ class OsuBeatmapConfig
                         'orig' => 'mode',
                         'type' => '`$INTEGER`',
                         'kind' => 'query',
+                        'field' => true,
                       ],
                       [
                         'name' => 'offset',
@@ -561,17 +571,14 @@ class OsuBeatmapConfig
                         'orig' => 'status',
                         'type' => '`$STRING`',
                         'kind' => 'query',
+                        'field' => true,
                       ],
                     ],
                   ],
-                  'select' => [
-                    'exist' => [
-                      'limit',
-                      'mode',
-                      'offset',
-                      'q',
-                      'status',
-                    ],
+                  'select' => [],
+                  'response' => [
+                    'kind' => 'json',
+                    'media' => 'application/json',
                   ],
                 ],
               ],

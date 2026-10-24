@@ -189,6 +189,10 @@ main: kit: entity: beatmap: {
               "id"
             ]
           }
+          rs: {
+            kind: "json"
+            media: "application/json"
+          }
           s: [
             {
               lit: "beatmaps"

@@ -214,14 +214,9 @@ main: kit: entity: search: {
           }
           m: "GET"
           o: "/search"
-          q: {
-            exist: [
-              "limit"
-              "mode"
-              "offset"
-              "q"
-              "status"
-            ]
+          rs: {
+            kind: "json"
+            media: "application/json"
           }
           s: [
             {

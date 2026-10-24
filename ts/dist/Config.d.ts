@@ -57,6 +57,7 @@ declare class Config {
             };
             optspec: {
                 clearTimer: string;
+                now: string;
                 setTimer: string;
             };
             strict: boolean;
@@ -127,6 +128,10 @@ declare class Config {
                         select: {
                             exist: string[];
                         };
+                        response: {
+                            kind: string;
+                            media: string;
+                        };
                     }[];
                 };
             };
@@ -185,6 +190,11 @@ declare class Config {
                         select: {
                             exist: string[];
                         };
+                        response: {
+                            binary: boolean;
+                            kind: string;
+                            media: string;
+                        };
                     }[];
                 };
             };
@@ -235,16 +245,27 @@ declare class Config {
                                 type: string;
                                 kind: string;
                                 example: number;
+                                field?: undefined;
+                            } | {
+                                name: string;
+                                orig: string;
+                                type: string;
+                                kind: string;
+                                field: boolean;
+                                example?: undefined;
                             } | {
                                 name: string;
                                 orig: string;
                                 type: string;
                                 kind: string;
                                 example?: undefined;
+                                field?: undefined;
                             })[];
                         };
-                        select: {
-                            exist: string[];
+                        select: {};
+                        response: {
+                            kind: string;
+                            media: string;
                         };
                     }[];
                 };
